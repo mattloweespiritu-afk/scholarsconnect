@@ -1,0 +1,280 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Renewal Management – ScholarsConnect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="../fonts/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="../css/admin-shared.css"/>
+<link rel="stylesheet" href="../css/adminrenewal.css"/>
+</head>
+<body class="admin-layout">
+
+<aside class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-ring">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+    </div>
+    <div>
+      <div class="sb-logo-name">ScholarsConnect</div>
+      <div class="sb-logo-sub">Admin Portal</div>
+    </div>
+  </div>
+  <div class="sb-profile">
+    <div class="sb-avatar">AM</div>
+    <div>
+      <div class="sb-profile-name">Admin Manager</div>
+      <div class="sb-profile-role">University OS</div>
+    </div>
+  </div>
+  <nav class="sb-nav" aria-label="Admin navigation">
+    <div class="sb-nav-label">Main</div>
+    <a href="admindashboard.html" class="nav-item"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
+    <a href="adminapplications.html" class="nav-item"><i class="bi bi-file-earmark-text"></i><span>Applications</span><span class="nav-badge">0</span></a>
+    <a href="adminscholarships.html" class="nav-item"><i class="bi bi-award-fill"></i><span>Scholarships</span><span class="nav-badge">0</span></a>
+    <a href="adminstudents.html" class="nav-item"><i class="bi bi-people-fill"></i><span>Students</span></a>
+    <a href="adminreport.html" class="nav-item"><i class="bi bi-bar-chart-line-fill"></i><span>Reports</span></a>
+    <div class="sb-nav-label">Scholars</div>
+    <a href="adminrenewal.html" class="nav-item active"><i class="bi bi-arrow-repeat"></i><span>Renewals</span><span class="nav-badge">0</span></a>
+    <a href="admindisbursement.html" class="nav-item"><i class="bi bi-cash-coin"></i><span>Disbursements</span><span class="nav-badge">0</span></a>
+    <div class="sb-nav-label">Administration</div>
+    <a href="adminauditlogs.html" class="nav-item"><i class="bi bi-journal-check"></i><span>Audit Logs</span></a>
+    <a href="adminsettings.html" class="nav-item"><i class="bi bi-gear-fill"></i><span>System Settings</span></a>
+  </nav>
+  <div class="sb-footer">
+    <a href="login.html" class="sb-signout"><i class="bi bi-box-arrow-left"></i><span>Sign Out</span></a>
+  </div>
+</aside>
+
+<div class="admin-main">
+
+  <header class="admin-topbar">
+    <button class="admin-sidebar-btn" id="adminSidebarBtn" type="button" aria-label="Open navigation menu">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="admin-notification-menu">
+      <button class="topbar-notif" id="adminNotifBell" type="button" title="Admin alerts" aria-haspopup="dialog" aria-expanded="false">
+        <i class="bi bi-bell-fill"></i>
+        <span class="notif-badge" id="adminNotifCount">5</span>
+      </button>
+      <div class="admin-notification-popover" id="adminNotificationPopover" role="dialog" aria-label="Admin notification preview">
+        <div class="admin-notif-head">
+          <div>
+            <strong>Admin Alerts</strong>
+            <span id="adminNotifSubtitle">5 unread alerts</span>
+          </div>
+          <button type="button" id="adminNotifMarkAll">Mark all read</button>
+        </div>
+        <div class="admin-notif-list">
+          <a class="admin-notif-item unread urgent" href="adminapplications.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon applications"><i class="bi bi-file-earmark-text-fill"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>5 applications require urgent review</strong><time>Today</time></div>
+              <p>DOST-SEI deadline is approaching. Assign reviewers immediately.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="adminapplicationreview.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon documents"><i class="bi bi-folder-check"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>12 documents pending verification</strong><time>Today</time></div>
+              <p>Students uploaded requirements that need admin validation.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="admindisbursement.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon disbursement"><i class="bi bi-cash-coin"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>8 disbursements awaiting processing</strong><time>Today</time></div>
+              <p>Approved scholars have stipend releases queued for review.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="adminrenewal.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon renewal"><i class="bi bi-arrow-repeat"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>14 renewal requests submitted</strong><time>Yesterday</time></div>
+              <p>Renewal applications need academic and document checking.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="securityverificationadmin.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon security"><i class="bi bi-shield-lock-fill"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>Security verification reminder</strong><time>May 12</time></div>
+              <p>Review TOH verification activity before accessing sensitive records.</p>
+            </div>
+          </a>
+        </div>
+        <div class="admin-notif-footer">
+          <a href="adminapplications.html">Open application queue <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="topbar-admin">
+      <span class="topbar-admin-name">Scholarship Admin</span>
+      <div class="topbar-admin-avatar">SA</div>
+    </div>
+  </header>
+
+  <div class="admin-page-body">
+
+    <!-- Page Header -->
+    <div class="rnl-page-header">
+      <div>
+        <h1 class="admin-page-title">Renewal Management</h1>
+        <p class="admin-page-sub">Review and process scholarship renewal submissions from active scholars.</p>
+      </div>
+      <div class="rnl-header-pills">
+        <div class="rnl-stat-pill rnl-pending">
+          <i class="bi bi-hourglass-split"></i>
+          <span>14 Pending Review</span>
+        </div>
+        <div class="rnl-stat-pill rnl-approved">
+          <i class="bi bi-check-circle-fill"></i>
+          <span>38 Approved</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Tabs + Search -->
+    <div class="admin-panel" style="padding:0;overflow:hidden;">
+
+      <div class="rnl-toolbar">
+        <div class="rnl-tabs">
+          <button class="rnl-tab active" data-filter="all">All <span class="rnl-tab-ct">52</span></button>
+          <button class="rnl-tab" data-filter="pending">Pending <span class="rnl-tab-ct rnl-ct-pending">14</span></button>
+          <button class="rnl-tab" data-filter="approved">Approved <span class="rnl-tab-ct rnl-ct-approved">38</span></button>
+          <button class="rnl-tab" data-filter="rejected">Rejected <span class="rnl-tab-ct rnl-ct-rejected">0</span></button>
+        </div>
+        <div class="rnl-search-wrap">
+          <i class="bi bi-search rnl-search-icon"></i>
+          <input class="rnl-search-input" type="text" id="rnl-search" placeholder="Search by name or reference…" autocomplete="off"/>
+        </div>
+        <select class="rnl-filter-select" id="rnl-filter-sc">
+          <option value="">All Scholarships</option>
+          <option value="CHED">CHED Merit Scholarship</option>
+          <option value="DOST">DOST-SEI</option>
+          <option value="TES">TES UniFAST</option>
+          <option value="LGU">LGU Cebu City</option>
+        </select>
+        <button class="rnl-clear-rejected-btn" id="rnlClearRejected" type="button" style="display:none;">
+          <i class="bi bi-trash3"></i> Remove All Rejected
+        </button>
+      </div>
+
+      <!-- Table -->
+      <div class="rnl-table-wrap">
+        <table class="rnl-table">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Scholarship</th>
+              <th>Renewal Period</th>
+              <th>GWA</th>
+              <th>Documents</th>
+              <th>Submitted</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rnl-tbody">
+            <tr><td colspan="8" style="text-align:center;padding:2rem;color:#888;">Loading renewals…</td></tr>
+          </tbody>
+        </table>
+
+        <div class="rnl-empty" id="rnl-empty" style="display:none">
+          <i class="bi bi-search"></i>
+          <div>No renewal submissions match your filter.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- REVIEW MODAL -->
+<div class="rnl-modal-overlay" id="rnl-modal" style="display:none">
+  <div class="rnl-modal">
+
+    <div class="rnl-modal-hdr">
+      <div>
+        <div class="rnl-modal-eyebrow">Renewal Submission</div>
+        <div class="rnl-modal-title" id="rm-title">Review Renewal</div>
+      </div>
+      <button class="rnl-modal-close" id="rnl-modal-close"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <div class="rnl-modal-body">
+
+      <!-- Info Row -->
+      <div class="rnl-modal-meta" id="rm-meta"></div>
+
+      <div class="rnl-modal-cols">
+
+        <!-- Left -->
+        <div class="rnl-modal-left">
+          <div class="rnl-info-block">
+            <div class="rnl-block-title">Academic Declaration</div>
+            <div class="rnl-info-row"><span class="rnl-lbl">Scholarship</span><span class="rnl-val" id="rm-sc"></span></div>
+            <div class="rnl-info-row"><span class="rnl-lbl">Renewal Period</span><span class="rnl-val" id="rm-period"></span></div>
+            <div class="rnl-info-row"><span class="rnl-lbl">Declared GWA</span><span class="rnl-val rnl-val-gwa" id="rm-gwa"></span></div>
+            <div class="rnl-info-row"><span class="rnl-lbl">Academic Standing</span><span class="rnl-val" id="rm-standing"></span></div>
+            <div class="rnl-info-row" style="border:none"><span class="rnl-lbl">Reference No.</span><span class="rnl-val" style="font-family:monospace;font-size:12px" id="rm-ref"></span></div>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="rnl-modal-right">
+          <div class="rnl-info-block">
+            <div class="rnl-block-title">Submitted Documents</div>
+            <div id="rm-docs"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Admin Notes -->
+      <div class="rnl-notes-group">
+        <label class="rnl-notes-label" for="rm-notes">Admin Notes <span style="color:#aaa;font-weight:400">(optional)</span></label>
+        <textarea class="rnl-notes-input" id="rm-notes" rows="3" placeholder="Add remarks or conditions for this renewal decision…"></textarea>
+      </div>
+
+    </div>
+
+    <div class="rnl-modal-footer" id="rnl-modal-footer">
+      <button class="rnl-cancel-btn" id="rnl-cancel-btn">Cancel</button>
+      <button class="rnl-reject-btn" id="rnl-reject-btn"><i class="bi bi-x-circle-fill"></i> Reject Renewal</button>
+      <button class="rnl-approve-btn" id="rnl-approve-btn"><i class="bi bi-check-circle-fill"></i> Approve Renewal</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="rnl-modal-overlay" id="rnl-confirm-modal" style="display:none">
+  <div class="rnl-confirm-modal">
+    <div class="rnl-confirm-icon" id="rc-icon"></div>
+    <div class="rnl-confirm-title" id="rc-title"></div>
+    <div class="rnl-confirm-body" id="rc-body"></div>
+    <div class="rnl-confirm-footer">
+      <button class="as-del-cancel-btn" id="rc-cancel">Cancel</button>
+      <button class="rnl-confirm-ok-btn" id="rc-confirm"></button>
+    </div>
+  </div>
+</div>
+
+  <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+<script src="../Javascript/app.js"></script>
+  <script type="module" src="../Javascript/adminrenewal.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

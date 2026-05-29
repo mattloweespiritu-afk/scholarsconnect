@@ -1,0 +1,397 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Manage Scholarships – ScholarsConnect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="../fonts/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="../css/admin-shared.css"/>
+<link rel="stylesheet" href="../css/adminscholarships.css"/>
+</head>
+<body class="admin-layout">
+
+<!-- -------------------------------
+     SIDEBAR
+------------------------------- -->
+<aside class="sidebar">
+
+  <div class="sb-logo">
+    <div class="sb-logo-ring">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+    </div>
+    <div>
+      <div class="sb-logo-name">ScholarsConnect</div>
+      <div class="sb-logo-sub">Admin Portal</div>
+    </div>
+  </div>
+
+  <div class="sb-profile">
+    <div class="sb-avatar">AM</div>
+    <div>
+      <div class="sb-profile-name">Admin Manager</div>
+      <div class="sb-profile-role">University OS</div>
+    </div>
+  </div>
+
+  <nav class="sb-nav" aria-label="Admin navigation">
+
+    <div class="sb-nav-label">Main</div>
+
+    <a href="admindashboard.html" class="nav-item">
+      <i class="bi bi-grid-fill"></i>
+      <span>Dashboard</span>
+    </a>
+    <a href="adminapplications.html" class="nav-item">
+      <i class="bi bi-file-earmark-text"></i>
+      <span>Applications</span>
+      <span class="nav-badge">0</span>
+    </a>
+    <a href="adminscholarships.html" class="nav-item active">
+      <i class="bi bi-award-fill"></i>
+      <span>Scholarships</span>
+      <span class="nav-badge">0</span>
+    </a>
+    <a href="adminstudents.html" class="nav-item">
+      <i class="bi bi-people-fill"></i>
+      <span>Students</span>
+    </a>
+    <a href="adminreport.html" class="nav-item">
+      <i class="bi bi-bar-chart-line-fill"></i>
+      <span>Reports</span>
+    </a>
+
+    <div class="sb-nav-label">Scholars</div>
+
+    <a href="adminrenewal.html" class="nav-item">
+      <i class="bi bi-arrow-repeat"></i>
+      <span>Renewals</span>
+      <span class="nav-badge">0</span>
+    </a>
+    <a href="admindisbursement.html" class="nav-item">
+      <i class="bi bi-cash-coin"></i>
+      <span>Disbursements</span>
+      <span class="nav-badge">0</span>
+    </a>
+
+    <div class="sb-nav-label">Administration</div>
+
+    <a href="adminauditlogs.html" class="nav-item">
+      <i class="bi bi-journal-check"></i>
+      <span>Audit Logs</span>
+    </a>
+    <a href="adminsettings.html" class="nav-item">
+      <i class="bi bi-gear-fill"></i>
+      <span>System Settings</span>
+    </a>
+
+  </nav>
+
+  <div class="sb-footer">
+    <a href="login.html" class="sb-signout">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Sign Out</span>
+    </a>
+  </div>
+
+</aside>
+
+<!-- -------------------------------
+     MAIN
+------------------------------- -->
+<div class="admin-main">
+
+  <header class="admin-topbar">
+    <button class="admin-sidebar-btn" id="adminSidebarBtn" type="button" aria-label="Open navigation menu">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="admin-notification-menu">
+      <button class="topbar-notif" id="adminNotifBell" type="button" title="Admin alerts" aria-haspopup="dialog" aria-expanded="false">
+        <i class="bi bi-bell-fill"></i>
+        <span class="notif-badge" id="adminNotifCount">5</span>
+      </button>
+      <div class="admin-notification-popover" id="adminNotificationPopover" role="dialog" aria-label="Admin notification preview">
+        <div class="admin-notif-head">
+          <div>
+            <strong>Admin Alerts</strong>
+            <span id="adminNotifSubtitle">5 unread alerts</span>
+          </div>
+          <button type="button" id="adminNotifMarkAll">Mark all read</button>
+        </div>
+        <div class="admin-notif-list">
+          <a class="admin-notif-item unread urgent" href="adminapplications.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon applications"><i class="bi bi-file-earmark-text-fill"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>5 applications require urgent review</strong><time>Today</time></div>
+              <p>DOST-SEI deadline is approaching. Assign reviewers immediately.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="adminapplicationreview.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon documents"><i class="bi bi-folder-check"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>12 documents pending verification</strong><time>Today</time></div>
+              <p>Students uploaded requirements that need admin validation.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="admindisbursement.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon disbursement"><i class="bi bi-cash-coin"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>8 disbursements awaiting processing</strong><time>Today</time></div>
+              <p>Approved scholars have stipend releases queued for review.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="adminrenewal.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon renewal"><i class="bi bi-arrow-repeat"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>14 renewal requests submitted</strong><time>Yesterday</time></div>
+              <p>Renewal applications need academic and document checking.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="securityverificationadmin.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon security"><i class="bi bi-shield-lock-fill"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>Security verification reminder</strong><time>May 12</time></div>
+              <p>Review TOH verification activity before accessing sensitive records.</p>
+            </div>
+          </a>
+        </div>
+        <div class="admin-notif-footer">
+          <a href="adminapplications.html">Open application queue <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="topbar-admin">
+      <span class="topbar-admin-name">Scholarship Admin</span>
+      <div class="topbar-admin-avatar">SA</div>
+    </div>
+  </header>
+
+  <div class="admin-page-body">
+
+    <!-- Page Header -->
+    <div class="admin-page-header">
+      <div>
+        <h1 class="admin-page-title">Manage Scholarships</h1>
+        <p class="admin-page-sub">Configure scholarship programs, eligibility, and document requirements.</p>
+      </div>
+      <button class="btn-new-sc" type="button" id="btn-new-scholarship">
+        <i class="bi bi-plus-lg"></i>
+        New Scholarship
+      </button>
+    </div>
+
+    <!-- Scholarships Table -->
+    <div class="admin-panel">
+      <div class="as-table-wrap">
+        <table class="as-table">
+          <thead>
+            <tr>
+              <th>Scholarship Name</th>
+              <th>Type</th>
+              <th>Slots</th>
+              <th>Filled</th>
+              <th>Deadline</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="as-tbody">
+            <tr><td colspan="7" style="text-align:center;padding:2rem;color:#888;">Loading scholarships…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /admin-page-body -->
+</div><!-- /admin-main -->
+
+<!-- -------------------------------
+     NEW / EDIT SCHOLARSHIP MODAL
+------------------------------- -->
+<div class="as-modal-overlay" id="as-modal" style="display:none;">
+  <div class="as-modal">
+
+    <div class="as-modal-header">
+      <div>
+        <div class="as-modal-eyebrow">Scholarship Program</div>
+        <div class="as-modal-title" id="as-modal-title">New Scholarship Program</div>
+      </div>
+      <button class="as-modal-close" id="as-modal-close" type="button" aria-label="Close">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="as-modal-body">
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-name">Program Name</label>
+        <input class="as-form-input" type="text" id="as-inp-name" placeholder="e.g. CHED Merit Scholarship"/>
+      </div>
+
+      <div class="as-form-row">
+        <div class="as-form-group">
+          <label class="as-form-label" for="as-inp-type">Scholarship Type</label>
+          <select class="as-form-select" id="as-inp-type">
+            <option value="">Select type</option>
+            <option value="merit">Merit</option>
+            <option value="stem">STEM</option>
+            <option value="need">Need</option>
+            <option value="gov">Gov</option>
+            <option value="gov-lgu">Gov LGU</option>
+          </select>
+        </div>
+        <div class="as-form-group">
+          <label class="as-form-label" for="as-inp-status">Status</label>
+          <select class="as-form-select" id="as-inp-status">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="as-form-row">
+        <div class="as-form-group">
+          <label class="as-form-label" for="as-inp-slots">Slots Available</label>
+          <input class="as-form-input" type="number" id="as-inp-slots" placeholder="e.g. 50" min="1"/>
+        </div>
+        <div class="as-form-group">
+          <label class="as-form-label" for="as-inp-deadline">Application Deadline</label>
+          <input class="as-form-input" type="date" id="as-inp-deadline"/>
+        </div>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-sponsor">Sponsor / Office</label>
+        <input class="as-form-input" type="text" id="as-inp-sponsor" placeholder="e.g. CHED, DOST-SEI, University Scholarship Office"/>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-desc">Program Description</label>
+        <textarea class="as-form-textarea" id="as-inp-desc" placeholder="Brief description of the scholarship program, eligibility, and requirements…" rows="4"></textarea>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-award">Scholarship Benefit</label>
+        <textarea class="as-form-textarea" id="as-inp-award" placeholder="e.g. Full tuition coverage plus monthly stipend" rows="2"></textarea>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-stipend">Monthly Stipend Amount (&#8369;)</label>
+        <input class="as-form-input" type="number" id="as-inp-stipend" min="0" step="0.01" placeholder="e.g. 5000 – leave blank if no fixed monthly amount"/>
+        <p class="as-form-help">This amount auto-fills in Disbursement Management when releasing stipends.</p>
+      </div>
+
+      <div class="as-form-row">
+        <div class="as-form-group">
+          <label class="as-form-label" for="as-inp-min-gwa">Minimum GWA</label>
+          <input class="as-form-input" type="text" id="as-inp-min-gwa" placeholder="e.g. 90%, 1.75, or No requirement"/>
+        </div>
+        <div class="as-form-group">
+          <label class="as-form-label" for="as-inp-year-level">Year Level</label>
+          <input class="as-form-input" type="text" id="as-inp-year-level" placeholder="e.g. All year levels"/>
+        </div>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-course">Course / Program</label>
+        <input class="as-form-input" type="text" id="as-inp-course" placeholder="e.g. All programs or Priority STEM programs"/>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-requirements">Required Documents</label>
+        <textarea class="as-form-textarea" id="as-inp-requirements" placeholder="Enter one document per line, e.g. PSA Birth Certificate" rows="5"></textarea>
+        <p class="as-form-help">One document per line. These appear in the student scholarship details.</p>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-renewal">Renewal Requirement</label>
+        <textarea class="as-form-textarea" id="as-inp-renewal" placeholder="e.g. Maintain required GWA and active enrollment" rows="3"></textarea>
+      </div>
+
+      <div class="as-form-group">
+        <label class="as-form-label" for="as-inp-contact">Contact</label>
+        <input class="as-form-input" type="text" id="as-inp-contact" placeholder="e.g. scholarship@school.edu.ph"/>
+      </div>
+
+      <div class="as-form-error" id="as-form-error" style="display:none;">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <span id="as-form-error-msg">Please fill in all required fields.</span>
+      </div>
+
+    </div>
+
+    <div class="as-modal-footer">
+      <button class="as-modal-cancel-btn" type="button" id="as-modal-cancel">Cancel</button>
+      <button class="as-modal-save-btn" type="button" id="as-modal-save">
+        <i class="bi bi-floppy-fill"></i>
+        Save Scholarship Program
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- -------------------------------
+     DELETE CONFIRM MODAL
+------------------------------- -->
+<div class="as-modal-overlay" id="as-del-modal" style="display:none;">
+  <div class="as-del-modal">
+    <div class="as-del-icon"><i class="bi bi-trash3-fill"></i></div>
+    <div class="as-del-title">Delete Scholarship?</div>
+    <div class="as-del-body">
+      You are about to delete <strong id="as-del-name">"—"</strong>.
+      This action cannot be undone and will remove all associated data.
+    </div>
+    <div class="as-del-footer">
+      <button class="as-del-cancel-btn" type="button" id="as-del-cancel">Cancel</button>
+      <button class="as-del-confirm-btn" type="button" id="as-del-confirm">
+        <i class="bi bi-trash-fill"></i> Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+  <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+
+<!-- â”€â”€ Scholars Roster Panel â”€â”€ -->
+<div class="sc-roster-overlay" id="scRosterOverlay"></div>
+<aside class="sc-roster-panel" id="scRosterPanel" aria-label="Scholarship Roster">
+  <div class="sc-roster-header">
+    <div class="sc-roster-header-inner">
+      <div class="sc-roster-eyebrow"><i class="bi bi-people-fill"></i> Scholarship Roster</div>
+      <div class="sc-roster-title" id="scRosterTitle">—</div>
+    </div>
+    <button class="sc-roster-close" id="scRosterClose" type="button" aria-label="Close panel">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <div class="sc-roster-stats" id="scRosterStats"></div>
+
+  <div class="sc-roster-search-wrap">
+    <i class="bi bi-search sc-roster-search-icon"></i>
+    <input type="search" class="sc-roster-search-input" id="scRosterSearch"
+      placeholder="Search by name, email, or student ID…"
+      autocomplete="off" spellcheck="false"/>
+  </div>
+
+  <div class="sc-roster-list" id="scRosterList">
+    <div class="sc-roster-loading"><i class="bi bi-arrow-repeat spin"></i> Loading scholars…</div>
+  </div>
+</aside>
+<script src="../Javascript/app.js"></script>
+  <script type="module" src="../Javascript/adminscholarships.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

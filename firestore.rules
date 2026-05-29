@@ -1,0 +1,160 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc(uid) {
+      return get(/databases/$(database)/documents/users/$(uid));
+    }
+
+    function hasUserDoc(uid) {
+      return exists(/databases/$(database)/documents/users/$(uid));
+    }
+
+    function isAdmin() {
+      return signedIn() &&
+        hasUserDoc(request.auth.uid) &&
+        userDoc(request.auth.uid).data.role in ['admin', 'Admin'];
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    /* Students cannot change their own role */
+    function keepsOwnRole() {
+      return !('role' in request.resource.data) ||
+        request.resource.data.role == resource.data.role;
+    }
+
+    /* ── Users ── */
+    match /users/{uid} {
+      /* New accounts can only register with student role */
+      allow create: if isOwner(uid) &&
+        (!('role' in request.resource.data) ||
+          request.resource.data.role in ['student', 'Student']);
+
+      allow read: if isOwner(uid) || isAdmin();
+
+      /* Students can update their own profile but cannot change role */
+      allow update: if (isOwner(uid) && keepsOwnRole()) || isAdmin();
+
+      allow delete: if isAdmin();
+
+      /* Document subcollection (legacy path) */
+      match /documents/{docId} {
+        allow read, write: if isOwner(uid) || isAdmin();
+      }
+    }
+
+    /* ── Applications ── */
+    match /applications/{applicationId} {
+      /* Student can only create for their own uid */
+      allow create: if signedIn() &&
+        request.resource.data.userId == request.auth.uid;
+
+      allow read: if isAdmin() ||
+        (signedIn() && resource.data.userId == request.auth.uid);
+
+      /* Only admins can approve/reject/update status */
+      allow update, delete: if isAdmin();
+    }
+
+    /* ── Notifications ── */
+    match /notifications/{notificationId} {
+      allow create: if signedIn() && (
+        request.resource.data.recipientUid == request.auth.uid ||
+        request.resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+
+      allow read: if isAdmin() ||
+        (signedIn() && (
+          resource.data.recipientUid == request.auth.uid ||
+          resource.data.userId == request.auth.uid
+        ));
+
+      allow update: if isAdmin() ||
+        (signedIn() && (
+          resource.data.recipientUid == request.auth.uid ||
+          resource.data.userId == request.auth.uid
+        ));
+
+      allow delete: if isAdmin();
+    }
+
+    /* ── Top-level documents collection ── */
+    match /documents/{documentId} {
+      allow create: if signedIn() &&
+        request.resource.data.userId == request.auth.uid;
+
+      allow read, update: if isAdmin() ||
+        (signedIn() && resource.data.userId == request.auth.uid);
+
+      allow delete: if isAdmin();
+    }
+
+    /* ── Renewals ── */
+    match /renewals/{renewalId} {
+      allow create: if signedIn() &&
+        request.resource.data.userId == request.auth.uid;
+
+      allow read: if isAdmin() ||
+        (signedIn() && resource.data.userId == request.auth.uid);
+
+      allow update, delete: if isAdmin();
+    }
+
+    /* ── Appeals ── */
+    match /appeals/{appealId} {
+      allow create: if signedIn() &&
+        request.resource.data.userId == request.auth.uid;
+
+      allow read: if isAdmin() ||
+        (signedIn() && resource.data.userId == request.auth.uid);
+
+      allow update, delete: if isAdmin();
+    }
+
+    /* ── Disbursements (admin-managed) ── */
+    match /disbursements/{disbursementId} {
+      allow read: if isAdmin() ||
+        (signedIn() && resource.data.userId == request.auth.uid);
+
+      allow create, update, delete: if isAdmin();
+    }
+
+    /* ── Scholarships (public read, admin write) ── */
+    match /scholarships/{scholarshipId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    /* ── Settings (admin only) ── */
+    match /settings/{settingId} {
+      allow read, write: if isAdmin();
+    }
+
+    /* ── Audit logs ── */
+    match /auditLogs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin() ||
+        (signedIn() && request.resource.data.userId == request.auth.uid);
+      allow update, delete: if false;
+    }
+
+    /* ── OTP collection (internal use only — never expose) ── */
+    match /adminOtps/{otpId} {
+      allow read, write: if false;
+    }
+
+    /* ── Catch-all deny ── */
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

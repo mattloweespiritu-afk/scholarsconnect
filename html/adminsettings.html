@@ -1,0 +1,623 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Settings – ScholarsConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="../fonts/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/admin-shared.css" />
+  <link rel="stylesheet" href="../css/adminsettings.css" />
+</head>
+<body class="admin-layout">
+
+  <!-- ------------------------------- SIDEBAR ------------------------------- -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-ring">
+        <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+      </div>
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Admin Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-profile">
+      <div class="sb-avatar">AM</div>
+      <div>
+        <div class="sb-profile-name">Admin Manager</div>
+        <div class="sb-profile-role">University OS</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Admin navigation">
+      <div class="sb-nav-label">Main</div>
+      <a href="admindashboard.html" class="nav-item"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
+      <a href="adminapplications.html" class="nav-item"><i class="bi bi-file-earmark-text"></i><span>Applications</span><span class="nav-badge">0</span></a>
+      <a href="adminscholarships.html" class="nav-item"><i class="bi bi-award-fill"></i><span>Scholarships</span><span class="nav-badge">0</span></a>
+      <a href="adminstudents.html" class="nav-item"><i class="bi bi-people-fill"></i><span>Students</span></a>
+      <a href="adminreport.html" class="nav-item"><i class="bi bi-bar-chart-line-fill"></i><span>Reports</span></a>
+
+      <div class="sb-nav-label">Scholars</div>
+      <a href="adminrenewal.html" class="nav-item"><i class="bi bi-arrow-repeat"></i><span>Renewals</span><span class="nav-badge">0</span></a>
+      <a href="admindisbursement.html" class="nav-item"><i class="bi bi-cash-coin"></i><span>Disbursements</span><span class="nav-badge">0</span></a>
+
+      <div class="sb-nav-label">Administration</div>
+      <a href="adminauditlogs.html" class="nav-item"><i class="bi bi-journal-check"></i><span>Audit Logs</span></a>
+      <a href="adminsettings.html" class="nav-item active"><i class="bi bi-gear-fill"></i><span>System Settings</span></a>
+    </nav>
+
+    <div class="sb-footer">
+      <a href="login.html" class="sb-signout"><i class="bi bi-box-arrow-left"></i><span>Sign Out</span></a>
+    </div>
+  </aside>
+
+  <!-- ------------------------------- MAIN ------------------------------- -->
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button class="admin-sidebar-btn" id="adminSidebarBtn" type="button" aria-label="Open navigation menu">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="admin-notification-menu">
+        <button class="topbar-notif" id="adminNotifBell" type="button" title="Admin alerts" aria-haspopup="dialog" aria-expanded="false">
+          <i class="bi bi-bell-fill"></i>
+          <span class="notif-badge" id="adminNotifCount">5</span>
+        </button>
+        <div class="admin-notification-popover" id="adminNotificationPopover" role="dialog" aria-label="Admin notification preview">
+          <div class="admin-notif-head">
+            <div>
+              <strong>Admin Alerts</strong>
+              <span id="adminNotifSubtitle">5 unread alerts</span>
+            </div>
+            <button type="button" id="adminNotifMarkAll">Mark all read</button>
+          </div>
+          <div class="admin-notif-list">
+            <a class="admin-notif-item unread urgent" href="adminapplications.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon applications"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>5 applications require urgent review</strong><time>Today</time></div>
+                <p>DOST-SEI deadline is approaching. Assign reviewers immediately.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="adminapplicationreview.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon documents"><i class="bi bi-folder-check"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>12 documents pending verification</strong><time>Today</time></div>
+                <p>Students uploaded requirements that need admin validation.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="admindisbursement.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon disbursement"><i class="bi bi-cash-coin"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>8 disbursements awaiting processing</strong><time>Today</time></div>
+                <p>Approved scholars have stipend releases queued for review.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="adminrenewal.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon renewal"><i class="bi bi-arrow-repeat"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>14 renewal requests submitted</strong><time>Yesterday</time></div>
+                <p>Renewal applications need academic and document checking.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="securityverificationadmin.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon security"><i class="bi bi-shield-lock-fill"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>Security verification reminder</strong><time>May 12</time></div>
+                <p>Review TOH verification activity before accessing sensitive records.</p>
+              </div>
+            </a>
+          </div>
+          <div class="admin-notif-footer">
+            <a href="adminapplications.html">Open application queue <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-admin">
+        <span class="topbar-admin-name">Scholarship Admin</span>
+        <div class="topbar-admin-avatar">SA</div>
+      </div>
+    </header>
+
+    <main class="admin-page-body">
+
+      <!-- Page Header -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">System Settings</h1>
+          <p class="admin-page-sub">Configure application periods, document requirements, and system preferences.</p>
+        </div>
+        <div class="stg-unsaved-pill" id="stg-unsaved-pill" style="display:none;">
+          <i class="bi bi-circle-fill"></i>
+          Unsaved changes
+        </div>
+      </div>
+
+      <!-- Settings Tabs -->
+      <div class="stg-tabs-row">
+        <button class="stg-tab active" data-tab="general">
+          <i class="bi bi-sliders"></i> General
+        </button>
+        <button class="stg-tab" data-tab="application">
+          <i class="bi bi-file-earmark-text"></i> Applications
+        </button>
+        <button class="stg-tab" data-tab="documents">
+          <i class="bi bi-folder-fill"></i> Documents
+        </button>
+        <button class="stg-tab" data-tab="notifications">
+          <i class="bi bi-bell-fill"></i> Notifications
+        </button>
+        <button class="stg-tab" data-tab="security">
+          <i class="bi bi-shield-lock-fill"></i> Security
+        </button>
+      </div>
+
+      <!-- -- TAB: General -- -->
+      <div class="stg-panel active" id="stg-tab-general">
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-calendar3"></i></div>
+            <div>
+              <div class="stg-section-title">Academic Year</div>
+              <div class="stg-section-sub">Set the active academic year for this scholarship cycle.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-form-row">
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-ay-start">AY Start Year</label>
+                <input class="stg-input" type="number" id="stg-ay-start" value="2025" min="2020" max="2030" />
+              </div>
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-ay-end">AY End Year</label>
+                <input class="stg-input" type="number" id="stg-ay-end" value="2026" min="2021" max="2031" />
+              </div>
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-semester">Active Semester</label>
+                <select class="stg-select" id="stg-semester">
+                  <option value="1st" selected>1st Semester</option>
+                  <option value="2nd">2nd Semester</option>
+                  <option value="summer">Summer</option>
+                </select>
+              </div>
+            </div>
+            <div class="stg-current-ay">
+              <i class="bi bi-calendar-check-fill"></i>
+              Current: <strong>AY 2025–2026 – 1st Semester</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-building"></i></div>
+            <div>
+              <div class="stg-section-title">Institution Information</div>
+              <div class="stg-section-sub">University and scholarship office details shown on student-facing pages.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-form-group">
+              <label class="stg-label" for="stg-uni-name">University Name</label>
+              <input class="stg-input" type="text" id="stg-uni-name" value="University of San Carlos" />
+            </div>
+            <div class="stg-form-row">
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-office-name">Scholarship Office Name</label>
+                <input class="stg-input" type="text" id="stg-office-name" value="Financial Aid & Scholarship Office" />
+              </div>
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-office-email">Contact Email</label>
+                <input class="stg-input" type="email" id="stg-office-email" value="scholarships@usc.edu.ph" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stg-save-row">
+          <button class="stg-save-btn" id="stg-save-general" type="button">
+            <i class="bi bi-floppy-fill"></i>
+            Save General Settings
+          </button>
+        </div>
+      </div>
+
+      <!-- -- TAB: Applications -- -->
+      <div class="stg-panel" id="stg-tab-application">
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-calendar-range-fill"></i></div>
+            <div>
+              <div class="stg-section-title">Application Period</div>
+              <div class="stg-section-sub">Control when students can submit new scholarship applications.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-toggle-row">
+              <div>
+                <div class="stg-toggle-label">Application Portal Status</div>
+                <div class="stg-toggle-sub">Enable or disable the student-facing application form.</div>
+              </div>
+              <label class="stg-toggle" for="stg-app-portal">
+                <input type="checkbox" id="stg-app-portal" checked />
+                <span class="stg-toggle-track"><span class="stg-toggle-thumb"></span></span>
+                <span class="stg-toggle-state" id="stg-app-portal-state">Open</span>
+              </label>
+            </div>
+            <div class="stg-form-row stg-mt">
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-app-open">Opening Date</label>
+                <input class="stg-input" type="date" id="stg-app-open" value="2026-03-01" />
+              </div>
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-app-close">Closing Date</label>
+                <input class="stg-input" type="date" id="stg-app-close" value="2026-07-15" />
+              </div>
+            </div>
+            <div class="stg-form-group stg-mt">
+              <label class="stg-label" for="stg-app-min-gwa">Minimum GWA Requirement</label>
+              <input class="stg-input stg-input-sm" type="number" id="stg-app-min-gwa" value="80" min="60" max="99" step="0.01" />
+              <div class="stg-input-hint">Students below this GWA will be blocked from submitting.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-award-fill"></i></div>
+            <div>
+              <div class="stg-section-title">Scholarship Categories</div>
+              <div class="stg-section-sub">Manage the scholarship types available system-wide.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-category-list" id="stg-cat-list">
+              <div class="stg-category-item">
+                <span class="as-type-tag merit">Merit</span>
+                <span class="stg-cat-name">Merit-based (academic excellence)</span>
+                <div class="stg-cat-actions">
+                  <button class="stg-cat-toggle active" type="button">Active</button>
+                </div>
+              </div>
+              <div class="stg-category-item">
+                <span class="as-type-tag stem">STEM</span>
+                <span class="stg-cat-name">Science & Technology</span>
+                <div class="stg-cat-actions">
+                  <button class="stg-cat-toggle active" type="button">Active</button>
+                </div>
+              </div>
+              <div class="stg-category-item">
+                <span class="as-type-tag need">Need</span>
+                <span class="stg-cat-name">Financial need-based</span>
+                <div class="stg-cat-actions">
+                  <button class="stg-cat-toggle active" type="button">Active</button>
+                </div>
+              </div>
+              <div class="stg-category-item">
+                <span class="as-type-tag gov">Gov</span>
+                <span class="stg-cat-name">Government national agency</span>
+                <div class="stg-cat-actions">
+                  <button class="stg-cat-toggle active" type="button">Active</button>
+                </div>
+              </div>
+              <div class="stg-category-item">
+                <span class="as-type-tag gov-lgu">Gov LGU</span>
+                <span class="stg-cat-name">Local Government Unit</span>
+                <div class="stg-cat-actions">
+                  <button class="stg-cat-toggle active" type="button">Active</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stg-save-row">
+          <button class="stg-save-btn" id="stg-save-applications" type="button">
+            <i class="bi bi-floppy-fill"></i>
+            Save Application Settings
+          </button>
+        </div>
+      </div>
+
+      <!-- -- TAB: Documents -- -->
+      <div class="stg-panel" id="stg-tab-documents">
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-folder-fill"></i></div>
+            <div>
+              <div class="stg-section-title">Required Document Checklist</div>
+              <div class="stg-section-sub">Documents students must upload with each new application.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-doc-list" id="stg-doc-list">
+
+              <div class="stg-doc-item">
+                <label class="stg-checkbox-wrap">
+                  <input type="checkbox" checked />
+                  <span class="stg-checkmark"></span>
+                </label>
+                <div class="stg-doc-info">
+                  <div class="stg-doc-name">Certificate of Grades (COG)</div>
+                  <div class="stg-doc-note">Latest semester transcript or COG from the Registrar</div>
+                </div>
+                <span class="stg-doc-req-badge required">Required</span>
+              </div>
+
+              <div class="stg-doc-item">
+                <label class="stg-checkbox-wrap">
+                  <input type="checkbox" checked />
+                  <span class="stg-checkmark"></span>
+                </label>
+                <div class="stg-doc-info">
+                  <div class="stg-doc-name">Income Tax Return (ITR) or Certificate of Indigency</div>
+                  <div class="stg-doc-note">For need-based scholarships; can be waived for merit-only</div>
+                </div>
+                <span class="stg-doc-req-badge required">Required</span>
+              </div>
+
+              <div class="stg-doc-item">
+                <label class="stg-checkbox-wrap">
+                  <input type="checkbox" checked />
+                  <span class="stg-checkmark"></span>
+                </label>
+                <div class="stg-doc-info">
+                  <div class="stg-doc-name">Barangay Certificate of Residency</div>
+                  <div class="stg-doc-note">Must be issued within the last 3 months</div>
+                </div>
+                <span class="stg-doc-req-badge required">Required</span>
+              </div>
+
+              <div class="stg-doc-item">
+                <label class="stg-checkbox-wrap">
+                  <input type="checkbox" checked />
+                  <span class="stg-checkmark"></span>
+                </label>
+                <div class="stg-doc-info">
+                  <div class="stg-doc-name">1–1 and 2–2 ID Photos</div>
+                  <div class="stg-doc-note">Recent photos with white background</div>
+                </div>
+                <span class="stg-doc-req-badge required">Required</span>
+              </div>
+
+              <div class="stg-doc-item">
+                <label class="stg-checkbox-wrap">
+                  <input type="checkbox" />
+                  <span class="stg-checkmark"></span>
+                </label>
+                <div class="stg-doc-info">
+                  <div class="stg-doc-name">Recommendation Letter (from Department Dean)</div>
+                  <div class="stg-doc-note">Optional – required only for DOST-SEI and CHED Merit</div>
+                </div>
+                <span class="stg-doc-req-badge optional">Optional</span>
+              </div>
+
+              <div class="stg-doc-item">
+                <label class="stg-checkbox-wrap">
+                  <input type="checkbox" />
+                  <span class="stg-checkmark"></span>
+                </label>
+                <div class="stg-doc-info">
+                  <div class="stg-doc-name">Medical Certificate</div>
+                  <div class="stg-doc-note">Required only for certain scholarship programs</div>
+                </div>
+                <span class="stg-doc-req-badge optional">Optional</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-cloud-upload-fill"></i></div>
+            <div>
+              <div class="stg-section-title">Upload Constraints</div>
+              <div class="stg-section-sub">File size and format restrictions for student uploads.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-form-row">
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-max-size">Max File Size (MB)</label>
+                <input class="stg-input stg-input-sm" type="number" id="stg-max-size" value="5" min="1" max="20" />
+              </div>
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-allowed-types">Allowed File Types</label>
+                <input class="stg-input" type="text" id="stg-allowed-types" value="PDF, JPG, PNG, DOCX" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stg-save-row">
+          <button class="stg-save-btn" id="stg-save-documents" type="button">
+            <i class="bi bi-floppy-fill"></i>
+            Save Document Settings
+          </button>
+        </div>
+      </div>
+
+      <!-- -- TAB: Notifications -- -->
+      <div class="stg-panel" id="stg-tab-notifications">
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-bell-fill"></i></div>
+            <div>
+              <div class="stg-section-title">Email Notifications</div>
+              <div class="stg-section-sub">Control automated emails sent to students and admins.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-notif-list">
+
+              <div class="stg-notif-item">
+                <div class="stg-notif-info">
+                  <div class="stg-notif-name">Application Received Confirmation</div>
+                  <div class="stg-notif-note">Email student when their application is successfully submitted.</div>
+                </div>
+                <label class="stg-toggle">
+                  <input type="checkbox" checked />
+                  <span class="stg-toggle-track"><span class="stg-toggle-thumb"></span></span>
+                </label>
+              </div>
+
+              <div class="stg-notif-item">
+                <div class="stg-notif-info">
+                  <div class="stg-notif-name">Application Status Updates</div>
+                  <div class="stg-notif-note">Notify students when their application is approved or rejected.</div>
+                </div>
+                <label class="stg-toggle">
+                  <input type="checkbox" checked />
+                  <span class="stg-toggle-track"><span class="stg-toggle-thumb"></span></span>
+                </label>
+              </div>
+
+              <div class="stg-notif-item">
+                <div class="stg-notif-info">
+                  <div class="stg-notif-name">Document Request Alert</div>
+                  <div class="stg-notif-note">Email students when additional documents are needed.</div>
+                </div>
+                <label class="stg-toggle">
+                  <input type="checkbox" checked />
+                  <span class="stg-toggle-track"><span class="stg-toggle-thumb"></span></span>
+                </label>
+              </div>
+
+              <div class="stg-notif-item">
+                <div class="stg-notif-info">
+                  <div class="stg-notif-name">Disbursement Release Notice</div>
+                  <div class="stg-notif-note">Notify scholars when stipend has been released.</div>
+                </div>
+                <label class="stg-toggle">
+                  <input type="checkbox" checked />
+                  <span class="stg-toggle-track"><span class="stg-toggle-thumb"></span></span>
+                </label>
+              </div>
+
+              <div class="stg-notif-item">
+                <div class="stg-notif-info">
+                  <div class="stg-notif-name">Renewal Reminder</div>
+                  <div class="stg-notif-note">Send renewal reminders 30 days before the renewal deadline.</div>
+                </div>
+                <label class="stg-toggle">
+                  <input type="checkbox" />
+                  <span class="stg-toggle-track"><span class="stg-toggle-thumb"></span></span>
+                </label>
+              </div>
+
+              <div class="stg-notif-item">
+                <div class="stg-notif-info">
+                  <div class="stg-notif-name">Admin Digest (Daily Summary)</div>
+                  <div class="stg-notif-note">Send daily activity summary to all admin accounts.</div>
+                </div>
+                <label class="stg-toggle">
+                  <input type="checkbox" />
+                  <span class="stg-toggle-track"><span class="stg-toggle-thumb"></span></span>
+                </label>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="stg-save-row">
+          <button class="stg-save-btn" id="stg-save-notifications" type="button">
+            <i class="bi bi-floppy-fill"></i>
+            Save Notification Settings
+          </button>
+        </div>
+      </div>
+
+      <!-- -- TAB: Security -- -->
+      <div class="stg-panel" id="stg-tab-security">
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon"><i class="bi bi-shield-lock-fill"></i></div>
+            <div>
+              <div class="stg-section-title">TOH Security Protocol</div>
+              <div class="stg-section-sub">Token Â· OTP Â· Hash – 3-layer admin authentication settings.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-toh-badge">
+              <i class="bi bi-shield-check"></i>
+              TOH Protocol is <strong>Active</strong> – All admin sessions require 3-layer verification.
+            </div>
+            <div class="stg-form-row stg-mt">
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-otp-expiry">OTP Expiry (minutes)</label>
+                <input class="stg-input stg-input-sm" type="number" id="stg-otp-expiry" value="5" min="1" max="15" />
+              </div>
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-otp-attempts">Max OTP Attempts</label>
+                <input class="stg-input stg-input-sm" type="number" id="stg-otp-attempts" value="3" min="1" max="5" />
+              </div>
+              <div class="stg-form-group">
+                <label class="stg-label" for="stg-session-timeout">Session Timeout (hours)</label>
+                <input class="stg-input stg-input-sm" type="number" id="stg-session-timeout" value="8" min="1" max="24" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-panel stg-section">
+          <div class="stg-section-hdr">
+            <div class="stg-section-icon stg-icon-red"><i class="bi bi-exclamation-triangle-fill"></i></div>
+            <div>
+              <div class="stg-section-title">Danger Zone</div>
+              <div class="stg-section-sub">Irreversible actions – proceed with extreme caution.</div>
+            </div>
+          </div>
+          <div class="stg-body">
+            <div class="stg-danger-list">
+              <div class="stg-danger-item">
+                <div>
+                  <div class="stg-danger-name">Clear All Active Sessions</div>
+                  <div class="stg-danger-note">Force-logout all currently logged-in admins. Use during security incidents.</div>
+                </div>
+                <button class="stg-danger-btn" type="button" id="stg-clear-sessions">
+                  <i class="bi bi-door-closed-fill"></i> Clear Sessions
+                </button>
+              </div>
+              <div class="stg-danger-item">
+                <div>
+                  <div class="stg-danger-name">Reset Application Portal Password Policies</div>
+                  <div class="stg-danger-note">Force all student accounts to reset passwords on next login.</div>
+                </div>
+                <button class="stg-danger-btn" type="button" id="stg-force-reset">
+                  <i class="bi bi-key-fill"></i> Force Reset
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stg-save-row">
+          <button class="stg-save-btn" id="stg-save-security" type="button">
+            <i class="bi bi-floppy-fill"></i>
+            Save Security Settings
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+  <script type="module" src="../Javascript/adminsettings.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

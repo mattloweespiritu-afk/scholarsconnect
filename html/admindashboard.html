@@ -1,0 +1,370 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin Dashboard – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../fonts/bootstrap-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/admin-shared.css" />
+  <link rel="stylesheet" href="../css/admindashboard.css" />
+</head>
+
+<body class="admin-layout">
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-ring">
+        <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+      </div>
+
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Admin Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-profile">
+      <div class="sb-avatar">AM</div>
+
+      <div>
+        <div class="sb-profile-name">Admin Manager</div>
+        <div class="sb-profile-role">University OS</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Admin navigation">
+      <div class="sb-nav-label">Main</div>
+
+      <a href="admindashboard.html" class="nav-item active">
+        <i class="bi bi-grid-fill"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="adminapplications.html" class="nav-item">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Applications</span>
+        <span class="nav-badge">0</span>
+      </a>
+
+      <a href="adminscholarships.html" class="nav-item">
+        <i class="bi bi-award-fill"></i>
+        <span>Scholarships</span>
+        <span class="nav-badge">0</span>
+      </a>
+
+      <a href="adminstudents.html" class="nav-item">
+        <i class="bi bi-people-fill"></i>
+        <span>Students</span>
+      </a>
+
+      <a href="adminreport.html" class="nav-item">
+        <i class="bi bi-bar-chart-line-fill"></i>
+        <span>Reports</span>
+      </a>
+
+      <div class="sb-nav-label">Scholars</div>
+
+      <a href="adminrenewal.html" class="nav-item">
+        <i class="bi bi-arrow-repeat"></i>
+        <span>Renewals</span>
+        <span class="nav-badge">0</span>
+      </a>
+
+      <a href="admindisbursement.html" class="nav-item">
+        <i class="bi bi-cash-coin"></i>
+        <span>Disbursements</span>
+        <span class="nav-badge">0</span>
+      </a>
+
+      <div class="sb-nav-label">Administration</div>
+
+      <a href="adminauditlogs.html" class="nav-item">
+        <i class="bi bi-journal-check"></i>
+        <span>Audit Logs</span>
+      </a>
+
+      <a href="adminsettings.html" class="nav-item">
+        <i class="bi bi-gear-fill"></i>
+        <span>System Settings</span>
+      </a>
+    </nav>
+
+    <div class="sb-footer">
+      <a href="login.html" class="sb-signout">
+        <i class="bi bi-box-arrow-left"></i>
+        <span>Sign Out</span>
+      </a>
+    </div>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button class="admin-sidebar-btn" id="adminSidebarBtn" type="button" aria-label="Open navigation menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="admin-topbar-search">
+        <div class="admin-search-wrap" id="adminSearchWrap">
+          <i class="bi bi-search admin-search-icon"></i>
+          <input type="search" id="adminSearchInput" class="admin-search-input"
+            placeholder="Search applications, students, scholarships…"
+            autocomplete="off" spellcheck="false" />
+          <div class="admin-search-results" id="adminSearchResults" hidden></div>
+        </div>
+      </div>
+
+      <div class="admin-notification-menu">
+        <button
+          class="topbar-notif"
+          id="adminNotifBell"
+          type="button"
+          title="Admin alerts"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+        >
+          <i class="bi bi-bell-fill"></i>
+          <span class="notif-badge" id="adminNotifCount">5</span>
+        </button>
+
+        <div
+          class="admin-notification-popover"
+          id="adminNotificationPopover"
+          role="dialog"
+          aria-label="Admin notification preview"
+        >
+          <div class="admin-notif-head">
+            <div>
+              <strong>Admin Alerts</strong>
+              <span id="adminNotifSubtitle">5 unread alerts</span>
+            </div>
+
+            <button type="button" id="adminNotifMarkAll">Mark all read</button>
+          </div>
+
+          <div class="admin-notif-list">
+            <a class="admin-notif-item unread urgent" href="adminapplications.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+
+              <div class="admin-notif-icon applications">
+                <i class="bi bi-file-earmark-text-fill"></i>
+              </div>
+
+              <div class="admin-notif-body">
+                <div>
+                  <strong>5 applications require urgent review</strong>
+                  <time>Today</time>
+                </div>
+                <p>DOST-SEI deadline is approaching. Assign reviewers immediately.</p>
+              </div>
+            </a>
+
+            <a class="admin-notif-item unread" href="adminapplicationreview.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+
+              <div class="admin-notif-icon documents">
+                <i class="bi bi-folder-check"></i>
+              </div>
+
+              <div class="admin-notif-body">
+                <div>
+                  <strong>12 documents pending verification</strong>
+                  <time>Today</time>
+                </div>
+                <p>Students uploaded requirements that need admin validation.</p>
+              </div>
+            </a>
+
+            <a class="admin-notif-item unread" href="admindisbursement.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+
+              <div class="admin-notif-icon disbursement">
+                <i class="bi bi-cash-coin"></i>
+              </div>
+
+              <div class="admin-notif-body">
+                <div>
+                  <strong>8 disbursements awaiting processing</strong>
+                  <time>Today</time>
+                </div>
+                <p>Approved scholars have stipend releases queued for review.</p>
+              </div>
+            </a>
+
+            <a class="admin-notif-item unread" href="adminrenewal.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+
+              <div class="admin-notif-icon renewal">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+
+              <div class="admin-notif-body">
+                <div>
+                  <strong>14 renewal requests submitted</strong>
+                  <time>Yesterday</time>
+                </div>
+                <p>Renewal applications need academic and document checking.</p>
+              </div>
+            </a>
+
+            <a class="admin-notif-item unread" href="securityverificationadmin.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+
+              <div class="admin-notif-icon security">
+                <i class="bi bi-shield-lock-fill"></i>
+              </div>
+
+              <div class="admin-notif-body">
+                <div>
+                  <strong>Security verification reminder</strong>
+                  <time>May 12</time>
+                </div>
+                <p>Review TOH verification activity before accessing sensitive records.</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="admin-notif-footer">
+            <a href="adminapplications.html">
+              Open application queue
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="topbar-admin">
+        <span class="topbar-admin-name">Scholarship Admin</span>
+        <div class="topbar-admin-avatar">SA</div>
+      </div>
+    </header>
+
+    <main class="admin-page-body">
+      <section class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Good morning, Administrator</h1>
+          <p class="admin-page-sub">
+            Scholarship Office Portal – AY 2025–2026 – Application Period Active
+          </p>
+        </div>
+
+        <button class="btn-download" type="button">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span>Download Report</span>
+        </button>
+      </section>
+
+      <section class="alert-banner">
+        <div class="alert-banner-icon">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+        </div>
+
+        <div class="alert-banner-text">
+          <div class="alert-banner-title" id="alert-banner-title">—</div>
+          <div class="alert-banner-sub" id="alert-banner-sub"></div>
+        </div>
+
+        <button class="btn-review" type="button">
+          Review Now
+          <i class="bi bi-arrow-right"></i>
+        </button>
+      </section>
+
+      <section class="stats-grid">
+        <article class="admin-stat-card red">
+          <div class="admin-stat-label">Total Applicants</div>
+          <div class="admin-stat-value" id="stat-val-total">—</div>
+          <div class="admin-stat-footer red">
+            <span class="admin-stat-dot"></span>
+            <span id="stat-foot-total">—</span>
+          </div>
+        </article>
+
+        <article class="admin-stat-card gold">
+          <div class="admin-stat-label">Pending Review</div>
+          <div class="admin-stat-value" id="stat-val-pending">—</div>
+          <div class="admin-stat-footer gold">
+            <span class="admin-stat-dot"></span>
+            <span id="stat-foot-pending">—</span>
+          </div>
+        </article>
+
+        <article class="admin-stat-card green">
+          <div class="admin-stat-label">Approved</div>
+          <div class="admin-stat-value" id="stat-val-approved">—</div>
+          <div class="admin-stat-footer green">
+            <span class="admin-stat-dot"></span>
+            <span id="stat-foot-approved">Scholarships Confirmed</span>
+          </div>
+        </article>
+
+        <article class="admin-stat-card stat-rejected">
+          <div class="admin-stat-label">Rejected</div>
+          <div class="admin-stat-value" id="stat-val-rejected">—</div>
+          <div class="admin-stat-footer rejected">
+            <span class="admin-stat-dot"></span>
+            <span id="stat-foot-rejected">Incomplete / Ineligible</span>
+          </div>
+        </article>
+
+        <article class="admin-stat-card maroon">
+          <div class="admin-stat-label">Active Scholarships</div>
+          <div class="admin-stat-value" id="stat-val-scholarships">—</div>
+          <div class="admin-stat-footer maroon">
+            <span class="admin-stat-dot"></span>
+            <span id="stat-foot-scholarships">—</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="admin-lower-row">
+        <article class="admin-panel">
+          <div class="admin-panel-head">
+            <div>
+              <div class="admin-panel-title">Slot Availability</div>
+              <p class="admin-panel-sub">Track scholarship slots against current capacity.</p>
+            </div>
+          </div>
+
+          <div class="slot-list" id="slot-list">
+            <div style="padding:24px;text-align:center;color:#999;font-size:13px;">Loading slot data…</div>
+          </div>
+        </article>
+
+        <article class="admin-panel">
+          <div class="admin-panel-head">
+            <div>
+              <div class="admin-panel-title">Admin Activity Log</div>
+              <p class="admin-panel-sub">Recent system and reviewer actions.</p>
+            </div>
+          </div>
+
+          <div class="activity-list" id="activity-list">
+            <div style="padding:24px;text-align:center;color:#999;font-size:13px;">Loading activity…</div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+  <script type="module" src="../Javascript/admindashboard.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

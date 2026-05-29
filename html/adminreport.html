@@ -1,0 +1,302 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reports &amp; Analytics – ScholarsConnect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="../fonts/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="../css/admin-shared.css"/>
+<link rel="stylesheet" href="../css/adminreport.css"/>
+</head>
+<body class="admin-layout">
+
+<!-- -------------------------------
+     SIDEBAR
+------------------------------- -->
+<aside class="sidebar">
+
+  <div class="sb-logo">
+    <div class="sb-logo-ring">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+    </div>
+    <div>
+      <div class="sb-logo-name">ScholarsConnect</div>
+      <div class="sb-logo-sub">Admin Portal</div>
+    </div>
+  </div>
+
+  <div class="sb-profile">
+    <div class="sb-avatar">AM</div>
+    <div>
+      <div class="sb-profile-name">Admin Manager</div>
+      <div class="sb-profile-role">University OS</div>
+    </div>
+  </div>
+
+  <nav class="sb-nav" aria-label="Admin navigation">
+
+    <div class="sb-nav-label">Main</div>
+
+    <a href="admindashboard.html" class="nav-item">
+      <i class="bi bi-grid-fill"></i>
+      <span>Dashboard</span>
+    </a>
+    <a href="adminapplications.html" class="nav-item">
+      <i class="bi bi-file-earmark-text"></i>
+      <span>Applications</span>
+      <span class="nav-badge">0</span>
+    </a>
+    <a href="adminscholarships.html" class="nav-item">
+      <i class="bi bi-award-fill"></i>
+      <span>Scholarships</span>
+      <span class="nav-badge">0</span>
+    </a>
+    <a href="adminstudents.html" class="nav-item">
+      <i class="bi bi-people-fill"></i>
+      <span>Students</span>
+    </a>
+    <a href="adminreport.html" class="nav-item active">
+      <i class="bi bi-bar-chart-line-fill"></i>
+      <span>Reports</span>
+    </a>
+
+    <div class="sb-nav-label">Scholars</div>
+
+    <a href="adminrenewal.html" class="nav-item">
+      <i class="bi bi-arrow-repeat"></i>
+      <span>Renewals</span>
+      <span class="nav-badge">0</span>
+    </a>
+    <a href="admindisbursement.html" class="nav-item">
+      <i class="bi bi-cash-coin"></i>
+      <span>Disbursements</span>
+      <span class="nav-badge">0</span>
+    </a>
+
+    <div class="sb-nav-label">Administration</div>
+
+    <a href="adminauditlogs.html" class="nav-item">
+      <i class="bi bi-journal-check"></i>
+      <span>Audit Logs</span>
+    </a>
+    <a href="adminsettings.html" class="nav-item">
+      <i class="bi bi-gear-fill"></i>
+      <span>System Settings</span>
+    </a>
+
+  </nav>
+
+  <div class="sb-footer">
+    <a href="login.html" class="sb-signout">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Sign Out</span>
+    </a>
+  </div>
+
+</aside>
+
+<!-- -------------------------------
+     MAIN
+------------------------------- -->
+<div class="admin-main">
+
+  <header class="admin-topbar">
+    <button class="admin-sidebar-btn" id="adminSidebarBtn" type="button" aria-label="Open navigation menu">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="admin-notification-menu">
+      <button class="topbar-notif" id="adminNotifBell" type="button" title="Admin alerts" aria-haspopup="dialog" aria-expanded="false">
+        <i class="bi bi-bell-fill"></i>
+        <span class="notif-badge" id="adminNotifCount">5</span>
+      </button>
+      <div class="admin-notification-popover" id="adminNotificationPopover" role="dialog" aria-label="Admin notification preview">
+        <div class="admin-notif-head">
+          <div>
+            <strong>Admin Alerts</strong>
+            <span id="adminNotifSubtitle">5 unread alerts</span>
+          </div>
+          <button type="button" id="adminNotifMarkAll">Mark all read</button>
+        </div>
+        <div class="admin-notif-list">
+          <a class="admin-notif-item unread urgent" href="adminapplications.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon applications"><i class="bi bi-file-earmark-text-fill"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>5 applications require urgent review</strong><time>Today</time></div>
+              <p>DOST-SEI deadline is approaching. Assign reviewers immediately.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="adminapplicationreview.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon documents"><i class="bi bi-folder-check"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>12 documents pending verification</strong><time>Today</time></div>
+              <p>Students uploaded requirements that need admin validation.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="admindisbursement.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon disbursement"><i class="bi bi-cash-coin"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>8 disbursements awaiting processing</strong><time>Today</time></div>
+              <p>Approved scholars have stipend releases queued for review.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="adminrenewal.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon renewal"><i class="bi bi-arrow-repeat"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>14 renewal requests submitted</strong><time>Yesterday</time></div>
+              <p>Renewal applications need academic and document checking.</p>
+            </div>
+          </a>
+          <a class="admin-notif-item unread" href="securityverificationadmin.html" data-admin-notif>
+            <span class="admin-notif-dot"></span>
+            <div class="admin-notif-icon security"><i class="bi bi-shield-lock-fill"></i></div>
+            <div class="admin-notif-body">
+              <div><strong>Security verification reminder</strong><time>May 12</time></div>
+              <p>Review TOH verification activity before accessing sensitive records.</p>
+            </div>
+          </a>
+        </div>
+        <div class="admin-notif-footer">
+          <a href="adminapplications.html">Open application queue <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="topbar-admin">
+      <span class="topbar-admin-name">Scholarship Admin</span>
+      <div class="topbar-admin-avatar">SA</div>
+    </div>
+  </header>
+
+  <div class="admin-page-body">
+
+    <!-- Page Header -->
+    <div class="rpt-page-header">
+      <div>
+        <h1 class="admin-page-title">Reports &amp; Analytics</h1>
+        <p class="admin-page-sub">Comprehensive visualization of application trends and disbursement data.</p>
+      </div>
+      <div class="rpt-hdr-controls">
+        <select class="rpt-ay-select" id="rpt-ay">
+          <option value="2025-2026" selected>AY 2025–2026</option>
+          <option value="2024-2025">AY 2024–2025</option>
+          <option value="2023-2024">AY 2023–2024</option>
+        </select>
+        <button class="rpt-gen-btn" type="button" id="rpt-gen-btn">
+          <i class="bi bi-file-earmark-arrow-down-fill"></i>
+          Generate Full Report
+        </button>
+      </div>
+    </div>
+
+    <!-- Top Charts Row -->
+    <div class="rpt-charts-row">
+
+      <!-- Application Status Distribution -->
+      <div class="admin-panel rpt-card">
+        <div class="rpt-card-hdr">
+          <i class="bi bi-bar-chart-fill rpt-icon-maroon"></i>
+          Application Status Distribution
+        </div>
+        <div class="rpt-bar-list">
+
+          <div class="rpt-bar-item">
+            <div class="rpt-bar-label">Approved</div>
+            <div class="rpt-bar-track">
+              <div class="rpt-bar-fill rpt-approved" id="rpt-fill-approved" style="width:100%"></div>
+            </div>
+            <div class="rpt-bar-val" id="rpt-val-approved">—</div>
+          </div>
+
+          <div class="rpt-bar-item">
+            <div class="rpt-bar-label">Under Review</div>
+            <div class="rpt-bar-track">
+              <div class="rpt-bar-fill rpt-review" id="rpt-fill-review" style="width:0%"></div>
+            </div>
+            <div class="rpt-bar-val" id="rpt-val-review">—</div>
+          </div>
+
+          <div class="rpt-bar-item">
+            <div class="rpt-bar-label">Submitted</div>
+            <div class="rpt-bar-track">
+              <div class="rpt-bar-fill rpt-submitted" id="rpt-fill-submitted" style="width:0%"></div>
+            </div>
+            <div class="rpt-bar-val" id="rpt-val-submitted">—</div>
+          </div>
+
+          <div class="rpt-bar-item">
+            <div class="rpt-bar-label">Rejected</div>
+            <div class="rpt-bar-track">
+              <div class="rpt-bar-fill rpt-rejected-bar" id="rpt-fill-rejected" style="width:0%"></div>
+            </div>
+            <div class="rpt-bar-val" id="rpt-val-rejected">—</div>
+          </div>
+
+        </div>
+        <!-- Totals row -->
+        <div class="rpt-dist-total">
+          <span class="rpt-dist-total-label">Total Applications</span>
+          <span class="rpt-dist-total-val" id="rpt-total-apps">—</span>
+        </div>
+      </div>
+
+      <!-- Disbursement Forecast -->
+      <div class="admin-panel rpt-card">
+        <div class="rpt-card-hdr">
+          <i class="bi bi-graph-up-arrow rpt-icon-teal"></i>
+          <span id="rpt-forecast-title">Disbursement Forecast (AY 2025)</span>
+        </div>
+        <div class="rpt-forecast-chart" id="rpt-forecast-chart">
+          <!-- SVG rendered by JS -->
+        </div>
+        <div class="rpt-forecast-note">
+          <i class="bi bi-info-circle"></i>
+          Projected disbursements in &#8369; Millions over the next 6 months.
+        </div>
+      </div>
+
+    </div><!-- /rpt-charts-row -->
+
+    <!-- Summary Table -->
+    <div class="admin-panel">
+      <div class="rpt-section-hdr">
+        <div class="rpt-section-title">
+          <i class="bi bi-table"></i> Summary Table
+        </div>
+        <div class="rpt-section-sub">Per-scholarship breakdown for the selected academic year.</div>
+      </div>
+      <div class="rpt-table-wrap">
+        <table class="rpt-table">
+          <thead>
+            <tr>
+              <th>Scholarship</th>
+              <th>Applicants</th>
+              <th>Approved</th>
+              <th>Fill Rate</th>
+              <th>Avg GWA</th>
+            </tr>
+          </thead>
+          <tbody id="rpt-summary-tbody">
+            <tr><td colspan="5" style="text-align:center;padding:2rem;color:#888;">Loading report…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /admin-page-body -->
+</div><!-- /admin-main -->
+
+  <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+  <script type="module" src="../Javascript/adminreport.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

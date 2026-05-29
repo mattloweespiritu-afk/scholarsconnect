@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<title>Student Security Verification — ScholarsConnect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="../fonts/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="../css/securityverification.css"/>
+</head>
+<body class="security-page">
+
+<div class="toh-brand">
+  <div class="toh-brand-ring">
+    <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+  </div>
+  <div>
+    <div class="toh-brand-name">ScholarsConnect</div>
+    <div class="toh-brand-sub">Student Portal</div>
+  </div>
+</div>
+
+<div class="toh-card">
+
+  <div class="toh-card-header">
+    <div class="toh-header-icon">
+      <i class="bi bi-shield-lock-fill" id="sv-header-icon"></i>
+    </div>
+    <div>
+      <div class="toh-header-title">Student Security Verification</div>
+      <div class="toh-header-sub">Email One-Time Password</div>
+    </div>
+  </div>
+
+  <div class="toh-card-body">
+
+    <div class="toh-panel active" id="sv-otp-panel">
+
+      <div class="toh-alert error" id="sv-error">
+        <i class="bi bi-x-circle-fill"></i>
+        <span id="sv-error-msg">Incorrect code. Please try again.</span>
+      </div>
+
+      <p class="otp-instruction" style="font-size:13.5px;color:#3A3A3A;margin-bottom:4px;">A 6-digit verification code has been sent to:</p>
+      <p id="sv-otp-email" style="font-size:14px;font-weight:600;color:#7A2323;margin-bottom:22px;">your registered email</p>
+
+      <div class="toh-otp-row">
+        <input class="toh-otp-box" type="text" inputmode="numeric" maxlength="1" id="sv-otp-0" autocomplete="one-time-code"/>
+        <input class="toh-otp-box" type="text" inputmode="numeric" maxlength="1" id="sv-otp-1"/>
+        <input class="toh-otp-box" type="text" inputmode="numeric" maxlength="1" id="sv-otp-2"/>
+        <input class="toh-otp-box" type="text" inputmode="numeric" maxlength="1" id="sv-otp-3"/>
+        <input class="toh-otp-box" type="text" inputmode="numeric" maxlength="1" id="sv-otp-4"/>
+        <input class="toh-otp-box" type="text" inputmode="numeric" maxlength="1" id="sv-otp-5"/>
+      </div>
+
+      <div class="toh-timer-row">
+        <i class="bi bi-clock"></i>
+        Code expires in <span class="toh-timer-count" id="sv-otp-timer">5:00</span>
+      </div>
+
+      <button class="toh-btn" id="sv-verify-btn" type="button">
+        <span class="toh-btn-text">Verify &amp; Continue</span>
+        <div class="toh-spinner"></div>
+      </button>
+
+      <div class="toh-divider"></div>
+
+      <div class="toh-resend-row">
+        Didn't receive the code?&nbsp;
+        <button class="toh-resend-btn" id="sv-resend-btn" type="button" disabled>
+          Resend Code <span id="sv-resend-cd">(wait 60s)</span>
+        </button>
+      </div>
+
+      <a href="login.html" class="toh-back-link">&larr; Back to Login</a>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="toh-footer-note">
+  <i class="bi bi-lock"></i>
+  <span>
+    A one-time verification code has been sent to your registered email address.
+    Enter the 6-digit code to access your student dashboard.
+  </span>
+</div>
+
+<script type="module" src="../Javascript/securityverification.js"></script>
+<script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Logs – ScholarsConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="../fonts/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/admin-shared.css" />
+  <link rel="stylesheet" href="../css/adminauditlogs.css" />
+</head>
+<body class="admin-layout">
+
+  <!-- ------------------------------- SIDEBAR ------------------------------- -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-ring">
+        <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+      </div>
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Admin Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-profile">
+      <div class="sb-avatar">AM</div>
+      <div>
+        <div class="sb-profile-name">Admin Manager</div>
+        <div class="sb-profile-role">University OS</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Admin navigation">
+      <div class="sb-nav-label">Main</div>
+      <a href="admindashboard.html" class="nav-item"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
+      <a href="adminapplications.html" class="nav-item"><i class="bi bi-file-earmark-text"></i><span>Applications</span><span class="nav-badge">0</span></a>
+      <a href="adminscholarships.html" class="nav-item"><i class="bi bi-award-fill"></i><span>Scholarships</span><span class="nav-badge">0</span></a>
+      <a href="adminstudents.html" class="nav-item"><i class="bi bi-people-fill"></i><span>Students</span></a>
+      <a href="adminreport.html" class="nav-item"><i class="bi bi-bar-chart-line-fill"></i><span>Reports</span></a>
+
+      <div class="sb-nav-label">Scholars</div>
+      <a href="adminrenewal.html" class="nav-item"><i class="bi bi-arrow-repeat"></i><span>Renewals</span><span class="nav-badge">0</span></a>
+      <a href="admindisbursement.html" class="nav-item"><i class="bi bi-cash-coin"></i><span>Disbursements</span><span class="nav-badge">0</span></a>
+
+      <div class="sb-nav-label">Administration</div>
+      <a href="adminauditlogs.html" class="nav-item active"><i class="bi bi-journal-check"></i><span>Audit Logs</span></a>
+      <a href="adminsettings.html" class="nav-item"><i class="bi bi-gear-fill"></i><span>System Settings</span></a>
+    </nav>
+
+    <div class="sb-footer">
+      <a href="login.html" class="sb-signout"><i class="bi bi-box-arrow-left"></i><span>Sign Out</span></a>
+    </div>
+  </aside>
+
+  <!-- ------------------------------- MAIN ------------------------------- -->
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button class="admin-sidebar-btn" id="adminSidebarBtn" type="button" aria-label="Open navigation menu">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="admin-notification-menu">
+        <button class="topbar-notif" id="adminNotifBell" type="button" title="Admin alerts" aria-haspopup="dialog" aria-expanded="false">
+          <i class="bi bi-bell-fill"></i>
+          <span class="notif-badge" id="adminNotifCount">5</span>
+        </button>
+        <div class="admin-notification-popover" id="adminNotificationPopover" role="dialog" aria-label="Admin notification preview">
+          <div class="admin-notif-head">
+            <div>
+              <strong>Admin Alerts</strong>
+              <span id="adminNotifSubtitle">5 unread alerts</span>
+            </div>
+            <button type="button" id="adminNotifMarkAll">Mark all read</button>
+          </div>
+          <div class="admin-notif-list">
+            <a class="admin-notif-item unread urgent" href="adminapplications.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon applications"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>5 applications require urgent review</strong><time>Today</time></div>
+                <p>DOST-SEI deadline is approaching. Assign reviewers immediately.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="adminapplicationreview.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon documents"><i class="bi bi-folder-check"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>12 documents pending verification</strong><time>Today</time></div>
+                <p>Students uploaded requirements that need admin validation.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="admindisbursement.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon disbursement"><i class="bi bi-cash-coin"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>8 disbursements awaiting processing</strong><time>Today</time></div>
+                <p>Approved scholars have stipend releases queued for review.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="adminrenewal.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon renewal"><i class="bi bi-arrow-repeat"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>14 renewal requests submitted</strong><time>Yesterday</time></div>
+                <p>Renewal applications need academic and document checking.</p>
+              </div>
+            </a>
+            <a class="admin-notif-item unread" href="securityverificationadmin.html" data-admin-notif>
+              <span class="admin-notif-dot"></span>
+              <div class="admin-notif-icon security"><i class="bi bi-shield-lock-fill"></i></div>
+              <div class="admin-notif-body">
+                <div><strong>Security verification reminder</strong><time>May 12</time></div>
+                <p>Review TOH verification activity before accessing sensitive records.</p>
+              </div>
+            </a>
+          </div>
+          <div class="admin-notif-footer">
+            <a href="adminapplications.html">Open application queue <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-admin">
+        <span class="topbar-admin-name">Scholarship Admin</span>
+        <div class="topbar-admin-avatar">SA</div>
+      </div>
+    </header>
+
+    <main class="admin-page-body">
+
+      <!-- Page Header -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Audit Logs</h1>
+          <p class="admin-page-sub">Complete record of all admin actions, system events, and access history.</p>
+        </div>
+        <div class="alog-header-actions">
+          <button class="alog-export-btn" id="alog-export-btn" type="button">
+            <i class="bi bi-download"></i>
+            Export Logs
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="alog-stats-row">
+        <div class="alog-stat-card alog-stat-today">
+          <div class="alog-stat-icon"><i class="bi bi-activity"></i></div>
+          <div>
+            <div class="alog-stat-val">47</div>
+            <div class="alog-stat-lbl">Events Today</div>
+          </div>
+        </div>
+        <div class="alog-stat-card alog-stat-critical">
+          <div class="alog-stat-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+          <div>
+            <div class="alog-stat-val">2</div>
+            <div class="alog-stat-lbl">Critical Events</div>
+          </div>
+        </div>
+        <div class="alog-stat-card alog-stat-users">
+          <div class="alog-stat-icon"><i class="bi bi-person-check-fill"></i></div>
+          <div>
+            <div class="alog-stat-val">6</div>
+            <div class="alog-stat-lbl">Unique Admins</div>
+          </div>
+        </div>
+        <div class="alog-stat-card alog-stat-logins">
+          <div class="alog-stat-icon"><i class="bi bi-door-open-fill"></i></div>
+          <div>
+            <div class="alog-stat-val">14</div>
+            <div class="alog-stat-lbl">Login Events</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="admin-panel alog-toolbar-panel">
+        <div class="alog-toolbar">
+          <div class="alog-search-wrap">
+            <i class="bi bi-search alog-search-icon"></i>
+            <input class="alog-search-input" type="text" id="alog-search" placeholder="Search by admin, action, or IP address…" autocomplete="off" />
+          </div>
+          <div class="alog-filter-group">
+            <select class="alog-filter-select" id="alog-filter-type">
+              <option value="">All Event Types</option>
+              <option value="login">Login / Logout</option>
+              <option value="application">Applications</option>
+              <option value="document">Documents</option>
+              <option value="settings">Settings</option>
+              <option value="security">Security</option>
+              <option value="data">Data Changes</option>
+            </select>
+            <select class="alog-filter-select" id="alog-filter-severity">
+              <option value="">All Severities</option>
+              <option value="info">Info</option>
+              <option value="warning">Warning</option>
+              <option value="critical">Critical</option>
+            </select>
+            <select class="alog-filter-select" id="alog-filter-date">
+              <option value="today">Today</option>
+              <option value="week">Last 7 days</option>
+              <option value="month">This Month</option>
+              <option value="all">All Time</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Log Table -->
+      <div class="admin-panel">
+        <div class="alog-table-wrap">
+          <table class="alog-table" id="alog-table">
+            <thead>
+              <tr>
+                <th class="alog-th-time">Timestamp</th>
+                <th>Event</th>
+                <th>Admin User</th>
+                <th>IP Address</th>
+                <th>Severity</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="alog-tbody">
+              <tr><td colspan="6" style="text-align:center;padding:2rem;color:#888;">Loading audit logs…</td></tr>
+
+            </tbody>
+          </table>
+          <div class="alog-empty" id="alog-empty" style="display:none;">
+            <i class="bi bi-journal-x"></i>
+            <div>No logs match your current filters.</div>
+          </div>
+        </div>
+        <div class="alog-table-footer">
+          <span id="alog-count-label">Showing 10 of 47 events</span>
+          <button class="alog-load-more" id="alog-load-more" type="button">Load more events</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Log Detail Modal -->
+  <div class="alog-modal-overlay" id="alog-modal" style="display:none;">
+    <div class="alog-modal">
+      <div class="alog-modal-hdr">
+        <div>
+          <div class="alog-modal-eyebrow">Audit Log Entry</div>
+          <div class="alog-modal-title" id="alog-modal-title">Event Detail</div>
+        </div>
+        <button class="alog-modal-close" id="alog-modal-close" type="button" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="alog-modal-body" id="alog-modal-body">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+  <script type="module" src="../Javascript/adminauditlogs.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

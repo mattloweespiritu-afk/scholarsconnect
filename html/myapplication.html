@@ -1,0 +1,384 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+  <title>My Applications – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../fonts/bootstrap-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/myapplication.css" />
+  <link rel="stylesheet" href="../css/notification-popover.css" />
+</head>
+
+<body>
+  <button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Scholarship Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-user-card">
+      <div class="sb-av" id="sidebarAvatar"></div>
+
+      <div class="sb-user-meta">
+        <div class="sb-uname"></div>
+        <div class="sb-urole">Student</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Student navigation">
+      <div class="sb-section-label">Main</div>
+
+      <a class="sb-item" href="dashboard.html">
+        <i class="bi bi-grid-1x2-fill"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="sb-item" href="scholarships.html">
+        <i class="bi bi-award"></i>
+        <span>Browse Scholarships</span>
+      </a>
+
+      <div class="sb-section-label">Applications</div>
+
+      <a class="sb-item active" href="myapplication.html">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>My Applications</span>
+      </a>
+
+      <a class="sb-item" href="mydocuments.html">
+        <i class="bi bi-folder2-open"></i>
+        <span>My Documents</span>
+      </a>
+
+      <a class="sb-item" href="disbursement.html">
+        <i class="bi bi-cash-coin"></i>
+        <span>My Stipend</span>
+      </a>
+
+      <div class="sb-section-label">Account</div>
+
+      <a class="sb-item" href="myprofile.html">
+        <i class="bi bi-person-circle"></i>
+        <span>My Profile</span>
+      </a>
+
+      <a class="sb-item" href="notifications.html">
+        <i class="bi bi-bell"></i>
+        <span>Notifications</span>
+      </a>
+    </nav>
+
+    <button class="sb-logout" id="btnLogout" type="button">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Log Out</span>
+    </button>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrap">
+    <!-- MINIMAL TOPBAR -->
+    <header class="topbar">
+      <div class="top-status">
+        <span class="top-status-dot"></span>
+
+        <div>
+          <strong>AY 2025–2026</strong>
+          <span>Application tracking active</span>
+        </div>
+      </div>
+
+      <div class="top-search">
+        <i class="bi bi-search"></i>
+
+        <input
+          type="text"
+          id="applicationSearch"
+          placeholder="Search by scholarship name or reference no."
+          autocomplete="off"
+        />
+
+        <button class="search-clear" id="clearSearch" type="button" aria-label="Clear search">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="top-actions">
+        <div class="notification-menu">
+          <button
+            class="top-icon-btn notification-trigger"
+            id="notifBell"
+            type="button"
+            title="Notifications"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notif-dot" id="notifDot"></span>
+            <span class="notif-count" id="notifCount">3</span>
+          </button>
+
+          <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+            <div class="notif-pop-head">
+              <div>
+                <strong>Notifications</strong>
+                <span id="notifSubtitle">3 unread updates</span>
+              </div>
+
+              <button type="button" id="notifMarkAll">Mark all read</button>
+            </div>
+
+            <div class="notif-pop-list" id="notifPopList"></div>
+
+            <div class="notif-pop-footer">
+              <a href="notifications.html">
+                View all notifications
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="top-user" href="myprofile.html" id="topUserAvatar" title="Open profile" aria-label="Open profile">
+          <span></span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- HERO -->
+      <section class="applications-hero">
+        <div>
+          <p class="section-eyebrow">Application Tracking Center</p>
+
+          <h1>My Applications</h1>
+
+          <p>
+            Track your submitted scholarship applications, review progress, and manage next steps.
+          </p>
+
+          <div class="hero-actions">
+            <a href="application.html" class="btn-primary">
+              Start New Application
+              <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <a href="mydocuments.html" class="btn-outline">
+              Check Documents
+            </a>
+          </div>
+        </div>
+
+        <div class="tracker-card">
+          <span class="soft-chip">Needs Attention</span>
+
+          <h2>1 application needs action</h2>
+
+          <p>
+            Your DOST-SEI application is under review and still needs one missing document.
+          </p>
+
+          <a href="mydocuments.html" class="tracker-link">
+            Upload missing document
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- SUMMARY -->
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon maroon">
+            <i class="bi bi-files"></i>
+          </div>
+
+          <div>
+            <span>Total Applications</span>
+            <strong id="totalApplications">4</strong>
+            <p>All submitted scholarship records</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon green">
+            <i class="bi bi-patch-check"></i>
+          </div>
+
+          <div>
+            <span>Approved</span>
+            <strong id="approvedApplications">1</strong>
+            <p>Application accepted</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon gold">
+            <i class="bi bi-hourglass-split"></i>
+          </div>
+
+          <div>
+            <span>Under Review</span>
+            <strong id="reviewApplications">1</strong>
+            <p>Currently being evaluated</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon red">
+            <i class="bi bi-exclamation-circle"></i>
+          </div>
+
+          <div>
+            <span>Needs Action</span>
+            <strong id="needsActionApplications">2</strong>
+            <p>Missing document or appeal</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- FILTERS -->
+      <section class="filter-card">
+        <div class="filter-tabs" role="tablist" aria-label="Application status filters">
+          <button class="filter-tab active" type="button" data-filter="all">
+            All <span id="countAll">4</span>
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="approved">
+            Approved <span id="countApproved">1</span>
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="under-review">
+            Under Review <span id="countReview">1</span>
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="submitted">
+            Submitted <span id="countSubmitted">1</span>
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="rejected">
+            Rejected <span id="countRejected">1</span>
+          </button>
+        </div>
+
+        <div class="result-count">
+          Showing <strong id="visibleCount">4</strong> of <span id="totalCount">4</span> applications
+        </div>
+      </section>
+
+      <!-- APPLICATION LIST FROM JS -->
+      <section class="applications-list" id="applicationsList"></section>
+
+      <!-- EMPTY STATE -->
+      <section class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <i class="bi bi-file-earmark-x"></i>
+        </div>
+
+        <h2>No applications found</h2>
+        <p>Try changing the selected filter or search keyword.</p>
+
+        <button class="btn-primary small" type="button" id="resetFilters">
+          Reset Filters
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <!-- APPLICATION MODAL -->
+  <div class="modal-overlay" id="applicationModalOverlay" aria-hidden="true">
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close modal">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <div class="modal-head">
+        <div>
+          <span class="soft-chip" id="modalType">Application</span>
+          <h2 id="modalTitle">Application Details</h2>
+          <p id="modalSubtitle">Reference No.</p>
+        </div>
+
+        <div class="modal-status" id="modalStatus">
+          <i class="bi bi-check-circle-fill"></i>
+          <span>Approved</span>
+        </div>
+      </div>
+
+      <div class="modal-body" id="modalBody"></div>
+
+      <div class="modal-actions">
+        <button class="btn-light small" id="modalCancel" type="button">
+          Close
+        </button>
+
+        <button class="btn-danger small" id="modalAppeal" type="button">
+          <i class="bi bi-reply-all-fill"></i>
+          File Appeal
+        </button>
+
+        <button class="btn-primary small" id="modalRenew" type="button">
+          <i class="bi bi-arrow-repeat"></i>
+          Submit Renewal
+        </button>
+
+        <button class="btn-primary small" id="modalDownload" type="button">
+          <i class="bi bi-download"></i>
+          <span id="downloadLabel">Download Award Letter</span>
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <!-- WITHDRAW CONFIRMATION MODAL -->
+  <div class="modal-overlay withdraw-confirm-overlay" id="withdrawConfirmOverlay" aria-hidden="true">
+    <div class="withdraw-confirm-card">
+      <div class="withdraw-confirm-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+      <h3>Withdraw Application?</h3>
+      <p>You are about to withdraw your application for <strong id="withdrawAppName"></strong>. This action cannot be undone.</p>
+      <div class="withdraw-confirm-actions">
+        <button class="withdraw-btn-cancel" id="withdrawCancelBtn" type="button">Keep Application</button>
+        <button class="withdraw-btn-confirm" id="withdrawConfirmBtn" type="button">Yes, Withdraw</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script type="module" src="../Javascript/myapplication.js"></script>
+  <script src="../Javascript/notification-popover.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

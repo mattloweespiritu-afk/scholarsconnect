@@ -1,0 +1,262 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<title>Log In — ScholarsConnect</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" media="print" onload="this.media='all'" />
+<link rel="stylesheet" href="../fonts/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="../css/login.css"/>
+</head>
+<body>
+
+<div class="login-wrap">
+
+  <!-- ═══════════════════════════════
+       LEFT PANEL
+  ═══════════════════════════════ -->
+  <div class="left-panel">
+
+    <!-- Logo -->
+    <div class="lp-logo">
+      <div class="lp-logo-ring">
+        <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect Logo">
+      </div>
+      <div>
+        <div class="lp-logo-name">ScholarsConnect</div>
+        <div class="lp-logo-sub">Scholarship Portal</div>
+      </div>
+    </div>
+
+    <!-- Graduation cap illustration -->
+    <div class="lp-art">
+      <svg viewBox="0 0 170 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Board -->
+        <polygon points="85,10 162,52 85,74 8,52"
+          fill="rgba(255,255,255,0.55)"
+          stroke="rgba(255,255,255,0.8)"
+          stroke-width="1.5"
+          stroke-linejoin="round"/>
+        <!-- Gown -->
+        <path d="M32 60 L32 96 Q85 118 138 96 L138 60"
+          fill="rgba(255,255,255,0.28)"
+          stroke="rgba(255,255,255,0.6)"
+          stroke-width="1.5"/>
+        <!-- Tassel string -->
+        <line x1="162" y1="52" x2="162" y2="86"
+          stroke="rgba(255,255,255,0.55)"
+          stroke-width="1.5"
+          stroke-dasharray="3 2"/>
+        <!-- Tassel end -->
+        <circle cx="162" cy="90" r="5"
+          fill="rgba(255,255,255,0.6)"/>
+        <!-- Star accents -->
+        <circle cx="16" cy="32" r="3" fill="rgba(240,192,64,0.4)"/>
+        <circle cx="154" cy="24" r="2" fill="rgba(240,192,64,0.3)"/>
+        <circle cx="12" cy="88" r="2" fill="rgba(240,192,64,0.25)"/>
+      </svg>
+    </div>
+
+    <!-- Tagline -->
+    <p class="lp-tagline">"Your Scholarship, Your Future."</p>
+
+    <!-- Trust signals -->
+    <div class="lp-trust">
+      <div class="lp-trust-item">
+        <i class="bi bi-shield-check-fill"></i>
+        Secured &amp; Private
+      </div>
+      <div class="lp-trust-item">
+        <i class="bi bi-activity"></i>
+        Real-Time Application Tracking
+      </div>
+      <div class="lp-trust-item">
+        <i class="bi bi-check-circle-fill"></i>
+        Fully Digital &mdash; No Paperwork
+      </div>
+    </div>
+
+    <!-- Badge -->
+    <div class="lp-badge">
+      AY 2025&ndash;2026 &nbsp;|&nbsp; Application Period Open
+    </div>
+
+  </div><!-- /left-panel -->
+
+  <!-- ═══════════════════════════════
+       RIGHT PANEL
+  ═══════════════════════════════ -->
+  <div class="right-panel">
+
+    <!-- Back to home -->
+    <a class="back-link" href="../index.html">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="form-wrap">
+
+      <h1 class="form-title">Welcome Back</h1>
+      <p class="form-sub">Log in to your ScholarsConnect account</p>
+
+      <!-- Error alert -->
+      <div class="error-alert" id="error-alert">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <span id="error-msg">Invalid email or password. Please try again.</span>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label class="form-label" for="inp-email">Email Address</label>
+        <input
+          class="form-input"
+          type="email"
+          id="inp-email"
+          value=""
+          placeholder="your@school.edu.ph"
+          autocomplete="email"
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <div class="form-label-row">
+          <label class="form-label" for="inp-pass">Password</label>
+          <a href="forgotpassword.html" class="forgot-link">Forgot Password?</a>
+        </div>
+        <div class="pass-wrap">
+          <input
+            class="form-input"
+            type="password"
+            id="inp-pass"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+          />
+          <button class="pass-toggle" id="toggle-pass" type="button" tabindex="-1">
+            <i class="bi bi-eye-slash" id="pass-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Remember me -->
+      <div class="remember-row">
+        <input type="checkbox" id="remember-me"/>
+        <label for="remember-me">Remember Me</label>
+      </div>
+
+      <!-- Log In button -->
+      <button class="btn-login" id="btn-login" type="button">
+        <span class="btn-text">Log In</span>
+        <div class="btn-spinner"></div>
+      </button>
+
+      <!-- Divider -->
+      <div class="divider">or</div>
+
+      <!-- Google -->
+      <button class="btn-google" id="btnGoogle" type="button">
+        <div class="google-icon"></div>
+        Continue with School Google Account
+      </button>
+
+      <!-- Register -->
+      <div class="register-link">
+        Don't have an account?
+        <a href="register.html">Register here →</a>
+      </div>
+
+      <!-- Security note -->
+      <div class="security-note">
+        <i class="bi bi-lock-fill"></i>
+        <span>
+          Your account is protected with end-to-end encryption and
+          multi-factor verification to keep your data safe at all times.
+        </span>
+      </div>
+
+    </div><!-- /form-wrap -->
+  </div><!-- /right-panel -->
+
+</div><!-- /login-wrap -->
+
+<!-- Google Account Picker -->
+<div class="google-picker-overlay" id="googlePickerOverlay">
+  <div class="google-picker" id="googlePicker">
+    <button class="gp-close" id="gpClose" type="button" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+
+    <!-- VIEW 1: account selector -->
+    <div id="gpView1">
+      <div class="gp-brand">
+        <div class="gp-g-icon"></div>
+        <span>Google</span>
+      </div>
+
+      <div class="gp-title">Sign in to continue to<br/><strong>ScholarsConnect</strong></div>
+
+      <button class="gp-account" id="gpAccount" type="button">
+        <div class="gp-av">SC</div>
+        <div class="gp-account-info">
+          <div class="gp-account-name">Student Account</div>
+          <div class="gp-account-email">your school email</div>
+        </div>
+        <i class="bi bi-check-circle-fill gp-check"></i>
+      </button>
+
+      <div class="gp-actions">
+        <button class="gp-btn-other" id="gpOther" type="button">Use another account</button>
+        <button class="gp-btn-continue" id="gpContinue" type="button">Continue</button>
+      </div>
+
+      <div class="gp-footer">
+        <a href="#">Privacy Policy</a>&nbsp;&middot;&nbsp;<a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    <!-- VIEW 2: enter any Google account -->
+    <div id="gpView2" style="display:none">
+      <button class="gp-back" id="gpBack" type="button" aria-label="Back">
+        <i class="bi bi-arrow-left"></i>
+      </button>
+
+      <div class="gp-brand">
+        <div class="gp-g-icon"></div>
+        <span>Google</span>
+      </div>
+
+      <div class="gp-title">Sign in</div>
+      <div class="gp-subtitle">Use your Google Account</div>
+
+      <div class="gp-email-group">
+        <input class="gp-email-input" type="email" id="gpEmailInput"
+          placeholder="Email or phone" autocomplete="email"/>
+        <div class="gp-email-error" id="gpEmailError">Enter a valid email address.</div>
+      </div>
+
+      <div class="gp-forget-link">
+        <a href="#">Forgot email?</a>
+      </div>
+
+      <div class="gp-actions gp-actions-v2">
+        <a class="gp-btn-create" href="register.html">Create account</a>
+        <button class="gp-btn-continue" id="gpEmailNext" type="button">Next</button>
+      </div>
+
+      <div class="gp-footer">
+        <a href="#">Privacy Policy</a>&nbsp;&middot;&nbsp;<a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div class="gp-loading" id="gpLoading">
+      <div class="gp-g-icon gp-loading-logo"></div>
+      <div class="gp-spinner"></div>
+      <div class="gp-loading-text">Signing in to ScholarsConnect&hellip;</div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="../Javascript/login.js"></script>
+
+</body>
+</html>
+

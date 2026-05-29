@@ -1,0 +1,461 @@
+/* ════════════════════════════════════════════════════════
+   ADMIN AUDIT LOGS
+   adminauditlogs.html page-specific styles.
+════════════════════════════════════════════════════════ */
+
+/* ── Header actions ── */
+.alog-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.alog-export-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--white);
+  color: var(--maroon);
+  border: 1.5px solid var(--maroon);
+  border-radius: 9px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.15s;
+}
+
+.alog-export-btn:hover {
+  background: var(--maroon);
+  color: var(--gold);
+}
+
+/* ── Stats row ── */
+.alog-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.alog-stat-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-xs);
+}
+
+.alog-stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.alog-stat-today  .alog-stat-icon { background: #EFF6FF; color: #2563EB; }
+.alog-stat-critical .alog-stat-icon { background: #FFF0F0; color: var(--maroon); }
+.alog-stat-users  .alog-stat-icon { background: #F0FDF4; color: var(--success); }
+.alog-stat-logins .alog-stat-icon { background: #FFFBEB; color: #D97706; }
+
+.alog-stat-val {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.alog-stat-lbl {
+  font-size: 11.5px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ── Toolbar ── */
+.alog-toolbar-panel {
+  padding: 14px 16px !important;
+  margin-bottom: 14px;
+}
+
+.alog-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.alog-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.alog-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.alog-search-input {
+  width: 100%;
+  padding: 9px 14px 9px 36px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  color: var(--text);
+  background: var(--page);
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.alog-search-input:focus {
+  outline: none;
+  border-color: var(--maroon);
+  background: var(--white);
+}
+
+.alog-filter-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.alog-filter-select {
+  padding: 8px 28px 8px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-family: "Roboto", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  cursor: pointer;
+  appearance: auto;
+  transition: border-color 0.15s;
+}
+
+.alog-filter-select:focus {
+  outline: none;
+  border-color: var(--maroon);
+}
+
+/* ── Table ── */
+.alog-table-wrap {
+  overflow-x: auto;
+}
+
+.alog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.alog-table thead th {
+  background: var(--page);
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.alog-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+.alog-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.alog-table tbody tr:hover {
+  background: var(--page);
+}
+
+.alog-table td {
+  padding: 12px 14px;
+  vertical-align: middle;
+}
+
+.alog-th-time { width: 120px; }
+
+/* ── Time cell ── */
+.alog-date {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.alog-clock {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: monospace;
+  margin-top: 2px;
+}
+
+/* ── Event cell ── */
+.alog-event-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.alog-event-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.alog-event-icon.security  { background: #F5F3FF; color: #7C3AED; }
+.alog-event-icon.warning   { background: #FFFBEB; color: #D97706; }
+.alog-event-icon.info      { background: #EFF6FF; color: #2563EB; }
+.alog-event-icon.rejected  { background: #FFF0F0; color: var(--maroon); }
+.alog-event-icon.login     { background: #F0FDF4; color: var(--success); }
+.alog-event-icon.logout    { background: var(--page); color: var(--muted); }
+
+.alog-event-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.alog-event-sub {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── User cell ── */
+.alog-user {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.alog-uid {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+/* ── IP cell ── */
+.alog-ip {
+  font-size: 12px;
+  background: var(--page);
+  border-radius: 6px;
+  padding: 3px 8px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+/* ── Severity badge ── */
+.alog-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.alog-badge.info     { background: #EFF6FF; color: #1D4ED8; }
+.alog-badge.warning  { background: #FFFBEB; color: #92400E; }
+.alog-badge.critical { background: #FEE2E2; color: #991B1B; }
+
+/* ── Detail button ── */
+.alog-detail-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--maroon);
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.15s;
+}
+
+.alog-detail-btn:hover {
+  background: var(--maroon);
+  color: #fff;
+  border-color: var(--maroon);
+}
+
+/* ── Table footer ── */
+.alog-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.alog-load-more {
+  background: none;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--maroon);
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.alog-load-more:hover {
+  background: var(--page);
+}
+
+/* ── Empty state ── */
+.alog-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--muted);
+}
+
+.alog-empty i {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 10px;
+  opacity: 0.4;
+}
+
+/* ── Log Detail Modal ── */
+.alog-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.alog-modal {
+  background: var(--white);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.alog-modal-hdr {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.alog-modal-eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.alog-modal-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.alog-modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 2px 6px;
+  line-height: 1;
+  border-radius: 6px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.alog-modal-close:hover {
+  background: var(--page);
+  color: var(--text);
+}
+
+.alog-modal-body {
+  padding: 20px 22px 24px;
+}
+
+.alog-detail-row {
+  display: flex;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.alog-detail-row:last-child {
+  border-bottom: none;
+}
+
+.alog-detail-lbl {
+  font-weight: 700;
+  color: var(--muted);
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.alog-detail-val {
+  color: var(--text);
+  word-break: break-all;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+
+@media (max-width: 820px) {
+  .alog-toolbar-panel { flex-direction: column; align-items: stretch; gap: 10px; }
+  .alog-search-wrap   { min-width: 0; width: 100%; }
+  .alog-filter-row    { flex-wrap: wrap; }
+  .alog-table-wrap    { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .alog-table         { min-width: 640px; }
+}
+
+@media (max-width: 640px) {
+  .alog-detail-lbl { width: auto; min-width: 0; }
+  .alog-detail-row { flex-direction: column; gap: 2px; }
+  .alog-modal-card { max-width: calc(100vw - 24px); margin: 12px; padding: 20px 16px; }
+}
+
+@media (max-width: 480px) {
+  .alog-toolbar-panel { padding: 12px; }
+  .alog-export-btn span { display: none; }
+}
+

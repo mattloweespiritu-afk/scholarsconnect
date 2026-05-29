@@ -1,0 +1,358 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<title>Dashboard – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../fonts/bootstrap-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/notification-popover.css" />
+</head>
+
+<body>
+  <button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Scholarship Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-user-card">
+      <div class="sb-av" id="sidebarAvatar"></div>
+
+      <div class="sb-user-meta">
+        <div class="sb-uname"></div>
+        <div class="sb-urole">Student</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Student navigation">
+      <div class="sb-section-label">Main</div>
+
+      <a class="sb-item active" href="dashboard.html">
+        <i class="bi bi-grid-1x2-fill"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="sb-item" href="scholarships.html">
+        <i class="bi bi-award"></i>
+        <span>Browse Scholarships</span>
+      </a>
+
+      <div class="sb-section-label">Applications</div>
+
+      <a class="sb-item" href="myapplication.html">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>My Applications</span>
+      </a>
+
+      <a class="sb-item" href="mydocuments.html">
+        <i class="bi bi-folder2-open"></i>
+        <span>My Documents</span>
+      </a>
+
+      <a class="sb-item" href="disbursement.html">
+        <i class="bi bi-cash-coin"></i>
+        <span>My Stipend</span>
+      </a>
+
+      <div class="sb-section-label">Account</div>
+
+      <a class="sb-item" href="myprofile.html">
+        <i class="bi bi-person-circle"></i>
+        <span>My Profile</span>
+      </a>
+
+      <a class="sb-item" href="notifications.html">
+        <i class="bi bi-bell"></i>
+        <span>Notifications</span>
+      </a>
+    </nav>
+
+    <button class="sb-logout" id="btnLogout" type="button">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Log Out</span>
+    </button>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <div class="top-status">
+        <span class="top-status-dot"></span>
+
+        <div>
+          <strong>AY 2025–2026</strong>
+          <span>Application period active</span>
+        </div>
+      </div>
+
+      <div class="top-search">
+        <i class="bi bi-search"></i>
+
+        <input
+          type="text"
+          id="dashboardSearch"
+          placeholder="Search scholarships, applications, documents..."
+          autocomplete="off"
+        />
+
+        <button class="search-clear" id="clearSearch" type="button" aria-label="Clear search">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="top-actions">
+        <div class="notification-menu">
+          <button
+            class="top-icon-btn notification-trigger"
+            id="notifBell"
+            type="button"
+            title="Notifications"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notif-dot" id="notifDot"></span>
+            <span class="notif-count" id="notifCount">3</span>
+          </button>
+
+          <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+            <div class="notif-pop-head">
+              <div>
+                <strong>Notifications</strong>
+                <span id="notifSubtitle">3 unread updates</span>
+              </div>
+
+              <button type="button" id="notifMarkAll">Mark all read</button>
+            </div>
+
+            <div class="notif-pop-list" id="notifPopList">
+              <!-- populated by realtime-notifications.js -->
+            </div>
+
+            <div class="notif-pop-footer">
+              <a href="notifications.html">
+                View all notifications
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="top-user" id="topUserAvatar" href="myprofile.html" title="Open profile" aria-label="Open profile">
+          <span></span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="dashboard-hero">
+        <div>
+          <p class="section-eyebrow">Scholarship Activity Center</p>
+
+          <h1 id="dashboardGreeting">Good morning!</h1>
+
+          <p>
+            Track your applications, documents, deadlines, and scholarship updates in one clear student dashboard.
+          </p>
+
+          <div class="hero-actions">
+            <a href="scholarships.html" class="btn-primary">
+              Browse Scholarships
+              <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <a href="myapplication.html" class="btn-outline">
+              View Applications
+            </a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <span class="soft-chip">Scholarship Profile</span>
+
+          <h2 id="dashNextStepTitle">Loading…</h2>
+
+          <p id="dashNextStepDesc">Fetching your application status.</p>
+
+          <div class="profile-progress">
+            <span id="dashProgressBar" style="width:0%"></span>
+          </div>
+
+          <div class="profile-checklist" id="dashProfileChecklist">
+            <!-- populated by dashboard.module.js -->
+          </div>
+        </div>
+      </section>
+
+      <section class="next-step-card">
+        <div class="next-step-main">
+          <div class="next-step-icon">
+            <i class="bi bi-megaphone-fill"></i>
+          </div>
+
+          <div>
+            <span class="section-eyebrow dark">Next Step</span>
+            <h2 id="dashHeroNextTitle">Browse available scholarships</h2>
+            <p id="dashHeroNextDesc">Check current openings and start a new application.</p>
+          </div>
+        </div>
+
+        <a href="scholarships.html" class="small-link">
+          View details
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </section>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon maroon">
+            <i class="bi bi-file-earmark-text"></i>
+          </div>
+
+          <div>
+            <span>Applications Submitted</span>
+            <strong id="dashStatApps">—</strong>
+            <p id="dashStatPendingText">—</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon green">
+            <i class="bi bi-patch-check"></i>
+          </div>
+
+          <div>
+            <span>Approved</span>
+            <strong id="dashStatApproved">—</strong>
+            <p id="dashStatApprovedText">—</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon gold">
+            <i class="bi bi-folder2-open"></i>
+          </div>
+
+          <div>
+            <span>Documents Uploaded</span>
+            <strong id="dashStatDocs">—</strong>
+            <p id="dashStatDocsText">—</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon red">
+            <i class="bi bi-calendar-event"></i>
+          </div>
+
+          <div>
+            <span>Open Scholarships</span>
+            <strong id="dashStatScholarships">—</strong>
+            <p>Available to apply</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel-card">
+          <div class="panel-head">
+            <div>
+              <h2>My Active Applications</h2>
+              <p>Latest scholarship application progress.</p>
+            </div>
+
+            <a href="myapplication.html">Manage all</a>
+          </div>
+
+          <div class="application-list" id="dashAppList">
+            <!-- populated by dashboard.module.js -->
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-head">
+            <div>
+              <h2>Recommended Scholarships</h2>
+              <p>Based on your Scholarship Passport.</p>
+            </div>
+
+            <a href="scholarships.html">Browse all</a>
+          </div>
+
+          <div class="scholarship-list" id="dashScholarshipList">
+            <!-- populated by dashboard.module.js -->
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-head">
+            <div>
+              <h2>Document Checklist</h2>
+              <p>Scholarship requirements status.</p>
+            </div>
+
+            <a href="mydocuments.html">Open vault</a>
+          </div>
+
+          <div class="document-check-list" id="dashDocList">
+            <!-- populated by dashboard.module.js -->
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-head">
+            <div>
+              <h2>Recent Activity</h2>
+              <p>Latest updates from your account.</p>
+            </div>
+
+            <a href="notifications.html">View all</a>
+          </div>
+
+          <div class="activity-list" id="dashActivityList">
+            <!-- populated by dashboard.module.js -->
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script type="module" src="../Javascript/dashboard.module.js"></script>
+  <script src="../Javascript/notification-popover.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

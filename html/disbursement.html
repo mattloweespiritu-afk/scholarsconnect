@@ -1,0 +1,396 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+  <title>My Stipend – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="../fonts/bootstrap-icons.min.css" />
+
+  <link rel="stylesheet" href="../css/disbursement.css" />
+  <link rel="stylesheet" href="../css/notification-popover.css" />
+</head>
+<body>
+
+  <button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Scholarship Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-user-card">
+      <div class="sb-av" id="sidebarAvatar"></div>
+      <div class="sb-user-meta">
+        <div class="sb-uname"></div>
+        <div class="sb-urole">Student</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Student navigation">
+      <div class="sb-section-label">Main</div>
+
+      <a class="sb-item" href="dashboard.html">
+        <i class="bi bi-grid-1x2-fill"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="sb-item" href="scholarships.html">
+        <i class="bi bi-award"></i>
+        <span>Browse Scholarships</span>
+      </a>
+
+      <div class="sb-section-label">Applications</div>
+
+      <a class="sb-item" href="myapplication.html">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>My Applications</span>
+      </a>
+
+      <a class="sb-item" href="mydocuments.html">
+        <i class="bi bi-folder2-open"></i>
+        <span>My Documents</span>
+      </a>
+
+      <a class="sb-item active" href="disbursement.html" aria-current="page">
+        <i class="bi bi-cash-coin"></i>
+        <span>My Stipend</span>
+      </a>
+
+      <div class="sb-section-label">Account</div>
+
+      <a class="sb-item" href="myprofile.html">
+        <i class="bi bi-person-circle"></i>
+        <span>My Profile</span>
+      </a>
+
+      <a class="sb-item" href="notifications.html">
+        <i class="bi bi-bell"></i>
+        <span>Notifications</span>
+      </a>
+    </nav>
+
+    <button class="sb-logout" id="btnLogout" type="button">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Log Out</span>
+    </button>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrap">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="top-status">
+        <span class="top-status-dot"></span>
+        <div>
+          <strong>AY 2025–2026</strong>
+          <span>Stipend tracking active</span>
+        </div>
+      </div>
+
+      <div class="top-search">
+        <i class="bi bi-search"></i>
+        <input
+          type="text"
+          id="disbSearch"
+          placeholder="Search disbursements, receipts, reference no."
+          autocomplete="off"
+        />
+        <button class="search-clear" id="clearSearch" type="button" aria-label="Clear search">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="top-actions">
+        <div class="notification-menu">
+          <button
+            class="top-icon-btn notification-trigger"
+            id="notifBell"
+            type="button"
+            title="Notifications"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notif-dot" id="notifDot"></span>
+            <span class="notif-count" id="notifCount">3</span>
+          </button>
+
+          <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+            <div class="notif-pop-head">
+              <div>
+                <strong>Notifications</strong>
+                <span id="notifSubtitle">3 unread updates</span>
+              </div>
+              <button type="button" id="notifMarkAll">Mark all read</button>
+            </div>
+
+            <div class="notif-pop-list" id="notifPopList"></div>
+
+            <div class="notif-pop-footer">
+              <a href="notifications.html">
+                View all notifications
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="top-user" id="topUserAvatar" href="myprofile.html" title="Open profile" aria-label="Open profile">
+          <span></span>
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="mainContent">
+
+      <!-- LOCKED STATE (visible by default; JS hides it when scholarship is approved) -->
+      <div class="locked-state show" id="lockedState">
+        <div class="locked-icon">
+          <i class="bi bi-lock-fill"></i>
+        </div>
+        <h2>Stipend Tracking Unavailable</h2>
+        <p>Stipend tracking becomes available after your scholarship application is approved. Once approved, you will see your disbursement schedule and receipt history here.</p>
+        <a href="myapplication.html" class="btn-primary">
+          <i class="bi bi-file-earmark-text"></i>
+          View Applications
+        </a>
+      </div>
+
+      <!-- APPROVED SCHOLAR CONTENT -->
+      <div id="stipendContent" style="display:none">
+
+        <!-- Page Header -->
+        <div class="page-header">
+          <p class="page-eyebrow">Scholarship Benefits</p>
+          <h1>Stipend &amp; Disbursements</h1>
+          <p>Track your scholarship stipend releases, upcoming disbursements, and official receipts.</p>
+        </div>
+
+        <!-- Stipend Hero Card -->
+        <div class="stipend-hero">
+          <div class="hero-info">
+            <p class="section-eyebrow">Active Scholarship</p>
+            <div class="hero-title" id="heroTitle">—</div>
+            <div class="hero-meta" id="heroMeta">—</div>
+            <div class="hero-badge">
+              <i class="bi bi-check-circle-fill"></i>
+              Active Scholar
+            </div>
+          </div>
+          <div class="hero-amount">
+            <div class="hero-amount-val" id="heroAmount">—</div>
+            <div class="hero-amount-lbl">Monthly Stipend</div>
+          </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-icon green">
+              <i class="bi bi-check2-circle"></i>
+            </div>
+            <div>
+              <span>Total Released</span>
+              <strong id="statTotalReleased">—</strong>
+              <p>Across all completed releases</p>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon gold">
+              <i class="bi bi-calendar-event"></i>
+            </div>
+            <div>
+              <span>Next Release</span>
+              <strong style="font-size:17px" id="statNextRelease">—</strong>
+              <p id="statNextAmt">—</p>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon maroon">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <div>
+              <span>Remaining (Est.)</span>
+              <strong id="statRemaining">—</strong>
+              <p id="statRemainingDetail">—</p>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon red">
+              <i class="bi bi-receipt"></i>
+            </div>
+            <div>
+              <span>Completed</span>
+              <strong id="statCompleted">0</strong>
+              <p>Disbursements released</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next Disbursement Banner -->
+        <div class="next-banner" id="nextBanner">
+          <div class="nb-icon">
+            <i class="bi bi-bell-fill"></i>
+          </div>
+          <div>
+            <div class="nb-label">Next Disbursement</div>
+            <div class="nb-date" id="nbDate">—</div>
+          </div>
+          <div class="nb-amount" id="nbAmount">—</div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-card">
+          <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-filter="all">
+              All Disbursements <span id="cnt-all">0</span>
+            </button>
+            <button class="filter-tab" data-filter="released">
+              Released <span id="cnt-released">0</span>
+            </button>
+            <button class="filter-tab" data-filter="scheduled">
+              Scheduled <span id="cnt-scheduled">0</span>
+            </button>
+            <button class="filter-tab" data-filter="pending">
+              Pending <span id="cnt-pending">0</span>
+            </button>
+          </div>
+          <div class="result-count" id="resultCount">
+            Showing <strong id="visibleCount">0</strong> of <strong>0</strong>
+          </div>
+        </div>
+
+        <!-- Disbursement Table -->
+        <div class="table-wrap">
+          <div class="table-scroll">
+            <table class="disb-table">
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Reference</th>
+                  <th>Date Released</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Receipt</th>
+                </tr>
+              </thead>
+              <tbody id="disbTbody">
+                <!-- populated by disbursement.js via Firestore -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="disb-empty" id="disbEmpty" style="display:none">
+          <i class="bi bi-inbox"></i>
+          <p>No disbursements match the current filter.</p>
+        </div>
+
+      </div><!-- /#stipendContent -->
+
+    </main>
+  </div><!-- /.main-wrap -->
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <!-- STUDENT RECEIPT MODAL -->
+  <div class="rcpt-backdrop" id="rcptBackdrop" role="dialog" aria-modal="true" aria-labelledby="rcptTitle">
+    <div class="rcpt-card">
+      <div class="rcpt-hdr">
+        <div class="rcpt-logo-wrap">
+          <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect" />
+        </div>
+        <div class="rcpt-org">
+          <div class="rcpt-org-name">ScholarsConnect</div>
+          <div class="rcpt-org-sub">Scholarship Management Portal</div>
+        </div>
+        <button class="rcpt-close-btn" id="rcptClose" type="button" aria-label="Close receipt">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="rcpt-title-strip">
+        <h2 id="rcptTitle">OFFICIAL DISBURSEMENT RECEIPT</h2>
+        <span class="rcpt-released-stamp"><i class="bi bi-check-circle-fill"></i> RELEASED</span>
+      </div>
+
+      <div class="rcpt-fields">
+        <div class="rcpt-field">
+          <span class="rcpt-label">Reference No.</span>
+          <span class="rcpt-val rcpt-mono" id="rcptRef">—</span>
+        </div>
+        <div class="rcpt-field">
+          <span class="rcpt-label">Release Date</span>
+          <span class="rcpt-val" id="rcptDate">—</span>
+        </div>
+        <div class="rcpt-field">
+          <span class="rcpt-label">Scholar Name</span>
+          <span class="rcpt-val" id="rcptName">—</span>
+        </div>
+        <div class="rcpt-field">
+          <span class="rcpt-label">Scholarship</span>
+          <span class="rcpt-val" id="rcptScholarship">—</span>
+        </div>
+        <div class="rcpt-field">
+          <span class="rcpt-label">Period</span>
+          <span class="rcpt-val" id="rcptPeriod">—</span>
+        </div>
+        <div class="rcpt-field">
+          <span class="rcpt-label">Semester</span>
+          <span class="rcpt-val" id="rcptSem">—</span>
+        </div>
+      </div>
+
+      <div class="rcpt-amount-box">
+        <div class="rcpt-amount-label">STIPEND AMOUNT RELEASED</div>
+        <div class="rcpt-amount-val" id="rcptAmount">—</div>
+      </div>
+
+      <div class="rcpt-footer-note">
+        <p>This is an official acknowledgment of stipend disbursement issued by ScholarsConnect.</p>
+        <p>Generated: <span id="rcptGeneratedOn">—</span></p>
+      </div>
+
+      <div class="rcpt-btns no-print">
+        <button class="rcpt-print-btn" id="rcptPrint" type="button">
+          <i class="bi bi-printer-fill"></i> Print Receipt
+        </button>
+        <button class="rcpt-cancel-btn" id="rcptCancelBtn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../Javascript/disbursement.js"></script>
+  <script src="../Javascript/notification-popover.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+
+</body>
+</html>
+

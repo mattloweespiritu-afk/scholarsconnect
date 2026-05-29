@@ -1,0 +1,644 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<title>Apply for Scholarship – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../fonts/bootstrap-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/application.css" />
+  <link rel="stylesheet" href="../css/notification-popover.css" />
+</head>
+
+<body>
+  <button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Scholarship Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-user-card">
+      <div class="sb-av" id="sidebarAvatar"></div>
+
+      <div class="sb-user-meta">
+        <div class="sb-uname"></div>
+        <div class="sb-urole">Student</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Student navigation">
+      <div class="sb-section-label">Main</div>
+
+      <a class="sb-item" href="dashboard.html">
+        <i class="bi bi-grid-1x2-fill"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="sb-item" href="scholarships.html">
+        <i class="bi bi-award"></i>
+        <span>Browse Scholarships</span>
+      </a>
+
+      <div class="sb-section-label">Applications</div>
+
+      <a class="sb-item active" href="myapplication.html">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>My Applications</span>
+      </a>
+
+      <a class="sb-item" href="mydocuments.html">
+        <i class="bi bi-folder2-open"></i>
+        <span>My Documents</span>
+      </a>
+
+      <a class="sb-item" href="disbursement.html">
+        <i class="bi bi-cash-coin"></i>
+        <span>My Stipend</span>
+      </a>
+
+      <div class="sb-section-label">Account</div>
+
+      <a class="sb-item" href="myprofile.html">
+        <i class="bi bi-person-circle"></i>
+        <span>My Profile</span>
+      </a>
+
+      <a class="sb-item" href="notifications.html">
+        <i class="bi bi-bell"></i>
+        <span>Notifications</span>
+      </a>
+    </nav>
+
+    <button class="sb-logout" id="btnLogout" type="button">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Log Out</span>
+    </button>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrap">
+    <!-- MINIMAL TOPBAR -->
+    <header class="topbar">
+      <div class="top-status">
+        <span class="top-status-dot"></span>
+
+        <div>
+          <strong>AY 2025–2026</strong>
+          <span>Application period open</span>
+        </div>
+      </div>
+
+      <div class="top-draft">
+        <i class="bi bi-cloud-check"></i>
+        <span id="draftStatus">Draft ready</span>
+      </div>
+
+      <div class="top-actions">
+        <div class="notification-menu">
+          <button
+            class="top-icon-btn notification-trigger"
+            id="notifBell"
+            type="button"
+            title="Notifications"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notif-dot" id="notifDot"></span>
+            <span class="notif-count" id="notifCount">3</span>
+          </button>
+
+          <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+            <div class="notif-pop-head">
+              <div>
+                <strong>Notifications</strong>
+                <span id="notifSubtitle">3 unread updates</span>
+              </div>
+
+              <button type="button" id="notifMarkAll">Mark all read</button>
+            </div>
+
+            <div class="notif-pop-list" id="notifPopList"></div>
+
+            <div class="notif-pop-footer">
+              <a href="notifications.html">
+                View all notifications
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="top-user" href="myprofile.html" id="topUserAvatar" title="Open profile" aria-label="Open profile">
+          <span></span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- HERO -->
+      <section class="application-hero">
+        <div>
+          <a href="scholarships.html" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            Back to Scholarships
+          </a>
+
+          <p class="section-eyebrow">Scholarship Application</p>
+
+          <h1>New Scholarship Application</h1>
+
+          <p>
+            Complete the 4-step application process. Your information is auto-filled from
+            your Scholarship Passport and can still be reviewed before submission.
+          </p>
+        </div>
+
+        <div class="passport-card">
+          <span class="soft-chip">Scholarship Passport</span>
+
+          <h2>86% Complete</h2>
+
+          <p>
+            Your personal and academic details are already prepared. Upload missing
+            scholarship-specific requirements before submission.
+          </p>
+
+          <div class="passport-progress">
+            <div class="passport-fill" style="width: 86%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP INDICATOR -->
+      <section class="step-card" id="stepBar">
+        <div class="step-item active" data-step-indicator="1">
+          <div class="step-circle">1</div>
+          <span>Choose Scholarship</span>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step-item" data-step-indicator="2">
+          <div class="step-circle">2</div>
+          <span>Your Details</span>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step-item" data-step-indicator="3">
+          <div class="step-circle">3</div>
+          <span>Documents</span>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step-item" data-step-indicator="4">
+          <div class="step-circle">4</div>
+          <span>Review & Submit</span>
+        </div>
+      </section>
+
+      <!-- STEP 1 -->
+      <section class="step-panel active" id="panel-1">
+        <article class="form-card">
+          <div class="form-card-head">
+            <div>
+              <h2>
+                <i class="bi bi-award-fill"></i>
+                Select a Scholarship Program
+              </h2>
+              <p>Choose the scholarship you want to apply for.</p>
+            </div>
+          </div>
+
+          <div class="scholarship-select-grid" id="scholarship-grid">
+            <div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa">
+              <i class="bi bi-hourglass-split" style="font-size:1.5rem;display:block;margin-bottom:8px"></i>
+              Loading scholarships…
+            </div>
+          </div>
+
+          <div class="step-error" id="errorStep1">
+            <i class="bi bi-exclamation-circle-fill"></i>
+            Please select a scholarship program to continue.
+          </div>
+
+          <div class="step-warning" id="dupActiveWarning">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            You already have an active application for <strong id="dupActiveScholarshipName"></strong>.
+            Please check <a href="myapplication.html" style="color:inherit;text-decoration:underline">My Applications</a> or choose a different scholarship.
+          </div>
+        </article>
+
+        <div class="step-nav">
+          <span></span>
+
+          <button class="btn-primary" type="button" data-next="1">
+            Next: Your Details
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="step-panel" id="panel-2">
+        <article class="info-banner">
+          <i class="bi bi-person-badge-fill"></i>
+
+          <div>
+            <strong>Auto-filled from Scholarship Passport</strong>
+            <p>Review your details carefully. You can edit fields here before submitting this application.</p>
+          </div>
+        </article>
+
+        <article class="form-card">
+          <div class="form-card-head">
+            <div>
+              <h2>
+                <i class="bi bi-person-fill"></i>
+                Personal Information
+              </h2>
+              <p>Basic applicant information used for verification.</p>
+            </div>
+          </div>
+
+          <div class="form-grid two">
+            <div class="form-group">
+              <label for="fName">Full Name <span>*</span></label>
+              <input id="fName" type="text" value="" aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="fDob">Date of Birth <span>*</span></label>
+              <input id="fDob" type="date" value="" aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="fEmail">Email Address <span>*</span></label>
+              <input id="fEmail" type="email" value="" aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="fMobile">Mobile Number <span>*</span></label>
+              <input id="fMobile" type="tel" value="" aria-required="true" />
+            </div>
+
+            <div class="form-group full">
+              <label for="fAddress">Home Address <span>*</span></label>
+              <input id="fAddress" type="text" value="" aria-required="true" />
+            </div>
+          </div>
+        </article>
+
+        <article class="form-card">
+          <div class="form-card-head">
+            <div>
+              <h2>
+                <i class="bi bi-mortarboard-fill"></i>
+                Academic Information
+              </h2>
+              <p>Your academic background is used for matching and eligibility checking.</p>
+            </div>
+          </div>
+
+          <div class="form-grid two">
+            <div class="form-group">
+              <label for="fStudentId">Student ID <span>*</span></label>
+              <input id="fStudentId" type="text" value="" aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="fCourse">Program / Course <span>*</span></label>
+              <input id="fCourse" type="text" value="" aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="fYear">Year Level <span>*</span></label>
+              <select id="fYear" aria-required="true">
+                <option value="" disabled selected>Select year level</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+                <option value="5th Year">5th Year</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="fGwa">Current GWA <span>*</span></label>
+              <input id="fGwa" type="number" value="" min="75" max="100" step="0.01" aria-required="true" />
+              <small>Use the latest semester weighted average on a 75–100 scale.</small>
+            </div>
+
+            <div class="form-group full">
+              <label for="fAwards">Academic Awards / Honors</label>
+              <textarea id="fAwards"></textarea>
+            </div>
+          </div>
+        </article>
+
+        <article class="form-card">
+          <div class="form-card-head">
+            <div>
+              <h2>
+                <i class="bi bi-house-fill"></i>
+                Financial Background
+              </h2>
+              <p>Needed for income-based and subsidy scholarship programs.</p>
+            </div>
+          </div>
+
+          <div class="form-grid two">
+            <div class="form-group">
+              <label for="fIncome">Annual Family Income <span>*</span></label>
+              <select id="fIncome" aria-required="true">
+                <option value="">Select range</option>
+                <option value="Below &#8369;50,000">Below &#8369;50,000</option>
+                <option value="&#8369;50,000 – &#8369;120,000">&#8369;50,000 – &#8369;120,000</option>
+                <option value="&#8369;120,000 – &#8369;250,000">&#8369;120,000 – &#8369;250,000</option>
+                <option value="&#8369;250,000 – &#8369;500,000">&#8369;250,000 – &#8369;500,000</option>
+                <option value="Above &#8369;500,000">Above &#8369;500,000</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="fDependents">Number of Dependents <span>*</span></label>
+              <input id="fDependents" type="number" value="" min="0" max="20" aria-required="true" />
+            </div>
+
+            <div class="form-group full">
+              <label for="fEssay">Why are you applying for this scholarship?</label>
+              <textarea id="fEssay"></textarea>
+            </div>
+          </div>
+
+          <div class="step-error" id="errorStep2">
+            <i class="bi bi-exclamation-circle-fill"></i>
+            Please complete all required fields before continuing.
+          </div>
+        </article>
+
+        <div class="step-nav">
+          <button class="btn-light" type="button" data-back="2">
+            <i class="bi bi-arrow-left"></i>
+            Back
+          </button>
+
+          <button class="btn-primary" type="button" data-next="2">
+            Next: Documents
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="step-panel" id="panel-3">
+        <article class="form-card">
+          <div class="form-card-head">
+            <div>
+              <h2>
+                <i class="bi bi-folder2-open"></i>
+                Document Checklist
+              </h2>
+              <p>Upload or verify requirements needed for your selected scholarship.</p>
+            </div>
+          </div>
+
+          <div class="info-banner compact">
+            <i class="bi bi-info-circle-fill"></i>
+
+            <div>
+              <strong>Accepted formats: PDF, JPG, PNG</strong>
+              <p>Maximum file size is 5 MB per document. Use clear and readable scans or photos.</p>
+            </div>
+          </div>
+
+          <div class="doc-summary">
+            <div>
+              <strong id="docSummaryText">4 of 6 documents ready</strong>
+              <span id="docSummaryNote">Upload missing requirements to continue.</span>
+            </div>
+
+            <div class="doc-summary-bar">
+              <span id="docSummaryFill"></span>
+            </div>
+          </div>
+
+          <div class="doc-list" id="docList"></div>
+
+          <div class="step-error" id="errorStep3">
+            <i class="bi bi-exclamation-circle-fill"></i>
+            Please upload all required documents before review and submission.
+          </div>
+        </article>
+
+        <div class="step-nav">
+          <button class="btn-light" type="button" data-back="3">
+            <i class="bi bi-arrow-left"></i>
+            Back
+          </button>
+
+          <button class="btn-primary" type="button" data-next="3">
+            Next: Review & Submit
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="step-panel" id="panel-4">
+        <article class="form-card">
+          <div class="form-card-head">
+            <div>
+              <h2>
+                <i class="bi bi-clipboard2-check-fill"></i>
+                Review Your Application
+              </h2>
+              <p>Check all details before final submission.</p>
+            </div>
+          </div>
+
+          <div class="review-scholarship-card">
+            <div class="review-scholarship-icon">
+              <i class="bi bi-award-fill"></i>
+            </div>
+
+            <div>
+              <strong id="reviewScholarshipName">Selected Scholarship</strong>
+              <span id="reviewScholarshipMeta">Scholarship details</span>
+            </div>
+          </div>
+
+          <div class="review-grid">
+            <div class="review-block">
+              <h3>Personal Information</h3>
+
+              <div class="review-row">
+                <span>Full Name</span>
+                <strong id="reviewName">—</strong>
+              </div>
+
+              <div class="review-row">
+                <span>Student ID</span>
+                <strong id="reviewStudentId">—</strong>
+              </div>
+
+              <div class="review-row">
+                <span>Email</span>
+                <strong id="reviewEmail">—</strong>
+              </div>
+
+              <div class="review-row">
+                <span>Mobile</span>
+                <strong id="reviewMobile">—</strong>
+              </div>
+            </div>
+
+            <div class="review-block">
+              <h3>Academic Information</h3>
+
+              <div class="review-row">
+                <span>Course</span>
+                <strong id="reviewCourse">—</strong>
+              </div>
+
+              <div class="review-row">
+                <span>Year Level</span>
+                <strong id="reviewYear">—</strong>
+              </div>
+
+              <div class="review-row">
+                <span>Current GWA</span>
+                <strong id="reviewGwa">—</strong>
+              </div>
+
+              <div class="review-row">
+                <span>Family Income</span>
+                <strong id="reviewIncome">—</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-block review-documents">
+            <h3>Documents</h3>
+            <div id="reviewDocs"></div>
+          </div>
+
+          <div class="declaration-box">
+            <p>
+              I hereby certify that all information provided in this application is true,
+              accurate, and complete to the best of my knowledge. I understand that any
+              misrepresentation or false information may result in disqualification or
+              revocation of any scholarship awarded. I consent to the processing of my
+              personal data for scholarship evaluation purposes in accordance with the
+              Data Privacy Act of 2012.
+            </p>
+
+            <label>
+              <input type="checkbox" id="declarationCheck" />
+              <span>I have read and agree to the declaration. I confirm all submitted documents are authentic.</span>
+            </label>
+          </div>
+        </article>
+
+        <div class="step-nav">
+          <button class="btn-light" type="button" data-back="4">
+            <i class="bi bi-arrow-left"></i>
+            Back
+          </button>
+
+          <button class="btn-submit" type="button" id="submitBtn" disabled>
+            <i class="bi bi-send-fill"></i>
+            Submit Application
+          </button>
+        </div>
+      </section>
+
+      <!-- SUCCESS SCREEN -->
+      <section class="success-screen" id="successScreen">
+        <div class="success-icon">
+          <i class="bi bi-check-circle-fill"></i>
+        </div>
+
+        <h2>Application Submitted</h2>
+
+        <p>
+          Your scholarship application has been successfully submitted and is now under
+          initial review. You will receive a notification once your application status changes.
+        </p>
+
+        <div class="success-ref" id="successRef">SC-2026-0512-004</div>
+
+        <div class="success-actions">
+          <a href="myapplication.html" class="btn-primary">
+            View My Applications
+            <i class="bi bi-arrow-right"></i>
+          </a>
+
+          <a href="scholarships.html" class="btn-light">
+            Browse More Scholarships
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- DUPLICATE APPLICATION MODAL -->
+  <div class="modal-overlay" id="dupModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="dupModalTitle">
+    <div class="dup-modal-card">
+      <div class="dup-modal-icon">
+        <i class="bi bi-copy"></i>
+      </div>
+      <h2 id="dupModalTitle">Duplicate Application</h2>
+      <p id="dupModalMsg">You already have an active application for this scholarship.</p>
+      <div class="dup-modal-actions">
+        <a href="myapplication.html" class="btn-primary">
+          <i class="bi bi-arrow-right"></i>
+          View My Applications
+        </a>
+        <button class="btn-light" id="dupModalClose" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script type="module" src="../Javascript/application.js"></script>
+  <script src="../Javascript/notification-popover.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,577 @@
+/* ════════════════════════════════════════════════════════
+   ADMIN SYSTEM SETTINGS
+   adminsettings.html page-specific styles.
+════════════════════════════════════════════════════════ */
+
+/* ── Unsaved pill ── */
+.stg-unsaved-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF8E7;
+  border: 1px solid #EDCF67;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #92400E;
+}
+
+.stg-unsaved-pill i {
+  font-size: 8px;
+  color: #D97706;
+}
+
+/* ── Tabs ── */
+.stg-tabs-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.stg-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.stg-tab:hover {
+  border-color: var(--maroon);
+  color: var(--maroon);
+}
+
+.stg-tab.active {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: #fff;
+}
+
+.stg-tab i {
+  font-size: 14px;
+}
+
+/* ── Panel (tab content) ── */
+.stg-panel {
+  display: none;
+}
+
+.stg-panel.active {
+  display: block;
+}
+
+/* ── Settings section ── */
+.stg-section {
+  padding: 0 !important;
+  margin-bottom: 16px;
+  overflow: visible !important;
+}
+
+.stg-section-hdr {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stg-section-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #FFF0F0;
+  color: var(--maroon);
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.stg-icon-red {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.stg-section-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.stg-section-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.stg-body {
+  padding: 18px 20px 20px;
+}
+
+/* ── Form elements ── */
+.stg-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.stg-mt {
+  margin-top: 16px;
+}
+
+.stg-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stg-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stg-input {
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stg-input:focus {
+  outline: none;
+  border-color: var(--maroon);
+}
+
+.stg-input-sm {
+  max-width: 120px;
+}
+
+.stg-select {
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stg-select:focus {
+  outline: none;
+  border-color: var(--maroon);
+}
+
+.stg-input-hint {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── Current AY indicator ── */
+.stg-current-ay {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: var(--muted);
+  padding: 9px 12px;
+  background: var(--page);
+  border-radius: 8px;
+}
+
+.stg-current-ay i {
+  color: var(--success);
+}
+
+/* ── Toggle switch ── */
+.stg-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.stg-toggle input {
+  display: none;
+}
+
+.stg-toggle-track {
+  width: 40px;
+  height: 22px;
+  background: var(--border);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.stg-toggle input:checked + .stg-toggle-track {
+  background: var(--success);
+}
+
+.stg-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+
+.stg-toggle input:checked + .stg-toggle-track .stg-toggle-thumb {
+  left: 21px;
+}
+
+.stg-toggle-state {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 32px;
+}
+
+/* ── Toggle row ── */
+.stg-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 0;
+}
+
+.stg-toggle-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stg-toggle-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* ── Scholarship categories ── */
+.stg-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.stg-category-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stg-category-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stg-cat-name {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.stg-cat-actions {
+  flex-shrink: 0;
+}
+
+.stg-cat-toggle {
+  background: var(--page);
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.15s;
+}
+
+.stg-cat-toggle.active {
+  background: #D1E7DD;
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.stg-cat-toggle.active:hover {
+  background: var(--success);
+  color: #fff;
+}
+
+/* ── Document checklist ── */
+.stg-doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.stg-doc-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stg-doc-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stg-checkbox-wrap {
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.stg-checkbox-wrap input {
+  display: none;
+}
+
+.stg-checkmark {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid var(--border);
+  background: var(--white);
+  transition: all 0.15s;
+}
+
+.stg-checkbox-wrap input:checked + .stg-checkmark {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.stg-doc-info {
+  flex: 1;
+}
+
+.stg-doc-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.stg-doc-note {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.stg-doc-req-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.stg-doc-req-badge.required {
+  background: #FFF0F0;
+  color: var(--maroon);
+}
+
+.stg-doc-req-badge.optional {
+  background: var(--page);
+  color: var(--muted);
+}
+
+/* ── Notification items ── */
+.stg-notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.stg-notif-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stg-notif-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stg-notif-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stg-notif-note {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── TOH badge ── */
+.stg-toh-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #166534;
+  margin-bottom: 4px;
+}
+
+.stg-toh-badge i {
+  font-size: 18px;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+/* ── Danger zone ── */
+.stg-danger-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stg-danger-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1.5px solid #FECACA;
+  border-radius: 10px;
+  background: #FFF5F5;
+}
+
+.stg-danger-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7F1D1D;
+}
+
+.stg-danger-note {
+  font-size: 12px;
+  color: #991B1B;
+  opacity: 0.75;
+  margin-top: 3px;
+}
+
+.stg-danger-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1.5px solid #FECACA;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #991B1B;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.stg-danger-btn:hover {
+  background: #991B1B;
+  color: #fff;
+  border-color: #991B1B;
+}
+
+/* ── Save row ── */
+.stg-save-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.stg-save-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--maroon);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 10px 22px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: background 0.15s;
+}
+
+.stg-save-btn:hover {
+  background: #4B1414;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+
+@media (max-width: 820px) {
+  .stg-tabs-row   { flex-wrap: wrap; gap: 6px; }
+  .stg-form-row   { grid-template-columns: 1fr !important; }
+  .stg-section    { padding: 20px 18px; }
+}
+
+@media (max-width: 640px) {
+  .stg-panel      { padding: 18px 14px; }
+  .stg-input-sm   { max-width: 100%; width: 100%; }
+  .stg-inline-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .stg-tab-btn    { padding: 8px 14px; font-size: 13px; }
+  .stg-save-btn   { width: 100%; }
+}
+

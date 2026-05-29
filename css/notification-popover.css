@@ -1,0 +1,292 @@
+/* ============================================================
+   ScholarsConnect — Notification Popover
+   Reusable floating inbox panel for all student portal pages.
+   Load AFTER each page's main CSS file.
+============================================================ */
+
+/* ── Anchor wrapper (makes popover position relative to bell) ── */
+.notification-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Count badge (number bubble on bell) ── */
+.notif-count {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 999px;
+  background: var(--red, #C0392B);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  line-height: 1;
+  pointer-events: none;
+  border: 2px solid var(--white, #fff);
+  z-index: 1;
+}
+.notif-count.hidden { display: none; }
+
+/* ── Floating popover panel ── */
+.notification-popover {
+  display: none;                     /* hidden by default — no GPU work until shown */
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 358px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.13),
+    0 2px 8px  rgba(0, 0, 0, 0.07);
+  border: 1px solid #E8E8E8;
+  z-index: 99999;
+  overflow: hidden;
+  /* animation lives only on .show — never on the hidden element */
+}
+
+.notification-popover.show {
+  display: flex;
+  animation: notifPopIn 0.18s ease;
+}
+
+/* scale() removed — translateY + opacity only (avoids Edge GPU crash) */
+@keyframes notifPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Popover header ── */
+.notif-pop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 16px 11px;
+  border-bottom: 1px solid #F0F0F0;
+  background: #FAFAFA;
+  flex-shrink: 0;
+}
+
+.notif-pop-head > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.notif-pop-head strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1C1C1C;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+}
+
+#notifSubtitle {
+  font-size: 11px;
+  color: #999;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+}
+
+#notifMarkAll {
+  background: none;
+  border: 1.5px solid #E2E2E2;
+  border-radius: 7px;
+  padding: 5px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #5D1A1A;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.14s, color 0.14s, border-color 0.14s;
+  font-family: 'Roboto', sans-serif;
+  flex-shrink: 0;
+}
+
+#notifMarkAll:hover {
+  background: #5D1A1A;
+  color: #fff;
+  border-color: #5D1A1A;
+}
+
+/* ── Scrollable notification list ── */
+.notif-pop-list {
+  overflow-y: auto;
+  max-height: 282px;
+  overscroll-behavior: contain;
+}
+
+.notif-pop-list::-webkit-scrollbar {
+  width: 4px;
+}
+.notif-pop-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.notif-pop-list::-webkit-scrollbar-thumb {
+  background: #DCDCDC;
+  border-radius: 999px;
+}
+
+/* ── Single notification item ── */
+.notif-pop-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 11px 16px 11px 20px;      /* left padding accommodates unread dot */
+  text-decoration: none;
+  border-bottom: 1px solid #F5F5F5;
+  transition: background 0.12s;
+  position: relative;
+  cursor: pointer;
+}
+.notif-pop-item:last-child {
+  border-bottom: none;
+}
+.notif-pop-item:hover {
+  background: #FEF4F2;
+}
+.notif-pop-item.unread {
+  background: #FFFBF9;
+}
+.notif-pop-item.unread:hover {
+  background: #FEF4F2;
+}
+
+/* Left-edge unread indicator */
+.notif-mini-dot {
+  position: absolute;
+  top: 50%;
+  left: 7px;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red, #C0392B);
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* ── Icon circle ── */
+.notif-mini-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.notif-mini-icon.document    { background: #FFF8E1; color: #B8860B; }
+.notif-mini-icon.deadline    { background: #FADBD8; color: #C0392B; }
+.notif-mini-icon.application { background: #D1F0E0; color: #1A7A45; }
+.notif-mini-icon.scholarship { background: #EDE7F6; color: #5E35B1; }
+.notif-mini-icon.rejected    { background: #FADBD8; color: #C0392B; }
+
+/* ── Body text ── */
+.notif-mini-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.notif-mini-body > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.notif-mini-body > div strong {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1A1A1A;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.notif-mini-body time {
+  font-size: 10.5px;
+  color: #ABABAB;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.notif-mini-body p {
+  font-size: 12px;
+  color: #606060;
+  line-height: 1.45;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Footer: view all link ── */
+.notif-pop-footer {
+  padding: 10px 16px;
+  border-top: 1px solid #F0F0F0;
+  background: #FAFAFA;
+  flex-shrink: 0;
+}
+
+.notif-pop-footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #C0392B;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  transition: color 0.14s;
+}
+.notif-pop-footer a:hover {
+  color: #922B21;
+  text-decoration: underline;
+}
+.notif-pop-footer a i {
+  font-size: 12px;
+  transition: transform 0.14s;
+}
+.notif-pop-footer a:hover i {
+  transform: translateX(3px);
+}
+
+/* ── Mobile: full-width panel pinned below topbar ── */
+@media (max-width: 600px) {
+  .notification-popover {
+    position: fixed;
+    top: 58px;
+    left: 14px;
+    right: 14px;
+    width: auto;
+  }
+}
+

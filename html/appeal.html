@@ -1,0 +1,212 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<title>Application Appeal – ScholarsConnect</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" media="print" onload="this.media='all'" />
+<link rel="stylesheet" href="../fonts/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="../css/appeal.css"/>
+<link rel="stylesheet" href="../css/notification-popover.css"/>
+</head>
+<body>
+
+<button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+  <i class="bi bi-list"></i>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+    <div>
+      <div class="sb-logo-name">ScholarsConnect</div>
+      <div class="sb-logo-sub">Scholarship Portal</div>
+    </div>
+  </div>
+  <div class="sb-user-card">
+    <div class="sb-av" id="sidebarAvatar"></div>
+    <div class="sb-user-meta">
+      <div class="sb-uname"></div>
+      <div class="sb-urole">Student</div>
+    </div>
+  </div>
+  <nav class="sb-nav" aria-label="Student navigation">
+    <div class="sb-section-label">Main</div>
+    <a class="sb-item" href="dashboard.html"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+    <a class="sb-item" href="scholarships.html"><i class="bi bi-award"></i><span>Browse Scholarships</span></a>
+    <div class="sb-section-label">Applications</div>
+    <a class="sb-item active" href="myapplication.html" aria-current="page"><i class="bi bi-file-earmark-text"></i><span>My Applications</span></a>
+    <a class="sb-item" href="mydocuments.html"><i class="bi bi-folder2-open"></i><span>My Documents</span></a>
+    <a class="sb-item" href="disbursement.html"><i class="bi bi-cash-coin"></i><span>My Stipend</span></a>
+    <div class="sb-section-label">Account</div>
+    <a class="sb-item" href="myprofile.html"><i class="bi bi-person-circle"></i><span>My Profile</span></a>
+    <a class="sb-item" href="notifications.html"><i class="bi bi-bell"></i><span>Notifications</span></a>
+  </nav>
+  <button class="sb-logout" id="btnLogout" type="button">
+    <i class="bi bi-box-arrow-left"></i><span>Log Out</span>
+  </button>
+</aside>
+
+<div class="main-wrap">
+  <header class="topbar">
+    <div class="tb-left">
+      <div class="tb-page-icon"><i class="bi bi-reply-all-fill"></i></div>
+      <div class="tb-page-label">Application Appeal</div>
+    </div>
+    <div class="tb-right">
+      <div class="notification-menu">
+        <button class="tb-icon-btn notification-trigger" id="notifBell" type="button"
+          title="Notifications" aria-haspopup="dialog" aria-expanded="false">
+          <i class="bi bi-bell"></i>
+          <span class="notif-dot" id="notifDot"></span>
+          <span class="notif-count" id="notifCount">3</span>
+        </button>
+        <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+          <div class="notif-pop-head">
+            <div>
+              <strong>Notifications</strong>
+              <span id="notifSubtitle">3 unread updates</span>
+            </div>
+            <button type="button" id="notifMarkAll">Mark all read</button>
+          </div>
+          <div class="notif-pop-list" id="notifPopList"></div>
+          <div class="notif-pop-footer">
+            <a href="notifications.html">View all notifications <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="tb-divider"></div>
+      <a class="tb-user" href="myprofile.html" title="Open profile">
+        <div class="tb-user-av"></div>
+        <div>
+          <div class="tb-user-name"></div>
+          <div class="tb-user-role">Student</div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <button class="back-btn" id="btn-back-main">
+        <i class="bi bi-arrow-left"></i> Back to My Applications
+      </button>
+
+      <!-- Rejected Application Banner -->
+      <div class="rejected-banner" id="appeal-form-section">
+        <div class="rb-icon"><i class="bi bi-x-circle-fill"></i></div>
+        <div>
+          <div class="rb-title" id="appealScholarshipName">Loading application…</div>
+          <div class="rb-meta" id="appealMeta">
+            Reference No: <strong id="appealRefNo" style="font-family:monospace">—</strong><br/>
+            <span id="appealDates">…</span><br/>
+            Reason: <em id="appealReason">—</em>
+          </div>
+          <div class="rb-badge"><i class="bi bi-x-circle-fill"></i> Rejected</div>
+        </div>
+      </div>
+
+      <!-- Appeal Form Card -->
+      <div class="form-card" id="form-card">
+        <div class="form-card-title">Appeal / Reconsideration Form</div>
+        <div class="form-card-sub">Submit your grounds and supporting statement for reconsideration. Only one appeal per application is allowed.</div>
+
+        <div class="form-group">
+          <label class="form-label" for="inp-grounds">Grounds for Appeal <span class="req">*</span></label>
+          <select class="form-select" id="inp-grounds" aria-required="true">
+            <option value="">Select grounds for appeal</option>
+            <option value="new-docs">New/Additional Documents Now Available</option>
+            <option value="admin-error">Administrative or Processing Error</option>
+            <option value="exceptional">Exceptional Circumstances (Medical, Family)</option>
+            <option value="misclassified">Misclassification of Application</option>
+            <option value="other">Other Grounds</option>
+          </select>
+          <div class="form-error" id="err-grounds">Please select the grounds for your appeal.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inp-letter">Appeal Statement <span class="req">*</span></label>
+          <textarea class="form-textarea" id="inp-letter" rows="7" aria-required="true"
+            placeholder="Explain in detail why your application should be reconsidered. Include specific facts, circumstances, or evidence that support your appeal. Minimum 100 characters."></textarea>
+          <div class="char-counter" id="char-counter">0 characters (minimum 100)</div>
+          <div class="form-error" id="err-letter">Please provide an appeal statement of at least 100 characters.</div>
+        </div>
+
+        <hr class="section-divider"/>
+
+        <div class="form-group">
+          <label class="form-label">Supporting Documents <span style="color:var(--muted);font-weight:400;text-transform:none;font-size:11px;">(optional but recommended)</span></label>
+          <div class="drop-zone" id="dz-appeal">
+            <i class="bi bi-cloud-arrow-up"></i>
+            <div class="dz-txt">Drag &amp; drop or <strong>browse file</strong></div>
+            <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+            <input type="file" id="fi-appeal" accept=".pdf,.jpg,.jpeg,.png" style="display:none"/>
+          </div>
+          <div class="file-selected" id="fs-appeal">
+            <i class="fs-icon" id="fsi-appeal"></i>
+            <div style="flex:1;min-width:0"><div class="fs-name" id="fsn-appeal"></div><div class="fs-size" id="fss-appeal"></div></div>
+            <button class="fs-remove" id="fsrm-appeal"><i class="bi bi-x-circle"></i></button>
+          </div>
+          <div class="form-hint">Attach the missing or corrected documents that support your appeal (e.g. DSWD Certificate).</div>
+        </div>
+
+        <hr class="section-divider"/>
+
+        <div class="notice-box" style="margin-bottom:20px">
+          <i class="bi bi-info-circle-fill"></i>
+          <div>
+            <strong>Important:</strong> Appeals are reviewed within <strong>10–15 business days</strong> by the scholarship committee.
+            You will be notified via email and in-portal notification once a decision is made.
+            Submitting false information may result in permanent disqualification.
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-cancel-link" id="btn-cancel">
+            <i class="bi bi-x-lg"></i> Cancel
+          </button>
+          <button class="btn-submit" id="btn-submit">
+            <i class="bi bi-send-fill"></i> Submit Appeal
+          </button>
+        </div>
+      </div>
+
+      <!-- SUCCESS SCREEN -->
+      <div class="success-screen" id="success-screen">
+        <div class="success-icon"><i class="bi bi-clipboard-check-fill"></i></div>
+        <div class="success-title">Appeal Submitted</div>
+        <div class="success-sub">
+          Your appeal for <strong id="successAppealRef">your application</strong> has been received<br/>
+          and is now queued for committee review.
+        </div>
+        <div class="success-ref" id="successAppealId">—</div>
+        <div class="success-info">
+          <strong>What happens next?</strong><br/>
+          The scholarship committee will review your appeal within <strong>10–15 business days</strong>.
+          You will receive an email and in-portal notification once a decision is reached.
+          Only one appeal per application is permitted – no further appeals can be filed for this application.
+        </div>
+        <button class="btn-home" id="btn-home">
+          <i class="bi bi-arrow-left"></i> Back to My Applications
+        </button>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="alert" aria-live="polite"><i class="bi bi-check-circle-fill"></i><span id="toast-msg"></span></div>
+
+<script type="module" src="../Javascript/appeal.js"></script>
+<script src="../Javascript/notification-popover.js"></script>
+<script type="module" src="../Javascript/realtime-notifications.js"></script>
+
+<script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

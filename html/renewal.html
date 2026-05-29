@@ -1,0 +1,320 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<title>Scholarship Renewal – ScholarsConnect</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" media="print" onload="this.media='all'" />
+<link rel="stylesheet" href="../fonts/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="../css/renewal.css"/>
+<link rel="stylesheet" href="../css/notification-popover.css"/>
+</head>
+<body>
+
+<button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+  <i class="bi bi-list"></i>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+    <div>
+      <div class="sb-logo-name">ScholarsConnect</div>
+      <div class="sb-logo-sub">Scholarship Portal</div>
+    </div>
+  </div>
+  <div class="sb-user-card">
+    <div class="sb-av" id="sidebarAvatar"></div>
+    <div class="sb-user-meta">
+      <div class="sb-uname"></div>
+      <div class="sb-urole">Student</div>
+    </div>
+  </div>
+  <nav class="sb-nav" aria-label="Student navigation">
+    <div class="sb-section-label">Main</div>
+    <a class="sb-item" href="dashboard.html"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+    <a class="sb-item" href="scholarships.html"><i class="bi bi-award"></i><span>Browse Scholarships</span></a>
+    <div class="sb-section-label">Applications</div>
+    <a class="sb-item active" href="myapplication.html" aria-current="page"><i class="bi bi-file-earmark-text"></i><span>My Applications</span></a>
+    <a class="sb-item" href="mydocuments.html"><i class="bi bi-folder2-open"></i><span>My Documents</span></a>
+    <a class="sb-item" href="disbursement.html"><i class="bi bi-cash-coin"></i><span>My Stipend</span></a>
+    <div class="sb-section-label">Account</div>
+    <a class="sb-item" href="myprofile.html"><i class="bi bi-person-circle"></i><span>My Profile</span></a>
+    <a class="sb-item" href="notifications.html"><i class="bi bi-bell"></i><span>Notifications</span></a>
+  </nav>
+  <button class="sb-logout" id="btnLogout" type="button">
+    <i class="bi bi-box-arrow-left"></i><span>Log Out</span>
+  </button>
+</aside>
+
+<div class="main-wrap">
+  <header class="topbar">
+    <div class="tb-left">
+      <div class="tb-page-icon"><i class="bi bi-arrow-repeat"></i></div>
+      <div class="tb-page-label">Scholarship Renewal</div>
+    </div>
+    <div class="tb-right">
+      <div class="notification-menu">
+        <button class="tb-icon-btn notification-trigger" id="notifBell" type="button"
+          title="Notifications" aria-haspopup="dialog" aria-expanded="false">
+          <i class="bi bi-bell"></i>
+          <span class="notif-dot" id="notifDot"></span>
+          <span class="notif-count" id="notifCount">3</span>
+        </button>
+        <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+          <div class="notif-pop-head">
+            <div>
+              <strong>Notifications</strong>
+              <span id="notifSubtitle">3 unread updates</span>
+            </div>
+            <button type="button" id="notifMarkAll">Mark all read</button>
+          </div>
+          <div class="notif-pop-list" id="notifPopList"></div>
+          <div class="notif-pop-footer">
+            <a href="notifications.html">View all notifications <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="tb-divider"></div>
+      <a class="tb-user" href="myprofile.html" title="Open profile">
+        <div class="tb-user-av"></div>
+        <div>
+          <div class="tb-user-name"></div>
+          <div class="tb-user-role">Student</div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <button class="back-btn" id="btn-back-main">
+        <i class="bi bi-arrow-left"></i> Back to My Applications
+      </button>
+
+      <!-- Scholarship Banner -->
+      <div class="sc-banner">
+        <div class="sc-banner-icon"><i class="bi bi-award-fill"></i></div>
+        <div>
+          <div class="sc-banner-name" id="renewScholarshipName">Loading scholarship…</div>
+          <div class="sc-banner-sub">Renewal for AY 2026&ndash;2027, 1st Semester</div>
+        </div>
+        <div class="sc-banner-pill">Active Scholar</div>
+      </div>
+
+      <!-- Stepper -->
+      <div class="stepper" id="stepper">
+        <div class="step-item active" id="si-1"><div class="step-circle" id="sc-1">1</div><div class="step-lbl">Academic Status</div></div>
+        <div class="step-item" id="si-2"><div class="step-circle" id="sc-2">2</div><div class="step-lbl">Documents</div></div>
+        <div class="step-item" id="si-3"><div class="step-circle" id="sc-3">3</div><div class="step-lbl">Pledge &amp; Submit</div></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="form-card active" id="step-1">
+        <div class="form-card-title">Academic Status Declaration</div>
+        <div class="form-card-sub">Confirm your current academic standing for the renewal period.</div>
+
+        <div class="info-card">
+          <div class="info-row"><span class="info-label">Scholarship</span><span class="info-value" id="infoScholarshipValue">Loading…</span></div>
+          <div class="info-row"><span class="info-label">Reference No.</span><span class="info-value" style="font-family:monospace">SC-2026-0312-001</span></div>
+          <div class="info-row"><span class="info-label">Renewal Period</span><span class="info-value">AY 2026&ndash;2027, 1st Semester</span></div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="inp-year">Year Level <span class="req">*</span></label>
+            <select class="form-select" id="inp-year" aria-required="true">
+              <option value="">Select year level</option>
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3" selected>3rd Year</option>
+              <option value="4">4th Year</option>
+              <option value="5">5th Year</option>
+            </select>
+            <div class="form-error" id="err-year">Please select your year level.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inp-units">Units Enrolled <span class="req">*</span></label>
+            <input class="form-input" type="number" id="inp-units" placeholder="e.g. 21" min="1" max="30" aria-required="true"/>
+            <div class="form-hint">Total units for 1st Sem AY 2026-2027</div>
+            <div class="form-error" id="err-units">Please enter your enrolled units.</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="inp-gwa">Current GWA <span class="req">*</span></label>
+            <input class="form-input" type="number" id="inp-gwa" placeholder="e.g. 92.75" step="0.01" min="70" max="100" aria-required="true"/>
+            <div class="form-hint">Enter your current cumulative GWA</div>
+            <div class="form-error" id="err-gwa">Please enter a valid GWA (70–100).</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inp-standing">Academic Standing <span class="req">*</span></label>
+            <select class="form-select" id="inp-standing" aria-required="true">
+              <option value="">Select status</option>
+              <option value="dean">Dean's List</option>
+              <option value="good">Good Standing</option>
+              <option value="warning">Academic Warning</option>
+            </select>
+            <div class="form-error" id="err-standing">Please select your academic standing.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="inp-remarks">Additional Remarks <span style="color:var(--muted);font-weight:400;text-transform:none;font-size:11px;">(optional)</span></label>
+          <textarea class="form-textarea" id="inp-remarks" rows="3" placeholder="Changes in course load, LOA history, or other relevant information..."></textarea>
+        </div>
+
+        <div class="btn-row">
+          <span></span>
+          <button class="btn-next" id="btn-step1-next">Next: Documents <i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-card" id="step-2">
+        <div class="form-card-title">Document Submission</div>
+        <div class="form-card-sub">Upload renewal documents. PDF, JPG, or PNG – max 5 MB each.</div>
+
+        <div class="doc-upload-list">
+
+          <div class="doc-upload-item">
+            <div class="doc-upload-hdr">
+              <div class="doc-hdr-icon"><i class="bi bi-file-earmark-pdf"></i></div>
+              <div><div class="doc-hdr-name">Certificate of Registration (COR)</div><div class="doc-hdr-sub">AY 2026–2027, 1st Semester</div></div>
+              <span class="doc-hdr-req">Required</span>
+            </div>
+            <div class="doc-upload-body">
+              <div class="drop-zone" id="dz-cor">
+                <i class="bi bi-cloud-arrow-up"></i>
+                <div class="dz-txt">Drag &amp; drop or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="fi-cor" accept=".pdf,.jpg,.jpeg,.png" style="display:none"/>
+              </div>
+              <div class="file-selected" id="fs-cor">
+                <i class="fs-icon" id="fsi-cor"></i>
+                <div style="flex:1;min-width:0"><div class="fs-name" id="fsn-cor"></div><div class="fs-size" id="fss-cor"></div></div>
+                <button class="fs-remove" id="fsrm-cor"><i class="bi bi-x-circle"></i></button>
+              </div>
+              <div class="form-error" id="err-cor">COR is required.</div>
+            </div>
+          </div>
+
+          <div class="doc-upload-item">
+            <div class="doc-upload-hdr">
+              <div class="doc-hdr-icon"><i class="bi bi-card-list"></i></div>
+              <div><div class="doc-hdr-name">Official Grade Report</div><div class="doc-hdr-sub">Latest completed semester</div></div>
+              <span class="doc-hdr-req">Required</span>
+            </div>
+            <div class="doc-upload-body">
+              <div class="drop-zone" id="dz-grades">
+                <i class="bi bi-cloud-arrow-up"></i>
+                <div class="dz-txt">Drag &amp; drop or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="fi-grades" accept=".pdf,.jpg,.jpeg,.png" style="display:none"/>
+              </div>
+              <div class="file-selected" id="fs-grades">
+                <i class="fs-icon" id="fsi-grades"></i>
+                <div style="flex:1;min-width:0"><div class="fs-name" id="fsn-grades"></div><div class="fs-size" id="fss-grades"></div></div>
+                <button class="fs-remove" id="fsrm-grades"><i class="bi bi-x-circle"></i></button>
+              </div>
+              <div class="form-error" id="err-grades">Grade Report is required.</div>
+            </div>
+          </div>
+
+          <div class="doc-upload-item">
+            <div class="doc-upload-hdr">
+              <div class="doc-hdr-icon" style="background:#F0F0FF"><i class="bi bi-paperclip" style="color:#555"></i></div>
+              <div><div class="doc-hdr-name">Additional Supporting Documents</div><div class="doc-hdr-sub">Medical certificates, LOA documents, etc.</div></div>
+              <span class="doc-hdr-opt">Optional</span>
+            </div>
+            <div class="doc-upload-body">
+              <div class="drop-zone" id="dz-extra">
+                <i class="bi bi-cloud-arrow-up"></i>
+                <div class="dz-txt">Drag &amp; drop or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="fi-extra" accept=".pdf,.jpg,.jpeg,.png" style="display:none"/>
+              </div>
+              <div class="file-selected" id="fs-extra">
+                <i class="fs-icon" id="fsi-extra"></i>
+                <div style="flex:1;min-width:0"><div class="fs-name" id="fsn-extra"></div><div class="fs-size" id="fss-extra"></div></div>
+                <button class="fs-remove" id="fsrm-extra"><i class="bi bi-x-circle"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="btn-row" style="margin-top:20px">
+          <button class="btn-back" id="btn-step2-back"><i class="bi bi-arrow-left"></i> Back</button>
+          <button class="btn-next" id="btn-step2-next">Next: Pledge &amp; Submit <i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-card" id="step-3">
+        <div class="form-card-title">Review &amp; Pledge</div>
+        <div class="form-card-sub">Confirm your details and sign the renewal commitment before submitting.</div>
+
+        <div class="summary-card" id="summary-card"></div>
+
+        <div class="pledge-box">
+          <div class="pledge-title"><i class="bi bi-shield-check"></i> Scholarship Renewal Commitment Pledge</div>
+          <div class="pledge-text">
+            I, <strong id="pledgeName">the undersigned</strong>, hereby certify that the information and documents submitted for renewal are true, accurate, and complete. I understand that misrepresentation may result in termination of my scholarship.<br/><br/>
+            I commit to maintaining the required GWA and fulfilling all obligations as a <span id="pledgeScholarshipRef">scholar</span> for AY 2026–2027, 1st Semester.
+          </div>
+        </div>
+
+        <label class="check-row">
+          <input type="checkbox" id="chk-1"/>
+          <span class="check-label">I certify that all information and documents provided are true and accurate.</span>
+        </label>
+        <label class="check-row">
+          <input type="checkbox" id="chk-2"/>
+          <span class="check-label">I agree to maintain the required GWA (90.00 or above) and all scholarship obligations for the renewal period.</span>
+        </label>
+        <div class="form-error" id="err-pledge" style="margin-bottom:12px">Please check both boxes to acknowledge the pledge.</div>
+
+        <div class="btn-row">
+          <button class="btn-back" id="btn-step3-back"><i class="bi bi-arrow-left"></i> Back</button>
+          <button class="btn-submit" id="btn-submit">
+            <i class="bi bi-send-fill"></i> Submit Renewal
+          </button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="success-screen" id="success-screen">
+        <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+        <div class="success-title">Renewal Submitted!</div>
+        <div class="success-sub">Your scholarship renewal for <strong id="successScholarshipRef">your scholarship</strong><br/>AY 2026–2027, 1st Semester is now under review.</div>
+        <div class="success-ref" id="successRenewalRef">—</div>
+        <div class="success-info">
+          <strong>What happens next?</strong><br/>
+          The scholarship office will review your renewal within <strong>5–7 business days</strong>. You will receive an email notification once your status is updated. Keep this reference number for your records.
+        </div>
+        <button class="btn-home" id="btn-home">
+          <i class="bi bi-arrow-left"></i> Back to My Applications
+        </button>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="alert" aria-live="polite"><i class="bi bi-check-circle-fill"></i><span id="toast-msg"></span></div>
+
+<script type="module" src="../Javascript/renewal.js"></script>
+<script src="../Javascript/notification-popover.js"></script>
+<script type="module" src="../Javascript/realtime-notifications.js"></script>
+
+<script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

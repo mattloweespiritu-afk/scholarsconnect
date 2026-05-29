@@ -1,0 +1,22 @@
+node_modules/
+.env
+.env.local
+serviceAccountKey.json
+*.log
+.DS_Store
+.claude/
+.vscode/
+*.zip
+backup/
+screenshots/
+
+# Local build copy. GitHub should show the built files at the repository root.
+/dist/
+
+# Firebase service account key (server secret - NEVER commit)
+# The web firebase-config.js is intentionally committed; client keys are public.
+# Only the server-side service account key must stay out of git.
+
+# Firebase CLI project files (contain project ID)
+.firebaserc
+firebase.json

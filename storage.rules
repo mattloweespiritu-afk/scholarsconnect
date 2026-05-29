@@ -1,0 +1,68 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn() &&
+        firestore.exists(/databases/(default)/documents/users/$(request.auth.uid)) &&
+        firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role
+          in ['admin', 'Admin'];
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    /* Only PDF, JPG, PNG allowed */
+    function isAllowedContentType() {
+      return request.resource.contentType in [
+        'application/pdf',
+        'image/jpeg',
+        'image/png'
+      ];
+    }
+
+    /* Max 10 MB */
+    function isUnderSizeLimit() {
+      return request.resource.size <= 10 * 1024 * 1024;
+    }
+
+    /* ── Student documents ── */
+    match /documents/{uid}/{fileName} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow write: if (isOwner(uid) && isAllowedContentType() && isUnderSizeLimit())
+        || isAdmin();
+    }
+
+    /* ── Renewal documents ── */
+    match /renewals/{uid}/{fileName} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow write: if (isOwner(uid) && isAllowedContentType() && isUnderSizeLimit())
+        || isAdmin();
+    }
+
+    /* ── Appeal documents ── */
+    match /appeals/{uid}/{fileName} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow write: if (isOwner(uid) && isAllowedContentType() && isUnderSizeLimit())
+        || isAdmin();
+    }
+
+    /* ── Profile photos ── */
+    match /profile/{uid}/{fileName} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow write: if (isOwner(uid) && isAllowedContentType() && isUnderSizeLimit())
+        || isAdmin();
+    }
+
+    /* ── Catch-all deny ── */
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

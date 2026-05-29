@@ -1,0 +1,605 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+<title>My Profile – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../fonts/bootstrap-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/myprofile.css" />
+  <link rel="stylesheet" href="../css/notification-popover.css" />
+</head>
+
+<body>
+  <button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Scholarship Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-user-card">
+      <div class="sb-av" id="sidebarAvatar"></div>
+
+      <div class="sb-user-meta">
+        <div class="sb-uname"></div>
+        <div class="sb-urole">Student</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Student navigation">
+      <div class="sb-section-label">Main</div>
+
+      <a class="sb-item" href="dashboard.html">
+        <i class="bi bi-grid-1x2-fill"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="sb-item" href="scholarships.html">
+        <i class="bi bi-award"></i>
+        <span>Browse Scholarships</span>
+      </a>
+
+      <div class="sb-section-label">Applications</div>
+
+      <a class="sb-item" href="myapplication.html">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>My Applications</span>
+      </a>
+
+      <a class="sb-item" href="mydocuments.html">
+        <i class="bi bi-folder2-open"></i>
+        <span>My Documents</span>
+      </a>
+
+      <a class="sb-item" href="disbursement.html">
+        <i class="bi bi-cash-coin"></i>
+        <span>My Stipend</span>
+      </a>
+
+      <div class="sb-section-label">Account</div>
+
+      <a class="sb-item active" href="myprofile.html">
+        <i class="bi bi-person-circle"></i>
+        <span>My Profile</span>
+      </a>
+
+      <a class="sb-item" href="notifications.html">
+        <i class="bi bi-bell"></i>
+        <span>Notifications</span>
+      </a>
+    </nav>
+
+    <button class="sb-logout" id="btnLogout" type="button">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Log Out</span>
+    </button>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <div class="top-status">
+        <span class="top-status-dot"></span>
+
+        <div>
+          <strong>AY 2025–2026</strong>
+          <span>Scholarship passport active</span>
+        </div>
+      </div>
+
+      <div class="top-save-state">
+        <i class="bi bi-cloud-check"></i>
+        <span id="saveState">Profile saved</span>
+      </div>
+
+      <div class="top-actions">
+        <div class="notification-menu">
+          <button
+            class="top-icon-btn notification-trigger"
+            id="notifBell"
+            type="button"
+            title="Notifications"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notif-dot" id="notifDot"></span>
+            <span class="notif-count" id="notifCount">3</span>
+          </button>
+
+          <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+            <div class="notif-pop-head">
+              <div>
+                <strong>Notifications</strong>
+                <span id="notifSubtitle">3 unread updates</span>
+              </div>
+
+              <button type="button" id="notifMarkAll">Mark all read</button>
+            </div>
+
+            <div class="notif-pop-list" id="notifPopList"></div>
+
+            <div class="notif-pop-footer">
+              <a href="notifications.html">
+                View all notifications
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="top-user" href="myprofile.html" id="topUserAvatar" title="Open profile" aria-label="Open profile">
+          <span></span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="profile-hero">
+        <div>
+          <p class="section-eyebrow">Scholarship Passport</p>
+
+          <h1>My Profile</h1>
+
+          <p>
+            Keep your personal, academic, and financial information updated so scholarship
+            applications can be auto-filled and matched accurately.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary" type="button" id="saveProfileTop">
+              Save Profile
+              <i class="bi bi-check2-circle"></i>
+            </button>
+
+            <a href="mydocuments.html" class="btn-outline">
+              Review Documents
+            </a>
+          </div>
+        </div>
+
+        <div class="passport-card">
+          <span class="soft-chip">Profile Completion</span>
+
+          <h2><span id="completionText">86</span>% Complete</h2>
+
+          <p>
+            Complete your Scholarship Passport to improve eligibility checking and reduce
+            repeated form entry.
+          </p>
+
+          <div class="passport-progress">
+            <span id="completionFill"></span>
+          </div>
+
+          <div class="passport-mini-list">
+            <span><i class="bi bi-check-circle-fill"></i> Personal info ready</span>
+            <span><i class="bi bi-check-circle-fill"></i> Academic info ready</span>
+            <span class="warn"><i class="bi bi-exclamation-circle-fill"></i> Financial document pending</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon maroon">
+            <i class="bi bi-person-badge"></i>
+          </div>
+
+          <div>
+            <span>Passport Status</span>
+            <strong><span id="summaryCompletion">86%</span></strong>
+            <p>Profile completion</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon green">
+            <i class="bi bi-award"></i>
+          </div>
+
+          <div>
+            <span>Matched Programs</span>
+            <strong>3</strong>
+            <p>Based on your profile</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon gold">
+            <i class="bi bi-folder2-open"></i>
+          </div>
+
+          <div>
+            <span>Documents Ready</span>
+            <strong>4/6</strong>
+            <p>Core requirements</p>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon red">
+            <i class="bi bi-shield-check"></i>
+          </div>
+
+          <div>
+            <span>Consent</span>
+            <strong id="consentSummary">Given</strong>
+            <p>Data privacy agreement</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="profile-layout">
+        <aside class="profile-side-card">
+          <div class="profile-photo-wrap">
+            <div class="profile-avatar" id="profileAvatar">
+              <img id="profileAvatarImage" src="" alt="Profile photo" hidden />
+              <span id="profileAvatarInitials"></span>
+            </div>
+
+            <label class="profile-photo-edit" for="profilePhotoInput" title="Change profile picture">
+              <i class="bi bi-camera-fill"></i>
+            </label>
+
+            <input
+              type="file"
+              id="profilePhotoInput"
+              accept="image/jpeg,image/png,image/webp"
+              hidden
+            />
+          </div>
+
+          <h2 id="profileDisplayName">—</h2>
+          <p id="profileDisplayCourse">—</p>
+
+          <div class="profile-badges">
+            <span class="profile-badge verified">
+              <i class="bi bi-check-circle-fill"></i>
+              Verified Student
+            </span>
+
+            <span class="profile-badge" id="profileGwaBadge" style="display:none">
+              <i class="bi bi-star-fill"></i>
+              GWA <span id="profileDisplayGwa"></span>
+            </span>
+          </div>
+
+          <div class="side-divider"></div>
+
+          <div class="side-info-list">
+            <div>
+              <span>Student ID</span>
+              <strong id="profileDisplayStudentId">—</strong>
+            </div>
+
+            <div>
+              <span>Email</span>
+              <strong id="profileDisplayEmail">—</strong>
+            </div>
+
+            <div>
+              <span>Mobile</span>
+              <strong id="profileDisplayMobile">—</strong>
+            </div>
+
+            <div>
+              <span>Last Updated</span>
+              <strong id="lastUpdated">May 12, 2026</strong>
+            </div>
+          </div>
+
+          <div class="side-divider"></div>
+
+          <a href="scholarships.html" class="side-link">
+            View matched scholarships
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </aside>
+
+        <div class="profile-main">
+          <section class="checklist-card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <i class="bi bi-clipboard2-check-fill"></i>
+                  Scholarship Passport Checklist
+                </h2>
+                <p>Complete these sections to make applications faster and more accurate.</p>
+              </div>
+            </div>
+
+            <div class="checklist-grid">
+              <div class="check-item done">
+                <i class="bi bi-check-circle-fill"></i>
+                <div>
+                  <strong>Personal Information</strong>
+                  <span>Complete</span>
+                </div>
+              </div>
+
+              <div class="check-item done">
+                <i class="bi bi-check-circle-fill"></i>
+                <div>
+                  <strong>Academic Information</strong>
+                  <span>Complete</span>
+                </div>
+              </div>
+
+              <div class="check-item done">
+                <i class="bi bi-check-circle-fill"></i>
+                <div>
+                  <strong>Financial Background</strong>
+                  <span>Complete</span>
+                </div>
+              </div>
+
+              <div class="check-item warn">
+                <i class="bi bi-exclamation-circle-fill"></i>
+                <div>
+                  <strong>Supporting Documents</strong>
+                  <span>2 documents need attention</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <i class="bi bi-person-fill"></i>
+                  Personal Information
+                </h2>
+                <p>Your basic identity and contact details.</p>
+              </div>
+
+              <button class="edit-section-btn" type="button" data-edit-section="personal">
+                <i class="bi bi-pencil-square"></i>
+                Edit
+              </button>
+            </div>
+
+            <div class="form-grid two">
+              <div class="form-group">
+                <label for="fullName">Full Name <span>*</span></label>
+                <input id="fullName" data-section="personal" type="text" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="birthDate">Date of Birth <span>*</span></label>
+                <input id="birthDate" data-section="personal" type="date" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address <span>*</span></label>
+                <input id="email" data-section="personal" type="email" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="mobile">Mobile Number <span>*</span></label>
+                <input id="mobile" data-section="personal" type="tel" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group full">
+                <label for="address">Home Address <span>*</span></label>
+                <input id="address" data-section="personal" type="text" value="" disabled aria-required="true" />
+              </div>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <i class="bi bi-mortarboard-fill"></i>
+                  Academic Information
+                </h2>
+                <p>Used for merit-based and program-specific scholarship matching.</p>
+              </div>
+
+              <button class="edit-section-btn" type="button" data-edit-section="academic">
+                <i class="bi bi-pencil-square"></i>
+                Edit
+              </button>
+            </div>
+
+            <div class="form-grid two">
+              <div class="form-group">
+                <label for="studentId">Student ID <span>*</span></label>
+                <input id="studentId" data-section="academic" type="text" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="campus">School / Campus <span>*</span></label>
+                <input id="campus" data-section="academic" type="text" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="course">Program / Course <span>*</span></label>
+                <input id="course" data-section="academic" type="text" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="yearLevel">Year Level <span>*</span></label>
+                <select id="yearLevel" data-section="academic" disabled aria-required="true">
+                  <option value="" disabled selected>Select year level</option>
+                  <option value="1st Year">1st Year</option>
+                  <option value="2nd Year">2nd Year</option>
+                  <option value="3rd Year">3rd Year</option>
+                  <option value="4th Year">4th Year</option>
+                  <option value="5th Year">5th Year</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="gwa">Current GWA <span>*</span></label>
+                <input id="gwa" data-section="academic" type="number" min="75" max="100" step="0.01" value="" disabled aria-required="true" />
+                <small>Use the latest semester weighted average on a 75–100 scale.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="enrollmentStatus">Enrollment Status <span>*</span></label>
+                <select id="enrollmentStatus" data-section="academic" disabled aria-required="true">
+                  <option selected>Currently Enrolled</option>
+                  <option>On Leave</option>
+                  <option>Graduating</option>
+                </select>
+              </div>
+
+              <div class="form-group full">
+                <label for="awards">Academic Awards / Honors</label>
+                <textarea id="awards" data-section="academic" disabled></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <i class="bi bi-house-heart-fill"></i>
+                  Family & Financial Background
+                </h2>
+                <p>Used for need-based scholarships, subsidies, and financial aid programs.</p>
+              </div>
+
+              <button class="edit-section-btn" type="button" data-edit-section="financial">
+                <i class="bi bi-pencil-square"></i>
+                Edit
+              </button>
+            </div>
+
+            <div class="form-grid two">
+              <div class="form-group">
+                <label for="familyIncome">Annual Family Income <span>*</span></label>
+                <select id="familyIncome" data-section="financial" disabled aria-required="true">
+                  <option value="" disabled selected>Select income range</option>
+                  <option value="Below &#8369;50,000">Below &#8369;50,000</option>
+                  <option value="&#8369;50,000 – &#8369;120,000">&#8369;50,000 – &#8369;120,000</option>
+                  <option value="&#8369;120,000 – &#8369;250,000">&#8369;120,000 – &#8369;250,000</option>
+                  <option value="&#8369;250,000 – &#8369;500,000">&#8369;250,000 – &#8369;500,000</option>
+                  <option value="Above &#8369;500,000">Above &#8369;500,000</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="dependents">Number of Dependents <span>*</span></label>
+                <input id="dependents" data-section="financial" type="number" min="0" max="20" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="guardianName">Parent / Guardian Name <span>*</span></label>
+                <input id="guardianName" data-section="financial" type="text" value="" disabled aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="guardianRelationship">Parent / Guardian Relationship <span>*</span></label>
+                <input id="guardianRelationship" data-section="financial" type="text" value="" disabled aria-required="true" placeholder="e.g. Mother, Father, Guardian" />
+              </div>
+
+              <div class="form-group">
+                <label for="guardianContact">Parent / Guardian Contact No.</label>
+                <input id="guardianContact" data-section="financial" type="tel" value="" disabled placeholder="e.g. 09xxxxxxxxx" />
+              </div>
+
+              <div class="form-group full">
+                <label for="financialNotes">Financial Background Notes</label>
+                <textarea id="financialNotes" data-section="financial" disabled></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="eligibility-card">
+            <div class="card-head">
+              <div>
+                <h2>
+                  <i class="bi bi-stars"></i>
+                  Eligibility Snapshot
+                </h2>
+                <p>Estimated eligibility based on your current profile details.</p>
+              </div>
+            </div>
+
+            <div class="eligibility-list" id="eligibilityList">
+              <div class="eligibility-item">
+                <div><span>Loading available scholarships…</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="privacy-card">
+            <div class="privacy-main">
+              <div class="privacy-icon">
+                <i class="bi bi-shield-lock-fill"></i>
+              </div>
+
+              <div>
+                <span class="section-eyebrow dark">Privacy & Consent</span>
+                <h2>Scholarship Data Processing Consent</h2>
+                <p>
+                  I allow ScholarsConnect to process my personal, academic, financial,
+                  and uploaded document information for scholarship matching, application
+                  review, eligibility checking, and status notification purposes.
+                </p>
+
+                <label class="consent-check">
+                  <input type="checkbox" id="consentCheck" checked />
+                  <span>I agree to the scholarship data processing consent.</span>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <div class="bottom-actions">
+            <button class="btn-light" type="button" id="resetProfileBtn">
+              Reset Changes
+            </button>
+
+            <button class="btn-primary" type="button" id="saveProfileBottom">
+              Save Profile
+              <i class="bi bi-check2-circle"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script type="module" src="../Javascript/myprofile.js"></script>
+  <script src="../Javascript/notification-popover.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

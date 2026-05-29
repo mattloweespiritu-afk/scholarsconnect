@@ -1,0 +1,359 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+  <title>Browse Scholarships – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../fonts/bootstrap-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/scholarships.css" />
+  <link rel="stylesheet" href="../css/notification-popover.css" />
+</head>
+
+<body>
+  <button class="mobile-sidebar-btn" id="sidebarToggle" aria-label="Open sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <div class="sb-logo-mark">
+      <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+
+      <div>
+        <div class="sb-logo-name">ScholarsConnect</div>
+        <div class="sb-logo-sub">Scholarship Portal</div>
+      </div>
+    </div>
+
+    <div class="sb-user-card">
+      <div class="sb-av" id="sidebarAvatar"></div>
+
+      <div class="sb-user-meta">
+        <div class="sb-uname"></div>
+        <div class="sb-urole">Student</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav" aria-label="Student navigation">
+      <div class="sb-section-label">Main</div>
+
+      <a class="sb-item" href="dashboard.html">
+        <i class="bi bi-grid-1x2-fill"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="sb-item active" href="scholarships.html">
+        <i class="bi bi-award"></i>
+        <span>Browse Scholarships</span>
+      </a>
+
+      <div class="sb-section-label">Applications</div>
+
+      <a class="sb-item" href="myapplication.html">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>My Applications</span>
+      </a>
+
+      <a class="sb-item" href="mydocuments.html">
+        <i class="bi bi-folder2-open"></i>
+        <span>My Documents</span>
+      </a>
+
+      <a class="sb-item" href="disbursement.html">
+        <i class="bi bi-cash-coin"></i>
+        <span>My Stipend</span>
+      </a>
+
+      <div class="sb-section-label">Account</div>
+
+      <a class="sb-item" href="myprofile.html">
+        <i class="bi bi-person-circle"></i>
+        <span>My Profile</span>
+      </a>
+
+      <a class="sb-item" href="notifications.html">
+        <i class="bi bi-bell"></i>
+        <span>Notifications</span>
+      </a>
+    </nav>
+
+    <button class="sb-logout" id="btnLogout" type="button">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Log Out</span>
+    </button>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrap">
+    <!-- MINIMAL TOPBAR -->
+    <header class="topbar">
+      <div class="top-status">
+        <span class="top-status-dot"></span>
+
+        <div>
+          <strong>AY 2025–2026</strong>
+          <span>Scholarship applications open</span>
+        </div>
+      </div>
+
+      <div class="top-search">
+        <i class="bi bi-search"></i>
+
+        <input
+          type="text"
+          id="scholarshipSearch"
+          placeholder="Search scholarship programs..."
+          autocomplete="off"
+        />
+
+        <button class="search-clear" id="clearSearch" type="button" aria-label="Clear search">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="top-actions">
+        <div class="notification-menu">
+          <button
+            class="top-icon-btn notification-trigger"
+            id="notifBell"
+            type="button"
+            title="Notifications"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <i class="bi bi-bell"></i>
+            <span class="notif-dot" id="notifDot"></span>
+            <span class="notif-count" id="notifCount">3</span>
+          </button>
+
+          <div class="notification-popover" id="notificationPopover" role="dialog" aria-label="Notification preview">
+            <div class="notif-pop-head">
+              <div>
+                <strong>Notifications</strong>
+                <span id="notifSubtitle">3 unread updates</span>
+              </div>
+
+              <button type="button" id="notifMarkAll">Mark all read</button>
+            </div>
+
+            <div class="notif-pop-list" id="notifPopList"></div>
+
+            <div class="notif-pop-footer">
+              <a href="notifications.html">
+                View all notifications
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="top-user" href="myprofile.html" id="topUserAvatar" title="Open profile" aria-label="Open profile">
+          <span></span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- HERO -->
+      <section class="scholarship-hero">
+        <div class="hero-copy">
+          <p class="section-eyebrow">Scholarship Discovery</p>
+
+          <h1>Find programs that fit your profile.</h1>
+
+          <p>
+            Browse available scholarships, check eligibility requirements, compare deadlines,
+            and apply to programs that match your academic profile.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#scholarshipGrid" class="btn-primary">
+              View Scholarships
+              <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <a href="mydocuments.html" class="btn-outline">
+              Check Requirements
+            </a>
+          </div>
+        </div>
+
+        <div class="match-panel">
+          <div class="match-panel-head">
+            <span class="soft-chip">Profile Match</span>
+            <strong id="matchSummaryText">0 Ready to Apply</strong>
+            <p>Based on the scholarship programs currently published by the admin office.</p>
+          </div>
+
+          <div class="match-list">
+            <div class="match-row">
+              <div>
+                <span>Ready to Apply</span>
+                <strong id="matchReadyCount">0 programs</strong>
+              </div>
+              <i class="bi bi-check-circle-fill good"></i>
+            </div>
+
+            <div class="match-row">
+              <div>
+                <span>Needs Document</span>
+                <strong id="matchNeedsCount">0 programs</strong>
+              </div>
+              <i class="bi bi-exclamation-circle-fill warn"></i>
+            </div>
+
+            <div class="match-row">
+              <div>
+                <span>Not Eligible</span>
+                <strong id="matchNotCount">0 programs</strong>
+              </div>
+              <i class="bi bi-x-circle-fill danger"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEXT STEP -->
+      <section class="next-step-card">
+        <div class="next-step-main">
+          <div class="next-step-icon">
+            <i class="bi bi-file-earmark-arrow-up-fill"></i>
+          </div>
+
+          <div>
+            <span class="section-eyebrow dark">Recommended Next Step</span>
+            <h2>Upload Scholarship Requirements</h2>
+            <p>
+              Keep your document vault ready so you can apply when a published scholarship matches your profile.
+            </p>
+          </div>
+        </div>
+
+        <a href="mydocuments.html" class="btn-primary small">
+          Upload Document
+          <i class="bi bi-upload"></i>
+        </a>
+      </section>
+
+      <!-- FILTERS -->
+      <section class="filter-card">
+        <div class="filter-group">
+          <label for="filterType">Type</label>
+          <select id="filterType">
+            <option value="all">All Types</option>
+            <option value="government">Government</option>
+            <option value="need-based">Need-Based</option>
+            <option value="stem">STEM</option>
+            <option value="institutional">Institutional</option>
+            <option value="corporate">Corporate</option>
+            <option value="lgu">LGU</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterStatus">Eligibility</label>
+          <select id="filterStatus">
+            <option value="all">All Statuses</option>
+            <option value="match">Ready to Apply</option>
+            <option value="needs">Needs Document</option>
+            <option value="not">Not Eligible</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sortBy">Sort By</label>
+          <select id="sortBy">
+            <option value="deadline">Nearest Deadline</option>
+            <option value="match">Best Match</option>
+            <option value="slots">Most Slots Available</option>
+          </select>
+        </div>
+
+        <div class="result-count">
+          Showing <strong id="visibleCount">0</strong> of <span id="totalCount">0</span> scholarships
+        </div>
+      </section>
+
+      <!-- SCHOLARSHIP CARDS FROM JS -->
+      <section class="scholarship-grid" id="scholarshipGrid"></section>
+
+      <!-- EMPTY STATE -->
+      <section class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <i class="bi bi-search"></i>
+        </div>
+
+        <h2>No scholarships found</h2>
+        <p>Try changing the search keyword or filters.</p>
+
+        <button class="btn-primary small" id="resetFilters" type="button">
+          Reset Filters
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close modal">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <div class="modal-head">
+        <div>
+          <span class="soft-chip" id="modalType">Scholarship</span>
+          <h2 id="modalTitle">Scholarship Details</h2>
+          <p id="modalSponsor">Sponsor</p>
+        </div>
+
+        <div class="modal-status" id="modalStatus">
+          <i class="bi bi-check-circle-fill"></i>
+          <span>Ready to Apply</span>
+        </div>
+      </div>
+
+      <div class="modal-body" id="modalBody"></div>
+
+      <div class="modal-actions">
+        <button class="btn-light small" id="modalCancel" type="button">Close</button>
+        <button class="btn-primary small" id="modalApply" type="button">
+          Apply Now
+          <i class="bi bi-arrow-right"></i>
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script type="module" src="../Javascript/scholarships.js"></script>
+  <script src="../Javascript/notification-popover.js"></script>
+  <script type="module" src="../Javascript/realtime-notifications.js"></script>
+  <script type="module" src="../Javascript/auth-guard.js"></script>
+</body>
+</html>
+

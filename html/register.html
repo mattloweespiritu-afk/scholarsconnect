@@ -1,0 +1,802 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="image/scholarsconnect-logo.png"/>
+  <title>Create Account – ScholarsConnect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../fonts/bootstrap-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/register.css" />
+</head>
+
+<body>
+  <main class="register-page">
+
+    <!-- LEFT BRAND PANEL -->
+    <section class="register-left">
+      <a class="register-back" href="login.html">
+        <i class="bi bi-arrow-left"></i>
+        Back to Home
+      </a>
+
+      <div class="brand-block">
+        <div class="logo-ring">
+        <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+      </div>
+
+        <div>
+          <div class="brand-name">ScholarsConnect</div>
+          <div class="brand-sub">Scholarship Portal</div>
+        </div>
+      </div>
+
+      <div class="register-intro">
+        <span class="intro-badge">AY 2025–2026 Application Period Open</span>
+
+        <h1>Create Your Scholarship Profile</h1>
+
+        <p>
+          Register once, complete your student profile, upload documents, and apply
+          to eligible scholarship programs through one organized portal.
+        </p>
+      </div>
+
+      <div class="register-benefits">
+        <div class="benefit-item">
+          <i class="bi bi-person-badge"></i>
+          <div>
+            <strong>One Student Profile</strong>
+            <span>Use your profile for multiple scholarship applications.</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <i class="bi bi-folder-check"></i>
+          <div>
+            <strong>Document Checklist</strong>
+            <span>Track required, optional, uploaded, and missing documents.</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <i class="bi bi-shield-check"></i>
+          <div>
+            <strong>Secure Student Flow</strong>
+            <span>Designed for eligibility, review, and application tracking.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT FORM PANEL -->
+    <section class="register-right">
+      <div class="register-card">
+
+        <div class="mobile-brand">
+          <a class="mobile-back" href="login.html">
+            <i class="bi bi-arrow-left"></i>
+            Back
+          </a>
+
+          <div class="brand-block">
+            <div class="logo-ring">
+        <img src="image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+      </div>
+
+            <div>
+              <div class="brand-name">ScholarsConnect</div>
+              <div class="brand-sub">Scholarship Portal</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-heading">
+          <p class="section-eyebrow">Student Registration</p>
+          <h2>Create Your Account</h2>
+          <p>Complete each step carefully. You can save as draft before submitting.</p>
+        </div>
+
+        <!-- STEP BAR -->
+        <div class="step-bar" id="step-bar">
+          <div class="step-item-reg s-active" id="si-1">
+            <div class="step-circle-reg">1</div>
+            <div class="step-lbl active">Account</div>
+          </div>
+
+          <div class="step-line" id="sl-1"></div>
+
+          <div class="step-item-reg s-inactive" id="si-2">
+            <div class="step-circle-reg">2</div>
+            <div class="step-lbl">Academic</div>
+          </div>
+
+          <div class="step-line" id="sl-2"></div>
+
+          <div class="step-item-reg s-inactive" id="si-3">
+            <div class="step-circle-reg">3</div>
+            <div class="step-lbl">Personal</div>
+          </div>
+
+          <div class="step-line" id="sl-3"></div>
+
+          <div class="step-item-reg s-inactive" id="si-4">
+            <div class="step-circle-reg">4</div>
+            <div class="step-lbl">Documents</div>
+          </div>
+
+          <div class="step-line" id="sl-4"></div>
+
+          <div class="step-item-reg s-inactive" id="si-5">
+            <div class="step-circle-reg">5</div>
+            <div class="step-lbl">Review</div>
+          </div>
+        </div>
+
+        <div class="register-form-wrap">
+
+          <!-- STEP 1 -->
+          <section class="step-card active" id="step-1">
+            <p class="step-card-title">Step 1 of 5 – <strong>Account Setup</strong></p>
+            <p class="step-card-sub">Enter your basic login information to get started.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="s1-fname">First Name <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="First Name" type="text" id="s1-fname" value="" placeholder="First name" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="s1-lname">Last Name <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="Last Name" type="text" id="s1-lname" value="" placeholder="Last name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="s1-email">Email Address <span class="req">*</span></label>
+              <input class="form-control review-field" data-review="Email Address" type="email" id="s1-email" value="" placeholder="your@school.edu.ph" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="s1-pass">Password <span class="req">*</span></label>
+
+              <div class="input-icon-wrap">
+                <input class="form-control" type="password" id="s1-pass" placeholder="Create a strong password" />
+                <i class="bi bi-eye-slash input-icon" id="toggle-pass"></i>
+              </div>
+
+              <div class="pw-strength">
+                <div class="pw-seg"></div>
+                <div class="pw-seg"></div>
+                <div class="pw-seg"></div>
+                <div class="pw-seg"></div>
+              </div>
+
+              <p class="pw-strength-label">Password strength</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="s1-cpass">Confirm Password <span class="req">*</span></label>
+              <input class="form-control" type="password" id="s1-cpass" placeholder="Re-enter password" />
+            </div>
+
+            <div class="role-box">
+              <i class="bi bi-shield-check"></i>
+              <span>Role:</span>
+              <strong>Student Applicant</strong>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-draft" type="button" id="saveDraft1">
+                <i class="bi bi-save"></i>
+                Save as Draft
+              </button>
+
+              <button class="btn-primary btn-next" type="button">
+                Continue
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+
+          <!-- STEP 2 -->
+          <section class="step-card" id="step-2">
+            <p class="step-card-title">Step 2 of 5 – <strong>Academic Profile</strong></p>
+            <p class="step-card-sub">Academic information is used for scholarship eligibility matching.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Student ID Number <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="Student ID" type="text" id="s2-student-id" value="" placeholder="e.g. 2022-0001-SC" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">School / Institution <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="School / Institution" type="text" id="s2-school" value="" placeholder="School name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Campus</label>
+              <input class="form-control review-field" data-review="Campus" type="text" id="s2-campus" value="" placeholder="Campus" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Course / Program <span class="req">*</span></label>
+              <input class="form-control review-field" data-review="Course / Program" type="text" id="s2-course" value="" placeholder="e.g. BS Computer Engineering" />
+            </div>
+
+            <div class="form-row three">
+              <div class="form-group">
+                <label class="form-label">Year Level <span class="req">*</span></label>
+                <select class="form-control review-field" data-review="Year Level" id="s2-year-level">
+                  <option value="" selected>Select year level</option>
+                  <option value="1st Year">1st Year</option>
+                  <option value="2nd Year">2nd Year</option>
+                  <option value="3rd Year">3rd Year</option>
+                  <option value="4th Year">4th Year</option>
+                  <option value="5th Year">5th Year</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Current GWA <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="Current GWA" type="text" id="s2-gwa" value="" placeholder="e.g. 92.75" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Semester</label>
+                <input class="form-control review-field" data-review="Semester" type="text" id="s2-semester" value="" placeholder="Semester" />
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-prev" type="button">
+                <i class="bi bi-arrow-left"></i>
+                Back
+              </button>
+
+              <div class="step-nav-right">
+                <button class="btn-draft" type="button" id="saveDraft2">
+                  <i class="bi bi-save"></i>
+                  Save as Draft
+                </button>
+
+                <button class="btn-primary btn-next" type="button">
+                  Continue
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 3 -->
+          <section class="step-card" id="step-3">
+            <p class="step-card-title">Step 3 of 5 – <strong>Personal Information</strong></p>
+            <p class="step-card-sub">Personal and family details support need-based scholarship evaluation.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Date of Birth <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="Date of Birth" type="date" id="s3-dob" value="" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Sex <span class="req">*</span></label>
+                <select class="form-control review-field" data-review="Sex" id="s3-sex">
+                  <option selected>Female</option>
+                  <option>Male</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Civil Status</label>
+                <select class="form-control review-field" data-review="Civil Status" id="s3-civil-status">
+                  <option selected>Single</option>
+                  <option>Married</option>
+                  <option>Widowed</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Contact Number <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="Contact Number" type="tel" id="s3-contact" value="" placeholder="+63 9XX XXX XXXX" />
+                <p class="form-hint">Used for OTP verification and notifications.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Complete Address <span class="req">*</span></label>
+              <input class="form-control review-field" data-review="Complete Address" type="text" id="s3-address" value="" placeholder="Street, Barangay, City, Province, ZIP" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Province <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="Province" type="text" id="s3-province" value="" placeholder="Province" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">City / Municipality <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="City / Municipality" type="text" id="s3-city" value="" placeholder="City / Municipality" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Guardian Name <span class="req">*</span></label>
+                <input class="form-control review-field" data-review="Guardian Name" type="text" id="s3-guardian-name" value="" placeholder="Guardian full name" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Relationship</label>
+                <select class="form-control review-field" data-review="Guardian Relationship" id="s3-guardian-rel">
+                  <option selected>Mother</option>
+                  <option>Father</option>
+                  <option>Guardian</option>
+                  <option>Sibling</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Guardian Contact Number</label>
+                <input class="form-control review-field" data-review="Guardian Contact" type="tel" id="s3-guardian-contact" value="" placeholder="+63 9XX XXX XXXX" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Annual Family Income <span class="req">*</span></label>
+                <select class="form-control review-field" data-review="Annual Family Income" id="s3-income">
+                  <option value="" selected>Select income range</option>
+                  <option value="Below &#8369;50,000">Below &#8369;50,000</option>
+                  <option value="&#8369;50,000 – &#8369;120,000">&#8369;50,000 – &#8369;120,000</option>
+                  <option value="&#8369;120,000 – &#8369;250,000">&#8369;120,000 – &#8369;250,000</option>
+                  <option value="&#8369;250,000 – &#8369;500,000">&#8369;250,000 – &#8369;500,000</option>
+                  <option value="Above &#8369;500,000">Above &#8369;500,000</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group small-field">
+              <label class="form-label">Pantawid Pamilya / 4Ps Beneficiary?</label>
+              <select class="form-control review-field" data-review="4Ps Beneficiary" id="s3-4ps">
+                <option selected>No</option>
+                <option>Yes</option>
+              </select>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-prev" type="button">
+                <i class="bi bi-arrow-left"></i>
+                Back
+              </button>
+
+              <div class="step-nav-right">
+                <button class="btn-draft" type="button" id="saveDraft3">
+                  <i class="bi bi-save"></i>
+                  Save as Draft
+                </button>
+
+                <button class="btn-primary btn-next" type="button">
+                  Continue
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 4 -->
+          <section class="step-card" id="step-4">
+            <p class="step-card-title">Step 4 of 5 – <strong>Document Upload</strong></p>
+            <p class="step-card-sub">
+              Upload clear scanned copies or photos. Accepted: <strong>PDF, JPG, PNG</strong>.
+            </p>
+
+            <div class="doc-summary">
+              <div class="doc-summary-left">
+                <div class="doc-count"><span id="uploaded-count">0</span> of 6 documents uploaded</div>
+                <div class="doc-note">Required documents must be completed before submission.</div>
+              </div>
+
+              <div class="doc-summary-bar">
+                <div class="progress-bg">
+                  <div class="progress-fill" id="doc-prog" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="upload-section-title">
+              <h3>Required Documents</h3>
+              <p>These documents are needed to submit your registration.</p>
+            </div>
+
+            <!-- DOC 1 -->
+            <div class="upload-item" id="doc-1">
+              <div class="upload-header">
+                <div class="upload-doc-icon" id="dicon-1"><i class="bi bi-file-earmark-text"></i></div>
+                <div class="upload-info">
+                  <div class="upload-doc-name">PSA Birth Certificate</div>
+                  <div class="upload-doc-hint">Original or certified true copy from PSA</div>
+                </div>
+                <span class="upload-badge req">Required</span>
+              </div>
+
+              <div class="upload-progress" id="uprog-1"><div class="upload-progress-fill" id="uprog-fill-1"></div></div>
+
+              <div class="drop-zone" id="dz-1">
+                <i class="bi bi-cloud-arrow-up dz-icon"></i>
+                <div class="dz-text">Drag & drop here or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="file-1" accept=".pdf,.jpg,.jpeg,.png" />
+              </div>
+
+              <div class="upload-error" id="uerr-1"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+
+              <div class="file-preview" id="fp-1">
+                <i class="fp-icon pdf" id="fpicon-1"></i>
+                <div class="fp-meta">
+                  <div class="fp-name" id="fpname-1"></div>
+                  <div class="fp-size" id="fpsize-1"></div>
+                </div>
+                <div class="fp-status"><i class="bi bi-check-circle-fill"></i> Uploaded</div>
+                <button class="fp-remove" data-doc="1" title="Remove" type="button"><i class="bi bi-x-circle"></i></button>
+              </div>
+            </div>
+
+            <!-- DOC 2 -->
+            <div class="upload-item" id="doc-2">
+              <div class="upload-header">
+                <div class="upload-doc-icon" id="dicon-2"><i class="bi bi-file-earmark-text"></i></div>
+                <div class="upload-info">
+                  <div class="upload-doc-name">Certificate of Registration (COR)</div>
+                  <div class="upload-doc-hint">Current semester enrollment certificate</div>
+                </div>
+                <span class="upload-badge req">Required</span>
+              </div>
+
+              <div class="upload-progress" id="uprog-2"><div class="upload-progress-fill" id="uprog-fill-2"></div></div>
+
+              <div class="drop-zone" id="dz-2">
+                <i class="bi bi-cloud-arrow-up dz-icon"></i>
+                <div class="dz-text">Drag & drop here or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="file-2" accept=".pdf,.jpg,.jpeg,.png" />
+              </div>
+
+              <div class="upload-error" id="uerr-2"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+
+              <div class="file-preview" id="fp-2">
+                <i class="fp-icon pdf" id="fpicon-2"></i>
+                <div class="fp-meta">
+                  <div class="fp-name" id="fpname-2"></div>
+                  <div class="fp-size" id="fpsize-2"></div>
+                </div>
+                <div class="fp-status"><i class="bi bi-check-circle-fill"></i> Uploaded</div>
+                <button class="fp-remove" data-doc="2" title="Remove" type="button"><i class="bi bi-x-circle"></i></button>
+              </div>
+            </div>
+
+            <!-- DOC 3 -->
+            <div class="upload-item" id="doc-3">
+              <div class="upload-header">
+                <div class="upload-doc-icon" id="dicon-3"><i class="bi bi-file-earmark-text"></i></div>
+                <div class="upload-info">
+                  <div class="upload-doc-name">Latest Official Grades / Transcript</div>
+                  <div class="upload-doc-hint">Most recent semester grade report or OTR</div>
+                </div>
+                <span class="upload-badge req">Required</span>
+              </div>
+
+              <div class="upload-progress" id="uprog-3"><div class="upload-progress-fill" id="uprog-fill-3"></div></div>
+
+              <div class="drop-zone" id="dz-3">
+                <i class="bi bi-cloud-arrow-up dz-icon"></i>
+                <div class="dz-text">Drag & drop here or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="file-3" accept=".pdf,.jpg,.jpeg,.png" />
+              </div>
+
+              <div class="upload-error" id="uerr-3"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+
+              <div class="file-preview" id="fp-3">
+                <i class="fp-icon pdf" id="fpicon-3"></i>
+                <div class="fp-meta">
+                  <div class="fp-name" id="fpname-3"></div>
+                  <div class="fp-size" id="fpsize-3"></div>
+                </div>
+                <div class="fp-status"><i class="bi bi-check-circle-fill"></i> Uploaded</div>
+                <button class="fp-remove" data-doc="3" title="Remove" type="button"><i class="bi bi-x-circle"></i></button>
+              </div>
+            </div>
+
+            <!-- DOC 4 -->
+            <div class="upload-item" id="doc-4">
+              <div class="upload-header">
+                <div class="upload-doc-icon" id="dicon-4"><i class="bi bi-file-earmark-text"></i></div>
+                <div class="upload-info">
+                  <div class="upload-doc-name">Certificate of Good Moral Character</div>
+                  <div class="upload-doc-hint">Issued by school registrar or guidance office</div>
+                </div>
+                <span class="upload-badge req">Required</span>
+              </div>
+
+              <div class="upload-progress" id="uprog-4"><div class="upload-progress-fill" id="uprog-fill-4"></div></div>
+
+              <div class="drop-zone" id="dz-4">
+                <i class="bi bi-cloud-arrow-up dz-icon"></i>
+                <div class="dz-text">Drag & drop here or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="file-4" accept=".pdf,.jpg,.jpeg,.png" />
+              </div>
+
+              <div class="upload-error" id="uerr-4"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+
+              <div class="file-preview" id="fp-4">
+                <i class="fp-icon pdf" id="fpicon-4"></i>
+                <div class="fp-meta">
+                  <div class="fp-name" id="fpname-4"></div>
+                  <div class="fp-size" id="fpsize-4"></div>
+                </div>
+                <div class="fp-status"><i class="bi bi-check-circle-fill"></i> Uploaded</div>
+                <button class="fp-remove" data-doc="4" title="Remove" type="button"><i class="bi bi-x-circle"></i></button>
+              </div>
+            </div>
+
+            <!-- DOC 6 -->
+            <div class="upload-item" id="doc-6">
+              <div class="upload-header">
+                <div class="upload-doc-icon img" id="dicon-6"><i class="bi bi-image"></i></div>
+                <div class="upload-info">
+                  <div class="upload-doc-name">2–2 ID Photo</div>
+                  <div class="upload-doc-hint">Plain background, recent photo – JPG or PNG only</div>
+                </div>
+                <span class="upload-badge req">Required</span>
+              </div>
+
+              <div class="upload-progress" id="uprog-6"><div class="upload-progress-fill" id="uprog-fill-6"></div></div>
+
+              <div class="drop-zone" id="dz-6">
+                <i class="bi bi-cloud-arrow-up dz-icon"></i>
+                <div class="dz-text">Drag & drop here or <strong>browse file</strong></div>
+                <div class="dz-sub">JPG, PNG only – max 2 MB</div>
+                <input type="file" id="file-6" accept=".jpg,.jpeg,.png" />
+              </div>
+
+              <div class="upload-error" id="uerr-6"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+
+              <div class="file-preview" id="fp-6">
+                <i class="fp-icon img" id="fpicon-6"></i>
+                <div class="fp-meta">
+                  <div class="fp-name" id="fpname-6"></div>
+                  <div class="fp-size" id="fpsize-6"></div>
+                </div>
+                <div class="fp-status"><i class="bi bi-check-circle-fill"></i> Uploaded</div>
+                <button class="fp-remove" data-doc="6" title="Remove" type="button"><i class="bi bi-x-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="upload-section-title optional">
+              <h3>Optional Document</h3>
+              <p>This helps for need-based scholarships, but it is not required for all programs.</p>
+            </div>
+
+            <!-- DOC 5 -->
+            <div class="upload-item" id="doc-5">
+              <div class="upload-header">
+                <div class="upload-doc-icon" id="dicon-5"><i class="bi bi-file-earmark-text"></i></div>
+                <div class="upload-info">
+                  <div class="upload-doc-name">Barangay Certificate of Indigency</div>
+                  <div class="upload-doc-hint">For need-based scholarships – issued by barangay</div>
+                </div>
+                <span class="upload-badge opt">Optional</span>
+              </div>
+
+              <div class="upload-progress" id="uprog-5"><div class="upload-progress-fill" id="uprog-fill-5"></div></div>
+
+              <div class="drop-zone" id="dz-5">
+                <i class="bi bi-cloud-arrow-up dz-icon"></i>
+                <div class="dz-text">Drag & drop here or <strong>browse file</strong></div>
+                <div class="dz-sub">PDF, JPG, PNG – max 5 MB</div>
+                <input type="file" id="file-5" accept=".pdf,.jpg,.jpeg,.png" />
+              </div>
+
+              <div class="upload-error" id="uerr-5"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+
+              <div class="file-preview" id="fp-5">
+                <i class="fp-icon pdf" id="fpicon-5"></i>
+                <div class="fp-meta">
+                  <div class="fp-name" id="fpname-5"></div>
+                  <div class="fp-size" id="fpsize-5"></div>
+                </div>
+                <div class="fp-status"><i class="bi bi-check-circle-fill"></i> Uploaded</div>
+                <button class="fp-remove" data-doc="5" title="Remove" type="button"><i class="bi bi-x-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="tips-box">
+              <i class="bi bi-info-circle"></i>
+              <div>
+                <strong>Upload reminder:</strong>
+                Make sure all documents are clear, complete, and readable. Blurry or cropped files may be marked for re-upload.
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-prev" type="button">
+                <i class="bi bi-arrow-left"></i>
+                Back
+              </button>
+
+              <div class="step-nav-right">
+                <button class="btn-draft" type="button" id="saveDraft4">
+                  <i class="bi bi-save"></i>
+                  Save as Draft
+                </button>
+
+                <button class="btn-primary btn-next" type="button">
+                  Review Application
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 5 -->
+          <section class="step-card" id="step-5">
+            <p class="step-card-title">Step 5 of 5 – <strong>Review & Submit</strong></p>
+            <p class="step-card-sub">
+              Review your information before submitting your Scholarship Profile.
+            </p>
+
+            <div class="review-layout">
+              <div class="review-panel">
+                <div class="review-head">
+                  <div>
+                    <h3>Application Summary</h3>
+                    <p>Please check if your details are correct.</p>
+                  </div>
+
+                  <span class="review-chip">Ready for Review</span>
+                </div>
+
+                <div class="review-grid" id="reviewGrid"></div>
+              </div>
+
+              <div class="review-side">
+                <div class="review-score-card">
+                  <div class="review-score-ring">
+                    <span id="reviewPercent">0%</span>
+                  </div>
+
+                  <h3>Profile Readiness</h3>
+                  <p id="reviewReadinessText">Complete all required steps before submission.</p>
+                </div>
+
+                <div class="review-checklist">
+                  <div class="review-check-item" id="reviewInfoCheck">
+                    <i class="bi bi-circle"></i>
+                    Student information completed
+                  </div>
+
+                  <div class="review-check-item" id="reviewDocsCheck">
+                    <i class="bi bi-circle"></i>
+                    Required documents uploaded
+                  </div>
+
+                  <div class="review-check-item" id="reviewAgreementCheck">
+                    <i class="bi bi-circle"></i>
+                    Agreements accepted
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="agreement-list">
+              <div class="check-group">
+                <input type="checkbox" id="agree-terms" />
+                <label for="agree-terms">
+                  I agree to the Terms of Use and Privacy Policy in accordance with the
+                  <strong>Data Privacy Act of 2012 (RA 10173)</strong>.
+                </label>
+              </div>
+
+              <div class="check-group">
+                <input type="checkbox" id="agree-accurate" />
+                <label for="agree-accurate">
+                  I certify that all information and documents submitted are true and accurate.
+                  I understand that falsification is grounds for disqualification.
+                </label>
+              </div>
+            </div>
+
+            <div id="submit-error">
+              <i class="bi bi-exclamation-triangle-fill"></i>
+              <span id="submit-error-msg"></span>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-prev" type="button">
+                <i class="bi bi-arrow-left"></i>
+                Back
+              </button>
+
+              <div class="step-nav-right">
+                <button class="btn-draft" type="button" id="saveDraft5">
+                  <i class="bi bi-save"></i>
+                  Save as Draft
+                </button>
+
+                <button class="btn-gold" id="submit-reg" type="button">
+                  <i class="bi bi-send-check"></i>
+                  Submit Registration
+                </button>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-backdrop" id="successModal">
+    <div class="success-modal">
+      <div class="success-icon">
+        <i class="bi bi-check2-circle"></i>
+      </div>
+
+      <h2>Registration Submitted Successfully</h2>
+
+      <p>
+        Your Scholarship Profile has been created. A verification email has been sent to your address.
+        Please verify your email before logging in.
+      </p>
+
+      <div id="reg-verify-note" style="display:none;background:#fff8e1;border:1px solid #f0c040;border-radius:6px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#5a4000;line-height:1.5;">
+        <i class="bi bi-envelope-check-fill" style="margin-right:6px;"></i>
+        <strong>Verification email sent.</strong> Please check your inbox and click the link before logging in.
+      </div>
+
+      <div class="success-summary">
+        <div>
+          <span>Reference No.</span>
+          <strong id="regRefNo">—</strong>
+        </div>
+
+        <div>
+          <span>Status</span>
+          <strong>For Review</strong>
+        </div>
+      </div>
+
+      <div class="success-actions">
+        <a href="dashboard.html" class="btn-gold">Go to Dashboard</a>
+        <a href="login.html" class="btn-modal-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script type="module" src="../Javascript/register.js"></script>
+</body>
+</html>
+

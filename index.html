@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="html/image/scholarsconnect-logo.png"/>
+  <title>ScholarsConnect | Scholarship Portal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       TOPBAR
+  ========================================================== -->
+  <header class="topbar" id="topbar">
+    <a href="#home" class="topbar-brand">
+      <div class="logo-ring">
+      <img src="html/image/scholarsconnect-logo.png" alt="ScholarsConnect logo"/>
+    </div>
+
+      <div class="brand-text">
+        <div class="brand-name">ScholarsConnect</div>
+        <div class="brand-sub">Scholarship Portal</div>
+      </div>
+    </a>
+
+    <nav class="topbar-nav">
+      <a href="#home" class="tnav-link active">Home</a>
+      <a href="#scholarships" class="tnav-link">Scholarships</a>
+      <a href="#how-it-works" class="tnav-link">How It Works</a>
+      <a href="#system-flow" class="tnav-link">System Flow</a>
+      <a href="#about" class="tnav-link">About</a>
+      <a href="#faq" class="tnav-link">FAQ</a>
+    </nav>
+
+    <div class="topbar-right">
+      <a href="html/login.html" class="btn-topbar-login">Log In</a>
+      <a href="html/register.html" class="btn-topbar-apply">Apply Now</a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       MOBILE MENU
+  ========================================================== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#scholarships">Scholarships</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#system-flow">System Flow</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+
+    <div class="mobile-menu-actions">
+      <a href="html/login.html" class="mobile-action ghost">Log In</a>
+      <a href="html/register.html" class="mobile-action solid">Apply Now</a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       ANNOUNCEMENT TICKER
+  ========================================================== -->
+  <section class="announce-ticker" aria-label="Scholarship announcements">
+    <div class="ticker-icon">
+      <i class="fa-solid fa-bullhorn"></i>
+    </div>
+
+    <div class="ticker-marquee">
+      <div class="ticker-track">
+        <span><strong>OPEN:</strong> CHED TES Scholarship 2025–2026 — Deadline: July 31, 2026</span>
+        <span class="ticker-dot">•</span>
+        <span><strong class="ticker-new">NEW:</strong> DOST-SEI Merit Scholarship — Apply before June 15, 2026</span>
+        <span class="ticker-dot">•</span>
+        <span><strong>UPDATE:</strong> Scholarship Profile completion is required before applying</span>
+        <span class="ticker-dot">•</span>
+        <span><strong>NOTICE:</strong> Upload PDF, JPG, or PNG documents only</span>
+        <span class="ticker-dot">•</span>
+
+        <span><strong>OPEN:</strong> CHED TES Scholarship 2025–2026 — Deadline: July 31, 2026</span>
+        <span class="ticker-dot">•</span>
+        <span><strong class="ticker-new">NEW:</strong> DOST-SEI Merit Scholarship — Apply before June 15, 2026</span>
+        <span class="ticker-dot">•</span>
+        <span><strong>UPDATE:</strong> Scholarship Profile completion is required before applying</span>
+        <span class="ticker-dot">•</span>
+        <span><strong>NOTICE:</strong> Upload PDF, JPG, or PNG documents only</span>
+      </div>
+    </div>
+
+    <a href="#scholarships" class="ticker-link">
+      See All <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </section>
+
+  <!-- =========================================================
+       HERO
+  ========================================================== -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Official Scholarship Portal · AY 2025–2026</p>
+
+        <h1 class="hero-title">
+          Find Scholarships.<br />
+          Apply Once.<br />
+          Track Everything.
+        </h1>
+
+        <p class="hero-sub">
+          ScholarsConnect helps Filipino students discover scholarship opportunities,
+          complete one <strong>Scholarship Profile</strong>, upload requirements,
+          and monitor application progress in one secure portal.
+        </p>
+
+        <div class="hero-trust">
+          <span><i class="fa-solid fa-circle-check"></i> CHED-aligned</span>
+          <span><i class="fa-solid fa-shield-halved"></i> Secure workflow</span>
+          <span><i class="fa-solid fa-file-circle-check"></i> Paperless application</span>
+        </div>
+
+        <div class="hero-btns">
+          <a href="html/register.html" class="btn-hero-primary">
+            Create Free Account <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="#scholarships" class="btn-hero-secondary">
+            Browse Scholarships
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-val">500+</div>
+            <div class="hero-stat-label">Students Served</div>
+          </div>
+
+          <div class="hero-stat-divider"></div>
+
+          <div class="hero-stat">
+            <div class="hero-stat-val">12</div>
+            <div class="hero-stat-label">Active Programs</div>
+          </div>
+
+          <div class="hero-stat-divider"></div>
+
+          <div class="hero-stat">
+            <div class="hero-stat-val">&#8369;2.5M+</div>
+            <div class="hero-stat-label">Total Disbursed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-preview-wrap">
+        <div class="hero-preview-frame">
+          <div class="hero-preview-card">
+
+            <div class="hero-card-top">
+              <div>
+                <span class="hero-chip">Scholarship Profile</span>
+                <h2>Your Name Here</h2>
+                <p>Your Course · Year Level</p>
+              </div>
+
+              <div class="hero-avatar">
+                <span>SC</span>
+              </div>
+            </div>
+
+            <div class="hero-progress-card">
+              <div class="progress-header">
+                <span>Profile Completion</span>
+                <strong>86%</strong>
+              </div>
+
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 86%;"></div>
+              </div>
+
+              <small>Complete missing requirements to unlock more scholarship matches.</small>
+            </div>
+
+            <div class="hero-checklist">
+              <div class="hero-check-row">
+                <div class="check-left">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Personal Information</span>
+                </div>
+                <strong class="status-gold">Complete</strong>
+              </div>
+
+              <div class="hero-check-row">
+                <div class="check-left">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Academic Records</span>
+                </div>
+                <strong class="status-gold">Verified</strong>
+              </div>
+
+              <div class="hero-check-row">
+                <div class="check-left">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  <span>Certificate of Indigency</span>
+                </div>
+                <strong class="status-warn">Pending</strong>
+              </div>
+            </div>
+
+            <div class="hero-mini-grid">
+              <div class="mini-box">
+                <span>Matched Scholarships</span>
+                <strong>4</strong>
+              </div>
+
+              <div class="mini-box">
+                <span>Application Status</span>
+                <strong>Under Review</strong>
+              </div>
+            </div>
+
+            <div class="hero-card-footer">
+              <span>
+                <i class="fa-solid fa-shield-halved"></i>
+                Secure student portal preview
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       QUICK VALUE STRIP
+  ========================================================== -->
+  <section class="value-strip">
+    <div class="container value-grid">
+      <div class="value-item">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <div>
+          <strong>Discover</strong>
+          <span>Find scholarships that match your profile.</span>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <i class="fa-solid fa-file-arrow-up"></i>
+        <div>
+          <strong>Submit</strong>
+          <span>Upload documents and apply digitally.</span>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <i class="fa-solid fa-bell"></i>
+        <div>
+          <strong>Track</strong>
+          <span>Receive updates and status notifications.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SCHOLARSHIPS
+  ========================================================== -->
+  <section class="section section-soft" id="scholarships">
+    <div class="container">
+
+      <div class="section-head">
+        <div>
+          <p class="section-eyebrow">Explore Opportunities</p>
+          <h2>Available Scholarships</h2>
+          <p>Search and filter open scholarship programs by category, year level, and deadline status.</p>
+        </div>
+
+        <a href="#" class="section-link">
+          View All <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- FILTER PANEL -->
+      <div class="filter-panel">
+        <div class="filter-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="scholarshipSearch"
+            placeholder="Search scholarships by name, category, or requirement..."
+          />
+        </div>
+
+        <div class="filter-controls">
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="government">Government</option>
+            <option value="need-based">Need-Based</option>
+            <option value="stem">STEM</option>
+            <option value="institutional">Institutional</option>
+            <option value="corporate">Corporate</option>
+            <option value="lgu">LGU</option>
+          </select>
+
+          <select id="levelFilter">
+            <option value="all">All Year Levels</option>
+            <option value="all-levels">All Levels</option>
+            <option value="freshmen">Incoming Freshmen</option>
+            <option value="1st-2nd">1st–2nd Year</option>
+            <option value="2nd-4th">2nd–4th Year</option>
+          </select>
+
+          <select id="deadlineFilter">
+            <option value="all">All Deadlines</option>
+            <option value="urgent">Closing Soon</option>
+            <option value="open">Open</option>
+          </select>
+
+          <button type="button" class="btn-reset-filter" id="resetFilters">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="scholarship-count" id="scholarshipCount">
+        Showing 6 scholarship programs
+      </div>
+
+      <div class="scholarship-grid" id="scholarshipGrid">
+        <!-- Cards are loaded dynamically from Firestore by index-scholarships.js -->
+      </div>
+
+      <div class="empty-state hidden" id="emptyState">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <h3>No scholarships found</h3>
+        <p>Try changing your search keyword or filter selection.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHY SCHOLARSCONNECT
+  ========================================================== -->
+  <section class="section section-white" id="why">
+    <div class="container">
+
+      <div class="section-title-center">
+        <p class="section-eyebrow">Why ScholarsConnect?</p>
+        <h2>Designed to Reduce Student Scholarship Problems</h2>
+        <p>ScholarsConnect improves the usual scholarship process by making it clear, organized, and easier to track.</p>
+      </div>
+
+      <div class="why-grid">
+        <article class="why-card">
+          <div class="why-icon">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h3>One Profile for Multiple Applications</h3>
+          <p>Students complete their Scholarship Profile once and reuse their information for eligible programs.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i class="fa-solid fa-file-circle-check"></i>
+          </div>
+          <h3>Centralized Document Tracking</h3>
+          <p>Required documents are organized in one place, making it easier to see what is complete or pending.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <h3>Clear Application Updates</h3>
+          <p>Students can track whether their application is submitted, under review, approved, or needs revision.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="why-icon">
+            <i class="fa-solid fa-chart-simple"></i>
+          </div>
+          <h3>Transparent Result Summary</h3>
+          <p>Scholarship results and summary metrics can be presented clearly for students and administrators.</p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       HOW IT WORKS
+  ========================================================== -->
+  <section class="section section-soft" id="how-it-works">
+    <div class="container">
+
+      <div class="section-title-center">
+        <p class="section-eyebrow">Simple Student Flow</p>
+        <h2>How It Works</h2>
+        <p>From registration to scholarship result in a clear student-friendly process.</p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step-card">
+          <div class="step-icon maroon">
+            <i class="fa-solid fa-user-plus"></i>
+          </div>
+          <h3>Register</h3>
+          <p>Create your student account using your school email and basic information.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-icon gold">
+            <i class="fa-solid fa-id-card"></i>
+          </div>
+          <h3>Complete Profile</h3>
+          <p>Build your Scholarship Profile so the system can match eligible programs.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-icon red">
+            <i class="fa-solid fa-file-arrow-up"></i>
+          </div>
+          <h3>Apply</h3>
+          <p>Upload requirements and submit your application through a guided workflow.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-icon maroon">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h3>Track & Receive</h3>
+          <p>Monitor your status and receive notifications once your application is updated.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SYSTEM FLOW
+  ========================================================== -->
+  <section class="section section-white" id="system-flow">
+    <div class="container">
+
+      <div class="system-flow-panel">
+        <div class="system-flow-copy">
+          <p class="section-eyebrow">System Flow Preview</p>
+          <h2>Student and Admin Process in One Portal</h2>
+          <p>
+            The system connects the student application process with the admin review process,
+            so every step is easier to monitor and manage.
+          </p>
+
+          <div class="flow-note">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>This is the core flow your capstone system can explain during presentation.</span>
+          </div>
+        </div>
+
+        <div class="flow-timeline">
+          <div class="flow-step">
+            <div class="flow-number">1</div>
+            <div>
+              <h3>Student Submits Application</h3>
+              <p>The student completes the profile, uploads requirements, and submits the selected scholarship application.</p>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-number">2</div>
+            <div>
+              <h3>Admin Reviews Requirements</h3>
+              <p>The staff or admin checks documents, validates eligibility, and updates the application status.</p>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-number">3</div>
+            <div>
+              <h3>Status Updates Automatically</h3>
+              <p>The student can see if the application is pending, under review, approved, rejected, or needs revision.</p>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-number">4</div>
+            <div>
+              <h3>Scholarship Result Is Published</h3>
+              <p>The system shows approved applicants, award summaries, and scholarship metrics for transparency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STATS BAND
+  ========================================================== -->
+  <section class="stats-band">
+    <div class="container stats-grid">
+      <div class="stat-box">
+        <strong>500+</strong>
+        <span>Students Served</span>
+      </div>
+
+      <div class="stat-box">
+        <strong>&#8369;2.5M+</strong>
+        <span>Total Disbursed</span>
+      </div>
+
+      <div class="stat-box">
+        <strong>12</strong>
+        <span>Active Programs</span>
+      </div>
+
+      <div class="stat-box">
+        <strong>98%</strong>
+        <span>Satisfaction Rate</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TRANSPARENCY
+  ========================================================== -->
+  <section class="section section-soft" id="transparency">
+    <div class="container">
+
+      <div class="transparency-grid section-panel">
+        <div class="transparency-copy">
+          <p class="section-eyebrow">Transparency Module</p>
+          <h2>Scholarship Results Made Clear</h2>
+          <p>
+            ScholarsConnect includes a transparency board where students and the public
+            can view scholarship metrics, selection criteria, and award summaries.
+          </p>
+
+          <div class="mini-check-list">
+            <span><i class="fa-solid fa-circle-check"></i> Total applicants</span>
+            <span><i class="fa-solid fa-circle-check"></i> Qualified applicants</span>
+            <span><i class="fa-solid fa-circle-check"></i> Awarded scholars</span>
+            <span><i class="fa-solid fa-circle-check"></i> Selection criteria</span>
+          </div>
+        </div>
+
+        <div class="transparency-card">
+          <div class="transparency-card-head">
+            <div>
+              <span class="soft-badge badge-maroon">Published Result</span>
+              <h3>CHED Merit Scholarship</h3>
+              <p>AY 2025–2026 · Batch 1</p>
+            </div>
+
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+
+          <div class="transparency-metrics">
+            <div>
+              <span>Total Applicants</span>
+              <strong>348</strong>
+            </div>
+
+            <div>
+              <span>Qualified</span>
+              <strong>214</strong>
+            </div>
+
+            <div>
+              <span>Awarded</span>
+              <strong>50</strong>
+            </div>
+          </div>
+
+          <div class="criteria-box">
+            <div><span>Academic Performance</span><strong>40%</strong></div>
+            <div><span>Financial Need</span><strong>30%</strong></div>
+            <div><span>Requirements</span><strong>20%</strong></div>
+            <div><span>Committee Review</span><strong>10%</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT
+  ========================================================== -->
+  <section class="section section-white" id="about">
+    <div class="container">
+
+      <div class="about-grid section-panel">
+        <div class="about-copy">
+          <p class="section-eyebrow">About ScholarsConnect</p>
+          <h2>Built for Filipino Students. Powered by Technology.</h2>
+
+          <p>
+            ScholarsConnect is a web-based scholarship management portal designed
+            for higher education institutions in the Philippines. It centralizes
+            scholarship applications, document tracking, application review, and
+            awardee management in one platform.
+          </p>
+
+          <p>
+            It helps reduce long queues, paper-based processing, unclear application
+            status, and transparency gaps in scholarship selection.
+          </p>
+
+          <div class="about-list">
+            <span><i class="fa-solid fa-circle-check"></i> Fully digital application process</span>
+            <span><i class="fa-solid fa-circle-check"></i> Real-time application tracking</span>
+            <span><i class="fa-solid fa-circle-check"></i> 3-layer TOH security flow</span>
+            <span><i class="fa-solid fa-circle-check"></i> CHED and DepEd-aligned programs</span>
+            <span><i class="fa-solid fa-circle-check"></i> RA 10173 Data Privacy Act awareness</span>
+          </div>
+        </div>
+
+        <div class="about-status-card">
+          <h3>AY 2025–2026</h3>
+          <p>Application Period Active</p>
+
+          <div class="status-row">
+            <span><i class="fa-solid fa-users"></i> Total Applicants</span>
+            <strong>348</strong>
+          </div>
+
+          <div class="status-row">
+            <span><i class="fa-regular fa-circle-check"></i> Slots Available</span>
+            <strong>143</strong>
+          </div>
+
+          <div class="status-row">
+            <span><i class="fa-regular fa-clock"></i> Closing Soon</span>
+            <strong class="gold-text">3 programs</strong>
+          </div>
+
+          <div class="status-row">
+            <span><i class="fa-solid fa-circle"></i> Portal Status</span>
+            <strong class="gold-text">Active</strong>
+          </div>
+
+          <div class="period-note">
+            Application Period: June 1 – August 31, 2026
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+  ========================================================== -->
+  <section class="section section-soft" id="faq">
+    <div class="container">
+
+      <div class="section-title-center">
+        <p class="section-eyebrow">Help Center</p>
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common concerns from students and scholarship applicants.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-list">
+
+          <div class="faq-item open">
+            <button class="faq-question" aria-expanded="true">
+              <span>Who can apply for a scholarship through ScholarsConnect?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              Students who meet the scholarship requirements of participating institutions,
+              government agencies, or private sponsors may apply through the portal.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I need to submit paper documents?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              No. ScholarsConnect is designed to support a digital-first process where
+              students upload scanned or photographed copies of required documents.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How will I know if I am approved?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              You can track your application inside your account dashboard, and you will
+              also receive a notification once the scholarship committee posts an update.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I apply for more than one scholarship?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              Yes, depending on the rules of each program. ScholarsConnect can help match
+              you with multiple scholarships that fit your profile.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What documents do I need to prepare?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              Common requirements include grades, certificate of registration, proof of
+              income or indigency, identification, and other institution-specific documents.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CTA
+  ========================================================== -->
+  <section class="cta-section">
+    <div class="container">
+
+      <div class="cta-card">
+        <div class="cta-content">
+          <span class="cta-eyebrow">Ready to Get Started?</span>
+          <h2>Start Your Scholarship Journey With Confidence</h2>
+
+          <p>
+            Create your free student account, complete your Scholarship Profile,
+            and apply to eligible programs through one organized portal.
+          </p>
+
+          <div class="cta-actions">
+            <a href="html/register.html" class="btn-cta-primary">
+              Create Free Account <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="html/login.html" class="btn-cta-outline">
+              I Already Have an Account
+            </a>
+          </div>
+        </div>
+
+        <div class="cta-visual">
+          <div class="cta-icon-circle">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <div class="cta-mini-card">
+            <span>Profile Readiness</span>
+            <strong>86%</strong>
+            <div class="cta-progress">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+
+      <div>
+        <div class="footer-logo-row">
+          <div class="footer-logo">S</div>
+
+          <div class="footer-brand">
+            <h3>ScholarsConnect</h3>
+            <span>Scholarship Portal</span>
+          </div>
+        </div>
+
+        <p class="footer-tagline">Your Scholarship, Your Future.</p>
+        <p class="footer-small">© 2026 ScholarsConnect. All rights reserved.</p>
+        <p class="footer-small">A BSCP Capstone Project | AY 2025–2026</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#scholarships">Scholarships</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#system-flow">System Flow</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>For Students</h4>
+        <a href="html/register.html">Create Account</a>
+        <a href="html/login.html">Log In</a>
+        <a href="#scholarships">Browse Scholarships</a>
+        <a href="#">Track Application</a>
+        <a href="#">My Documents</a>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h4>Contact & Support</h4>
+        <span><i class="fa-regular fa-envelope"></i> scholarships@scholarsconnect.edu.ph</span>
+        <span><i class="fa-solid fa-phone"></i> (032) 888-5678</span>
+        <span><i class="fa-solid fa-location-dot"></i> Scholarship Office, Main Campus</span>
+        <span><i class="fa-regular fa-clock"></i> Mon–Fri, 8AM–5PM</span>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Data Privacy Act (RA 10173) Compliant</a>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+  <script>
+    const topbar = document.getElementById("topbar");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        topbar.classList.add("scrolled");
+      } else {
+        topbar.classList.remove("scrolled");
+      }
+    });
+
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("show");
+    });
+
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("show");
+      });
+    });
+
+    const navLinks = document.querySelectorAll(".tnav-link");
+    const sections = document.querySelectorAll("section[id]");
+
+    window.addEventListener("scroll", () => {
+      let currentSection = "home";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + currentSection) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+      const button = item.querySelector(".faq-question");
+
+      button.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+
+        faqItems.forEach(faq => {
+          faq.classList.remove("open");
+          faq.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+        });
+
+        if (!isOpen) {
+          item.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    const searchInput    = document.getElementById("scholarshipSearch");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const levelFilter    = document.getElementById("levelFilter");
+    const deadlineFilter = document.getElementById("deadlineFilter");
+    const resetFilters   = document.getElementById("resetFilters");
+    const scholarshipCount = document.getElementById("scholarshipCount");
+    const emptyState       = document.getElementById("emptyState");
+
+    /* Cards are rendered dynamically — re-query each time */
+    function filterScholarships() {
+      const cards          = document.querySelectorAll("#scholarshipGrid .scholarship-card");
+      const searchValue    = searchInput.value.toLowerCase().trim();
+      const selCategory    = categoryFilter.value;
+      const selLevel       = levelFilter.value;
+      const selDeadline    = deadlineFilter.value;
+      let visibleCount = 0;
+
+      cards.forEach(function (card) {
+        const title    = (card.dataset.title || "").toLowerCase();
+        const category = card.dataset.category || "";
+        const level    = card.dataset.level    || "";
+        const deadline = card.dataset.deadline || "";
+
+        const ok = title.includes(searchValue)
+          && (selCategory === "all" || category === selCategory)
+          && (selLevel    === "all" || level    === selLevel)
+          && (selDeadline === "all" || deadline === selDeadline);
+
+        card.classList.toggle("hidden", !ok);
+        if (ok) visibleCount++;
+      });
+
+      if (scholarshipCount) {
+        scholarshipCount.textContent =
+          "Showing " + visibleCount + " scholarship program" + (visibleCount === 1 ? "" : "s");
+      }
+
+      if (emptyState) {
+        emptyState.classList.toggle("hidden", visibleCount > 0);
+      }
+    }
+
+    /* Expose globally so index-scholarships.js can call it after rendering */
+    window.filterScholarships = filterScholarships;
+
+    searchInput.addEventListener("input",    filterScholarships);
+    categoryFilter.addEventListener("change", filterScholarships);
+    levelFilter.addEventListener("change",    filterScholarships);
+    deadlineFilter.addEventListener("change", filterScholarships);
+
+    resetFilters.addEventListener("click", function () {
+      searchInput.value    = "";
+      categoryFilter.value = "all";
+      levelFilter.value    = "all";
+      deadlineFilter.value = "all";
+      filterScholarships();
+    });
+  </script>
+
+  <!-- Dynamic scholarship grid — fetches from Firestore -->
+  <script type="module" src="./Javascript/index-scholarships.js"></script>
+
+  <!-- Live ticker — fetches active scholarships from Firestore -->
+  <script type="module">
+    import { db, getDocs, query, collection, where, orderBy, limit }
+      from "./Javascript/firebase.js";
+
+    (async function loadTicker() {
+      var track = document.querySelector(".ticker-track");
+      if (!track) return;
+      try {
+        var snap = await getDocs(query(
+          collection(db, "scholarships"),
+          where("status", "==", "active"),
+          orderBy("createdAt", "desc"),
+          limit(10)
+        ));
+        if (snap.empty) return;
+
+        var now = Date.now();
+        var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+        var items = snap.docs.map(function(d) {
+          var s = d.data();
+          var name = s.title || s.name || "Scholarship";
+          var isNew = s.createdAt && (now - s.createdAt.toDate().getTime() < SEVEN_DAYS);
+          var label = isNew ? "NEW" : "OPEN";
+          var deadline = "";
+          if (s.deadline) {
+            var dt = new Date(s.deadline);
+            if (!isNaN(dt.getTime()))
+              deadline = " — Deadline: " + dt.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+          }
+          return { label: label, text: name + deadline };
+        });
+
+        function esc(str) {
+          return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+        }
+        function buildItems(arr) {
+          return arr.map(function(item) {
+            var cls = item.label === "NEW" ? ' class="ticker-new"' : "";
+            return "<span><strong" + cls + ">" + item.label + ":</strong> " + esc(item.text) + "</span>"
+                 + '<span class="ticker-dot">•</span>';
+          }).join("");
+        }
+
+        track.innerHTML = buildItems(items) + buildItems(items);
+      } catch (_) {
+        /* keep static fallback */
+      }
+    })();
+  </script>
+</body>
+</html>
