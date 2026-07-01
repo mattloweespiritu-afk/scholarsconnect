@@ -227,10 +227,3 @@ Card border-radius: **18px – 22px** throughout both portals.
 
 ---
 
-## Team
-
-Built with passion for Filipino scholars.
-
----
-
-*ScholarsConnect — Empowering Every Scholar's Journey*
